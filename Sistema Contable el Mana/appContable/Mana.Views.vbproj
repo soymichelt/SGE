@@ -1,0 +1,714 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{34341421-273C-43E1-815C-C1978FEE9924}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>appContable.My.MyApplication</StartupObject>
+    <RootNamespace>appContable</RootNamespace>
+    <AssemblyName>appContable</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>WindowsForms</MyType>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>appContable.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>appContable.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\Icono\Icono.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ComponentFactory.Krypton.Design, Version=4.4.0.0, Culture=neutral, PublicKeyToken=dc91bbef911870e2, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\ComponentFactory.Krypton.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="ComponentFactory.Krypton.Docking, Version=4.4.0.0, Culture=neutral, PublicKeyToken=dc91bbef911870e2, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\ComponentFactory.Krypton.Docking.dll</HintPath>
+    </Reference>
+    <Reference Include="ComponentFactory.Krypton.Navigator, Version=4.4.0.0, Culture=neutral, PublicKeyToken=dc91bbef911870e2, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\ComponentFactory.Krypton.Navigator.dll</HintPath>
+    </Reference>
+    <Reference Include="ComponentFactory.Krypton.Ribbon, Version=4.4.0.0, Culture=neutral, PublicKeyToken=dc91bbef911870e2, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\ComponentFactory.Krypton.Ribbon.dll</HintPath>
+    </Reference>
+    <Reference Include="ComponentFactory.Krypton.Toolkit, Version=4.4.0.0, Culture=neutral, PublicKeyToken=dc91bbef911870e2, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\ComponentFactory.Krypton.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="ComponentFactory.Krypton.Workspace, Version=4.4.0.0, Culture=neutral, PublicKeyToken=dc91bbef911870e2, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\ComponentFactory.Krypton.Workspace.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="DevComponents.DotNetBar.Design, Version=9.0.0.0, Culture=neutral, PublicKeyToken=e116d99a00eca71b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\DevComponents.DotNetBar.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="DevComponents.DotNetBar2, Version=9.0.0.0, Culture=neutral, PublicKeyToken=e116d99a00eca71b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\DevComponents.DotNetBar2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevComponents.Instrumentation, Version=9.0.0.0, Culture=neutral, PublicKeyToken=e116d99a00eca71b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\DevComponents.Instrumentation.dll</HintPath>
+    </Reference>
+    <Reference Include="DevComponents.Instrumentation.Design, Version=9.0.0.0, Culture=neutral, PublicKeyToken=e116d99a00eca71b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\DevComponents.Instrumentation.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="DevComponents.TreeGX, Version=9.0.0.0, Culture=neutral, PublicKeyToken=e116d99a00eca71b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\DevComponents.TreeGX.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="FlashControlV71, Version=1.0.3187.32366, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="Klik.Windows.Forms.EntryLib.V2.2008, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\Klik.Windows.Forms.EntryLib.V2.2008.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+    <Import Include="System.Threading.Tasks" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Config.vb" />
+    <Compile Include="Models\dtDatos.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dtDatos.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Models\dtDatos.vb">
+      <DependentUpon>dtDatos.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Account\rptAccountList.vb">
+      <DependentUpon>rptAccountList.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports\AnexoBalanceComprobacion\rptAnexoBalanceComprobacionConsolidado.vb">
+      <DependentUpon>rptAnexoBalanceComprobacionConsolidado.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports\AnexoBalanceComprobacion\rptAnexoBalanceComprobacionHeladeria.vb">
+      <DependentUpon>rptAnexoBalanceComprobacionHeladeria.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports\AnexoBalanceComprobacion\rptAnexoBalanceComprobacionRestaurante.vb">
+      <DependentUpon>rptAnexoBalanceComprobacionRestaurante.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports\BalanzaComprobacion\rptBalanzaComprobacionRestaurante.vb">
+      <DependentUpon>rptBalanzaComprobacionRestaurante.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports\BalanzaComprobacion\rptBalanzaComprobacionHeladeria.vb">
+      <DependentUpon>rptBalanzaComprobacionHeladeria.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports\BalanzaComprobacion\rptBalanzaComprobacionConsolidado.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptBalanzaComprobacionConsolidado.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\BalanceGeneral\rptBalanceGeneralRestaurante.vb">
+      <DependentUpon>rptBalanceGeneralRestaurante.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports\BalanceGeneral\rptBalanceGeneralHeladeria.vb">
+      <DependentUpon>rptBalanceGeneralHeladeria.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports\BalanceGeneral\rptBalanceGeneralConsolidado.vb">
+      <DependentUpon>rptBalanceGeneralConsolidado.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports\CardAuxiliar\rptCardAuxiliar.vb">
+      <DependentUpon>rptCardAuxiliar.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports\CardParallel\rptCardParallel.vb">
+      <DependentUpon>rptCardParallel.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports\EntriesAccounting\rptEntriesAccountingImp.vb">
+      <DependentUpon>rptEntriesAccountingImp.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports\EstadoResultados\rptEstadoResultadosRestaurante.vb">
+      <DependentUpon>rptEstadoResultadosRestaurante.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports\EstadoResultados\rptEstadoResultadosHeladeria.vb">
+      <DependentUpon>rptEstadoResultadosHeladeria.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports\EstadoResultados\rptEstadoResultadosConsolidado.vb">
+      <DependentUpon>rptEstadoResultadosConsolidado.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports\Inventario\rptInventario.vb">
+      <DependentUpon>rptInventario.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Views\AccountSecurity\frmChangePass.Designer.vb">
+      <DependentUpon>frmChangePass.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AccountSecurity\frmChangePass.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\AccountSecurity\frmAccountSecurityManager.Designer.vb">
+      <DependentUpon>frmAccountSecurityManager.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AccountSecurity\frmAccountSecurityManager.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\AccountSecurity\frmSignin.Designer.vb">
+      <DependentUpon>frmSignin.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AccountSecurity\frmSignin.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Account\frmInventario.Designer.vb">
+      <DependentUpon>frmInventario.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Account\frmInventario.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Account\frmTargetParallel.Designer.vb">
+      <DependentUpon>frmTargetParallel.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Account\frmTargetParallel.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Account\frmAccountList.Designer.vb">
+      <DependentUpon>frmAccountList.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Account\frmAccountList.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Account\frmAccountManager.Designer.vb">
+      <DependentUpon>frmAccountManager.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Account\frmAccountManager.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Account\frmTargetAuxiliar.Designer.vb">
+      <DependentUpon>frmTargetAuxiliar.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Account\frmTargetAuxiliar.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\EntriesAccounting\frmEntriesAccounting.Designer.vb">
+      <DependentUpon>frmEntriesAccounting.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EntriesAccounting\frmEntriesAccounting.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\EntriesAccounting\frmEntriesAccountingEdit.Designer.vb">
+      <DependentUpon>frmEntriesAccountingEdit.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EntriesAccounting\frmEntriesAccountingEdit.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\EntriesAccounting\frmEntriesAccountingList.Designer.vb">
+      <DependentUpon>frmEntriesAccountingList.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EntriesAccounting\frmEntriesAccountingList.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\StatementIncome\EstadoResultados\frmEstadoResultadoRestaurante.Designer.vb">
+      <DependentUpon>frmEstadoResultadoRestaurante.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Views\StatementIncome\EstadoResultados\frmEstadoResultadoRestaurante.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\StatementIncome\EstadoResultados\frmEstadoResultadoHeladeria.Designer.vb">
+      <DependentUpon>frmEstadoResultadoHeladeria.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Views\StatementIncome\EstadoResultados\frmEstadoResultadoHeladeria.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\StatementIncome\BalanceGeneral\frmBalanceGeneralConsolidado.Designer.vb">
+      <DependentUpon>frmBalanceGeneralConsolidado.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Views\StatementIncome\BalanceGeneral\frmBalanceGeneralConsolidado.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\StatementIncome\BalanceGeneral\frmBalanceGeneralHeladeria.Designer.vb">
+      <DependentUpon>frmBalanceGeneralHeladeria.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Views\StatementIncome\BalanceGeneral\frmBalanceGeneralHeladeria.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\StatementIncome\BalanceGeneral\frmBalanceGeneralRestaurante.designer.vb">
+      <DependentUpon>frmBalanceGeneralRestaurante.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Views\StatementIncome\BalanceGeneral\frmBalanceGeneralRestaurante.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\StatementIncome\AnexoBalanzaComprobacion\frmAnexoBalanzaRestaurante.Designer.vb">
+      <DependentUpon>frmAnexoBalanzaRestaurante.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Views\StatementIncome\AnexoBalanzaComprobacion\frmAnexoBalanzaRestaurante.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\StatementIncome\AnexoBalanzaComprobacion\frmAnexoBalanzaHeladeria.Designer.vb">
+      <DependentUpon>frmAnexoBalanzaHeladeria.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Views\StatementIncome\AnexoBalanzaComprobacion\frmAnexoBalanzaHeladeria.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\StatementIncome\AnexoBalanzaComprobacion\frmAnexoBalanzaConsolidado.Designer.vb">
+      <DependentUpon>frmAnexoBalanzaConsolidado.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Views\StatementIncome\AnexoBalanzaComprobacion\frmAnexoBalanzaConsolidado.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\StatementIncome\BalanzaComprobacion\frmBalanzaRestaurante.Designer.vb">
+      <DependentUpon>frmBalanzaRestaurante.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Views\StatementIncome\BalanzaComprobacion\frmBalanzaRestaurante.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\StatementIncome\BalanzaComprobacion\frmBalanzaHeladeria.Designer.vb">
+      <DependentUpon>frmBalanzaHeladeria.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Views\StatementIncome\BalanzaComprobacion\frmBalanzaHeladeria.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\StatementIncome\BalanzaComprobacion\frmBalanzaConsolidado.Designer.vb">
+      <DependentUpon>frmBalanzaConsolidado.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Views\StatementIncome\BalanzaComprobacion\frmBalanzaConsolidado.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\StatementIncome\EstadoResultados\frmEstadoResultadoConsolidado.Designer.vb">
+      <DependentUpon>frmEstadoResultadoConsolidado.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Views\StatementIncome\EstadoResultados\frmEstadoResultadoConsolidado.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\SystemConfig\frmConfig.Designer.vb">
+      <DependentUpon>frmConfig.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SystemConfig\frmConfig.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\_Layaut\frmPrincipal.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\_Layaut\frmPrincipal.Designer.vb">
+      <DependentUpon>frmPrincipal.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Views\_Layaut\frmReport.Designer.vb">
+      <DependentUpon>frmReport.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Views\_Layaut\frmReport.vb">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="My Project\licenses.licx" />
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Account\rptAccountList.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptAccountList.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\AnexoBalanceComprobacion\rptAnexoBalanceComprobacionConsolidado.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptAnexoBalanceComprobacionConsolidado.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\AnexoBalanceComprobacion\rptAnexoBalanceComprobacionHeladeria.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptAnexoBalanceComprobacionHeladeria.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\AnexoBalanceComprobacion\rptAnexoBalanceComprobacionRestaurante.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptAnexoBalanceComprobacionRestaurante.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\BalanzaComprobacion\rptBalanzaComprobacionRestaurante.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptBalanzaComprobacionRestaurante.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\BalanzaComprobacion\rptBalanzaComprobacionHeladeria.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptBalanzaComprobacionHeladeria.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\BalanzaComprobacion\rptBalanzaComprobacionConsolidado.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptBalanzaComprobacionConsolidado.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\BalanceGeneral\rptBalanceGeneralRestaurante.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptBalanceGeneralRestaurante.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\BalanceGeneral\rptBalanceGeneralHeladeria.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptBalanceGeneralHeladeria.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\BalanceGeneral\rptBalanceGeneralConsolidado.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptBalanceGeneralConsolidado.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\CardAuxiliar\rptCardAuxiliar.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptCardAuxiliar.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\CardParallel\rptCardParallel.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptCardParallel.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\EntriesAccounting\rptEntriesAccountingImp.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptEntriesAccountingImp.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\EstadoResultados\rptEstadoResultadosRestaurante.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptEstadoResultadosRestaurante.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\EstadoResultados\rptEstadoResultadosHeladeria.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptEstadoResultadosHeladeria.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\EstadoResultados\rptEstadoResultadosConsolidado.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptEstadoResultadosConsolidado.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Inventario\rptInventario.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptInventario.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\AccountSecurity\frmChangePass.resx">
+      <DependentUpon>frmChangePass.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\AccountSecurity\frmAccountSecurityManager.resx">
+      <DependentUpon>frmAccountSecurityManager.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\AccountSecurity\frmSignin.resx">
+      <DependentUpon>frmSignin.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Account\frmInventario.resx">
+      <DependentUpon>frmInventario.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Account\frmTargetParallel.resx">
+      <DependentUpon>frmTargetParallel.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Account\frmAccountList.resx">
+      <DependentUpon>frmAccountList.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Account\frmAccountManager.resx">
+      <DependentUpon>frmAccountManager.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Account\frmTargetAuxiliar.resx">
+      <DependentUpon>frmTargetAuxiliar.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\EntriesAccounting\frmEntriesAccounting.resx">
+      <DependentUpon>frmEntriesAccounting.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\EntriesAccounting\frmEntriesAccountingEdit.resx">
+      <DependentUpon>frmEntriesAccountingEdit.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\EntriesAccounting\frmEntriesAccountingList.resx">
+      <DependentUpon>frmEntriesAccountingList.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\StatementIncome\EstadoResultados\frmEstadoResultadoRestaurante.resx">
+      <DependentUpon>frmEstadoResultadoRestaurante.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\StatementIncome\EstadoResultados\frmEstadoResultadoHeladeria.resx">
+      <DependentUpon>frmEstadoResultadoHeladeria.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\StatementIncome\BalanceGeneral\frmBalanceGeneralConsolidado.resx">
+      <DependentUpon>frmBalanceGeneralConsolidado.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\StatementIncome\BalanceGeneral\frmBalanceGeneralHeladeria.resx">
+      <DependentUpon>frmBalanceGeneralHeladeria.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\StatementIncome\BalanceGeneral\frmBalanceGeneralRestaurante.resx">
+      <DependentUpon>frmBalanceGeneralRestaurante.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\StatementIncome\AnexoBalanzaComprobacion\frmAnexoBalanzaRestaurante.resx">
+      <DependentUpon>frmAnexoBalanzaRestaurante.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\StatementIncome\AnexoBalanzaComprobacion\frmAnexoBalanzaHeladeria.resx">
+      <DependentUpon>frmAnexoBalanzaHeladeria.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\StatementIncome\AnexoBalanzaComprobacion\frmAnexoBalanzaConsolidado.resx">
+      <DependentUpon>frmAnexoBalanzaConsolidado.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\StatementIncome\BalanzaComprobacion\frmBalanzaRestaurante.resx">
+      <DependentUpon>frmBalanzaRestaurante.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\StatementIncome\BalanzaComprobacion\frmBalanzaHeladeria.resx">
+      <DependentUpon>frmBalanzaHeladeria.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\StatementIncome\BalanzaComprobacion\frmBalanzaConsolidado.resx">
+      <DependentUpon>frmBalanzaConsolidado.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\StatementIncome\EstadoResultados\frmEstadoResultadoConsolidado.resx">
+      <DependentUpon>frmEstadoResultadoConsolidado.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\SystemConfig\frmConfig.resx">
+      <DependentUpon>frmConfig.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\_Layaut\frmPrincipal.resx">
+      <DependentUpon>frmPrincipal.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\_Layaut\frmReport.resx">
+      <DependentUpon>frmReport.vb</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\appContable.exe.config" />
+    <None Include="bin\Debug\appContable.vshost.exe.config" />
+    <None Include="bin\Debug\appContable.vshost.exe.manifest" />
+    <None Include="Models\dtDatos.xsc">
+      <DependentUpon>dtDatos.xsd</DependentUpon>
+    </None>
+    <None Include="Models\dtDatos.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dtDatos.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Models\dtDatos.xss">
+      <DependentUpon>dtDatos.xsd</DependentUpon>
+    </None>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Start\" />
+    <Folder Include="bin\Release\" />
+    <Folder Include="Controllers\" />
+    <Folder Include="Views\_Alternative\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <None Include="Resources\Aceptar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Debug\appContable.vshost.exe" />
+    <Content Include="bin\Debug\ComponentFactory.Krypton.Design.dll" />
+    <Content Include="bin\Debug\ComponentFactory.Krypton.Docking.dll" />
+    <Content Include="bin\Debug\ComponentFactory.Krypton.Navigator.dll" />
+    <Content Include="bin\Debug\ComponentFactory.Krypton.Ribbon.dll" />
+    <Content Include="bin\Debug\ComponentFactory.Krypton.Toolkit.dll" />
+    <Content Include="bin\Debug\ComponentFactory.Krypton.Workspace.dll" />
+    <Content Include="bin\Debug\DevComponents.DotNetBar.Design.dll" />
+    <Content Include="bin\Debug\DevComponents.DotNetBar2.dll" />
+    <Content Include="bin\Debug\DevComponents.Instrumentation.Design.dll" />
+    <Content Include="bin\Debug\DevComponents.Instrumentation.dll" />
+    <Content Include="bin\Debug\DevComponents.TreeGX.dll" />
+    <Content Include="Resources\BarraEstado\Codigo.png" />
+    <Content Include="Resources\Icono\Icono.ico" />
+    <Content Include="Resources\Icono\Icono.png" />
+    <Content Include="Resources\Icono\Icono32x32.png" />
+    <None Include="Resources\Menu\Principal\Respaldo.png" />
+    <None Include="Resources\Menu\Principal\TarjetaParalela.png" />
+    <None Include="Resources\Menu\Principal\Bitacora.png" />
+    <None Include="Resources\Menu\Formulario\Signin.png" />
+    <None Include="Resources\Menu\Formulario\Salir.png" />
+    <None Include="Resources\Menu\Formulario\Exportar.png" />
+    <None Include="Resources\Linea.jpg" />
+    <None Include="Resources\Menu\Formulario\ShowPass.png" />
+    <None Include="Resources\Menu\Formulario\Actualizar16x16.png" />
+    <None Include="Resources\Menu\Formulario\Actualizar24x24.png" />
+    <None Include="Resources\Menu\Formulario\Cuenta24x24.png" />
+    <None Include="Resources\Menu\Principal\Inventario.png" />
+    <None Include="Resources\Menu\Principal\Configuracion.png" />
+    <None Include="Resources\Menu\Principal\Ayuda.png" />
+    <None Include="Resources\Menu\Formulario\Guardar24x24.png" />
+    <Content Include="Resources\Menu\Principal\Periodo.png" />
+    <None Include="Resources\Menu\Principal\ChangePassword.png" />
+    <None Include="Resources\Menu\Principal\Exit.png" />
+    <None Include="Resources\Menu\Principal\LogOff.png" />
+    <None Include="Resources\Menu\Principal\UserList.png" />
+    <None Include="Resources\Menu\Principal\UserManagment.png" />
+    <None Include="Resources\Menu\Principal\AnexoRestaurante.png" />
+    <None Include="Resources\Menu\Principal\AnexoHeladeria.png" />
+    <None Include="Resources\Menu\Principal\AnexoConsolidado.png" />
+    <None Include="Resources\Menu\Principal\EstadoRestaurante.png" />
+    <None Include="Resources\Menu\Principal\EstadoHeladeria.png" />
+    <None Include="Resources\Menu\Principal\EstadoConsolidado.png" />
+    <None Include="Resources\Menu\Principal\BalanceRestaurante.png" />
+    <None Include="Resources\Menu\Principal\BalanceHeladeria.png" />
+    <None Include="Resources\Menu\Principal\BalanceConsolidado.png" />
+    <None Include="Resources\Menu\Principal\BalanzaRestaurante.png" />
+    <None Include="Resources\Menu\Principal\BalanzaHeladeria.png" />
+    <None Include="Resources\Menu\Principal\BalanzaConsolidado.png" />
+    <None Include="Resources\BarraEstado\Fecha.png" />
+    <None Include="Resources\BarraEstado\Logo.png" />
+    <Content Include="Resources\BarraEstado\Usuario.png" />
+    <Content Include="Resources\logo.ico" />
+    <None Include="Resources\Logo.png" />
+    <Content Include="Resources\Menu\Formulario\btn_buscar.png" />
+    <None Include="Resources\Menu\Formulario\Buscar.png" />
+    <Content Include="Resources\Menu\Formulario\buscar_det.png" />
+    <Content Include="Resources\Menu\Formulario\BusquedaAvanzada.png" />
+    <Content Include="Resources\Menu\Formulario\CargarSerie16x16.png" />
+    <Content Include="Resources\Menu\Formulario\CargarSerie24x24.png" />
+    <Content Include="Resources\Menu\Formulario\Cargar_24_24.png" />
+    <Content Include="Resources\Menu\Formulario\editar.png" />
+    <Content Include="Resources\Menu\Formulario\eliminar.png" />
+    <Content Include="Resources\Menu\Formulario\Entrar.png" />
+    <Content Include="Resources\Menu\Formulario\estado.png" />
+    <Content Include="Resources\Menu\Formulario\FiltroAplicar.png" />
+    <Content Include="Resources\Menu\Formulario\FiltroBorrar.png" />
+    <Content Include="Resources\Menu\Formulario\guardar.png" />
+    <Content Include="Resources\Menu\Formulario\imprimir_det.png" />
+    <Content Include="Resources\Menu\Formulario\nuevo.png" />
+    <Content Include="Resources\Menu\Formulario\Periodo.png" />
+    <Content Include="Resources\Menu\Formulario\Proforma.png" />
+    <None Include="Resources\Menu\Principal\ComprobanteDiarioBusqueda.png" />
+    <None Include="Resources\Menu\Principal\ComprobanteDiario.png" />
+    <None Include="Resources\Menu\Principal\TarjetaAuxiliar.png" />
+    <None Include="Resources\Menu\Principal\CuentaNegro.png" />
+    <None Include="Resources\Menu\Principal\Cuenta.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\appControllers\Mana.Controllers.vbproj">
+      <Project>{db36637c-1701-407e-aca9-fab270ca085c}</Project>
+      <Name>Mana.Controllers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\appModels\Mana.Models.vbproj">
+      <Project>{a19ac48b-482b-442d-a5e8-d4ce9323bd06}</Project>
+      <Name>Mana.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

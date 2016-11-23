@@ -1,0 +1,7 @@
+UPDATE CUENTA SET DEBER = 0, HABER = 0, SALDO = 0, COSTO = 0, ENTRADA = 0, SALIDA = 0, EXISTENCIA = 0
+GO
+
+DELETE FROM ComprobanteDiarioDetalle
+GO
+DELETE FROM ComprobanteDiario
+GO
