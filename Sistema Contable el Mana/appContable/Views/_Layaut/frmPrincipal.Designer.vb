@@ -23,20 +23,11 @@ Partial Class frmPrincipal
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim PaintStyle1 As Klik.Windows.Forms.v1.Common.PaintStyle = CType(New Klik.Windows.Forms.v1.Common.PaintStyle(), Klik.Windows.Forms.v1.Common.PaintStyle)
-        Dim PaintStyle2 As Klik.Windows.Forms.v1.Common.PaintStyle = CType(New Klik.Windows.Forms.v1.Common.PaintStyle(), Klik.Windows.Forms.v1.Common.PaintStyle)
-        Dim PaintStyle3 As Klik.Windows.Forms.v1.Common.PaintStyle = CType(New Klik.Windows.Forms.v1.Common.PaintStyle(), Klik.Windows.Forms.v1.Common.PaintStyle)
+        Dim PaintStyle1 As Klik.Windows.Forms.v1.Common.PaintStyle = New Klik.Windows.Forms.v1.Common.PaintStyle()
+        Dim PaintStyle2 As Klik.Windows.Forms.v1.Common.PaintStyle = New Klik.Windows.Forms.v1.Common.PaintStyle()
+        Dim PaintStyle3 As Klik.Windows.Forms.v1.Common.PaintStyle = New Klik.Windows.Forms.v1.Common.PaintStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmPrincipal))
         Me.RibbonControl1 = New DevComponents.DotNetBar.RibbonControl()
-        Me.RibbonPanel1 = New DevComponents.DotNetBar.RibbonPanel()
-        Me.RibbonBar2 = New DevComponents.DotNetBar.RibbonBar()
-        Me.btComprobante = New DevComponents.DotNetBar.ButtonItem()
-        Me.btBusquedaComprobante = New DevComponents.DotNetBar.ButtonItem()
-        Me.RibbonBar1 = New DevComponents.DotNetBar.RibbonBar()
-        Me.btCatalogo = New DevComponents.DotNetBar.ButtonItem()
-        Me.btTarjetaAuxiliar = New DevComponents.DotNetBar.ButtonItem()
-        Me.btTarjetaParalela = New DevComponents.DotNetBar.ButtonItem()
-        Me.btInventario = New DevComponents.DotNetBar.ButtonItem()
         Me.RibbonPanel2 = New DevComponents.DotNetBar.RibbonPanel()
         Me.RibbonBar7 = New DevComponents.DotNetBar.RibbonBar()
         Me.btConfiguracion = New DevComponents.DotNetBar.ButtonItem()
@@ -59,6 +50,15 @@ Partial Class frmPrincipal
         Me.btBalanzaConsolidado = New DevComponents.DotNetBar.ButtonItem()
         Me.btBalanzaHeladeria = New DevComponents.DotNetBar.ButtonItem()
         Me.btBalanzaRestaurante = New DevComponents.DotNetBar.ButtonItem()
+        Me.RibbonPanel1 = New DevComponents.DotNetBar.RibbonPanel()
+        Me.RibbonBar2 = New DevComponents.DotNetBar.RibbonBar()
+        Me.btComprobante = New DevComponents.DotNetBar.ButtonItem()
+        Me.btBusquedaComprobante = New DevComponents.DotNetBar.ButtonItem()
+        Me.RibbonBar1 = New DevComponents.DotNetBar.RibbonBar()
+        Me.btCatalogo = New DevComponents.DotNetBar.ButtonItem()
+        Me.btTarjetaAuxiliar = New DevComponents.DotNetBar.ButtonItem()
+        Me.btTarjetaParalela = New DevComponents.DotNetBar.ButtonItem()
+        Me.btInventario = New DevComponents.DotNetBar.ButtonItem()
         Me.Office2007StartButton1 = New DevComponents.DotNetBar.Office2007StartButton()
         Me.ItemContainer1 = New DevComponents.DotNetBar.ItemContainer()
         Me.ItemContainer2 = New DevComponents.DotNetBar.ItemContainer()
@@ -96,9 +96,9 @@ Partial Class frmPrincipal
         Me.txtFinal = New DevComponents.DotNetBar.Controls.TextBoxX()
         Me.txtInicio = New DevComponents.DotNetBar.Controls.TextBoxX()
         Me.RibbonControl1.SuspendLayout()
-        Me.RibbonPanel1.SuspendLayout()
         Me.RibbonPanel2.SuspendLayout()
         Me.RibbonPanel3.SuspendLayout()
+        Me.RibbonPanel1.SuspendLayout()
         Me.stsEstado.SuspendLayout()
         Me.ExpandablePanel1.SuspendLayout()
         CType(Me.ElGroupBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -150,6 +150,367 @@ Partial Class frmPrincipal
         Me.RibbonControl1.TabGroupHeight = 14
         Me.RibbonControl1.TabIndex = 0
         Me.RibbonControl1.Text = "RibbonControl1"
+        '
+        'RibbonPanel2
+        '
+        Me.RibbonPanel2.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
+        Me.RibbonPanel2.Controls.Add(Me.RibbonBar7)
+        Me.RibbonPanel2.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.RibbonPanel2.Location = New System.Drawing.Point(0, 51)
+        Me.RibbonPanel2.Name = "RibbonPanel2"
+        Me.RibbonPanel2.Padding = New System.Windows.Forms.Padding(3, 0, 3, 3)
+        Me.RibbonPanel2.Size = New System.Drawing.Size(849, 127)
+        '
+        '
+        '
+        Me.RibbonPanel2.Style.Class = ""
+        Me.RibbonPanel2.Style.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        '
+        '
+        '
+        Me.RibbonPanel2.StyleMouseDown.Class = ""
+        Me.RibbonPanel2.StyleMouseDown.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        '
+        '
+        '
+        Me.RibbonPanel2.StyleMouseOver.Class = ""
+        Me.RibbonPanel2.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.RibbonPanel2.TabIndex = 4
+        Me.RibbonPanel2.Visible = False
+        '
+        'RibbonBar7
+        '
+        Me.RibbonBar7.AutoOverflowEnabled = True
+        '
+        '
+        '
+        Me.RibbonBar7.BackgroundMouseOverStyle.Class = ""
+        Me.RibbonBar7.BackgroundMouseOverStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        '
+        '
+        '
+        Me.RibbonBar7.BackgroundStyle.Class = ""
+        Me.RibbonBar7.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.RibbonBar7.ContainerControlProcessDialogKey = True
+        Me.RibbonBar7.Dock = System.Windows.Forms.DockStyle.Left
+        Me.RibbonBar7.Items.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.btConfiguracion, Me.btRespaldo, Me.ButtonItem1})
+        Me.RibbonBar7.Location = New System.Drawing.Point(3, 0)
+        Me.RibbonBar7.Name = "RibbonBar7"
+        Me.RibbonBar7.Size = New System.Drawing.Size(259, 124)
+        Me.RibbonBar7.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
+        Me.RibbonBar7.TabIndex = 0
+        Me.RibbonBar7.Text = "Herramientas del Sistema"
+        '
+        '
+        '
+        Me.RibbonBar7.TitleStyle.Class = ""
+        Me.RibbonBar7.TitleStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        '
+        '
+        '
+        Me.RibbonBar7.TitleStyleMouseOver.Class = ""
+        Me.RibbonBar7.TitleStyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        '
+        'btConfiguracion
+        '
+        Me.btConfiguracion.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText
+        Me.btConfiguracion.Image = Global.appContable.My.Resources.Resources.Configuracion
+        Me.btConfiguracion.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
+        Me.btConfiguracion.Name = "btConfiguracion"
+        Me.btConfiguracion.SubItemsExpandWidth = 14
+        Me.btConfiguracion.Text = "Configuración del Sistema"
+        '
+        'btRespaldo
+        '
+        Me.btRespaldo.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText
+        Me.btRespaldo.Image = Global.appContable.My.Resources.Resources.Respaldo
+        Me.btRespaldo.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
+        Me.btRespaldo.Name = "btRespaldo"
+        Me.btRespaldo.SubItemsExpandWidth = 14
+        Me.btRespaldo.Text = "Administración de Respaldos"
+        '
+        'ButtonItem1
+        '
+        Me.ButtonItem1.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText
+        Me.ButtonItem1.Image = Global.appContable.My.Resources.Resources.Ayuda
+        Me.ButtonItem1.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
+        Me.ButtonItem1.Name = "ButtonItem1"
+        Me.ButtonItem1.SubItemsExpandWidth = 14
+        Me.ButtonItem1.Text = "F1 - Ayuda del Sistema"
+        '
+        'RibbonPanel3
+        '
+        Me.RibbonPanel3.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
+        Me.RibbonPanel3.Controls.Add(Me.RibbonBar6)
+        Me.RibbonPanel3.Controls.Add(Me.RibbonBar5)
+        Me.RibbonPanel3.Controls.Add(Me.RibbonBar4)
+        Me.RibbonPanel3.Controls.Add(Me.RibbonBar3)
+        Me.RibbonPanel3.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.RibbonPanel3.Location = New System.Drawing.Point(0, 0)
+        Me.RibbonPanel3.Name = "RibbonPanel3"
+        Me.RibbonPanel3.Padding = New System.Windows.Forms.Padding(3, 0, 3, 3)
+        Me.RibbonPanel3.Size = New System.Drawing.Size(849, 178)
+        '
+        '
+        '
+        Me.RibbonPanel3.Style.Class = ""
+        Me.RibbonPanel3.Style.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        '
+        '
+        '
+        Me.RibbonPanel3.StyleMouseDown.Class = ""
+        Me.RibbonPanel3.StyleMouseDown.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        '
+        '
+        '
+        Me.RibbonPanel3.StyleMouseOver.Class = ""
+        Me.RibbonPanel3.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.RibbonPanel3.TabIndex = 3
+        Me.RibbonPanel3.Visible = False
+        '
+        'RibbonBar6
+        '
+        Me.RibbonBar6.AutoOverflowEnabled = True
+        '
+        '
+        '
+        Me.RibbonBar6.BackgroundMouseOverStyle.Class = ""
+        Me.RibbonBar6.BackgroundMouseOverStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        '
+        '
+        '
+        Me.RibbonBar6.BackgroundStyle.Class = ""
+        Me.RibbonBar6.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.RibbonBar6.ContainerControlProcessDialogKey = True
+        Me.RibbonBar6.Dock = System.Windows.Forms.DockStyle.Left
+        Me.RibbonBar6.Font = New System.Drawing.Font("Arial", 8.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.RibbonBar6.Items.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.btEstadoConsolidado, Me.btEstadoHeladeria, Me.btEstadoRestaurante})
+        Me.RibbonBar6.Location = New System.Drawing.Point(636, 0)
+        Me.RibbonBar6.Name = "RibbonBar6"
+        Me.RibbonBar6.Size = New System.Drawing.Size(211, 175)
+        Me.RibbonBar6.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
+        Me.RibbonBar6.TabIndex = 3
+        Me.RibbonBar6.Text = "Estado de Resultados"
+        '
+        '
+        '
+        Me.RibbonBar6.TitleStyle.Class = ""
+        Me.RibbonBar6.TitleStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        '
+        '
+        '
+        Me.RibbonBar6.TitleStyleMouseOver.Class = ""
+        Me.RibbonBar6.TitleStyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        '
+        'btEstadoConsolidado
+        '
+        Me.btEstadoConsolidado.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText
+        Me.btEstadoConsolidado.Image = Global.appContable.My.Resources.Resources.EstadoConsolidado
+        Me.btEstadoConsolidado.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
+        Me.btEstadoConsolidado.Name = "btEstadoConsolidado"
+        Me.btEstadoConsolidado.SubItemsExpandWidth = 14
+        Me.btEstadoConsolidado.Text = "Estado Consolidado"
+        '
+        'btEstadoHeladeria
+        '
+        Me.btEstadoHeladeria.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText
+        Me.btEstadoHeladeria.Image = Global.appContable.My.Resources.Resources.EstadoHeladeria
+        Me.btEstadoHeladeria.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
+        Me.btEstadoHeladeria.Name = "btEstadoHeladeria"
+        Me.btEstadoHeladeria.SubItemsExpandWidth = 14
+        Me.btEstadoHeladeria.Text = "Estado de Heladería"
+        '
+        'btEstadoRestaurante
+        '
+        Me.btEstadoRestaurante.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText
+        Me.btEstadoRestaurante.Image = Global.appContable.My.Resources.Resources.EstadoRestaurante
+        Me.btEstadoRestaurante.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
+        Me.btEstadoRestaurante.Name = "btEstadoRestaurante"
+        Me.btEstadoRestaurante.SubItemsExpandWidth = 14
+        Me.btEstadoRestaurante.Text = "Estado del Restaurante"
+        '
+        'RibbonBar5
+        '
+        Me.RibbonBar5.AutoOverflowEnabled = True
+        '
+        '
+        '
+        Me.RibbonBar5.BackgroundMouseOverStyle.Class = ""
+        Me.RibbonBar5.BackgroundMouseOverStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        '
+        '
+        '
+        Me.RibbonBar5.BackgroundStyle.Class = ""
+        Me.RibbonBar5.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.RibbonBar5.ContainerControlProcessDialogKey = True
+        Me.RibbonBar5.Dock = System.Windows.Forms.DockStyle.Left
+        Me.RibbonBar5.Font = New System.Drawing.Font("Arial", 8.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.RibbonBar5.Items.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.btBalanceConsolidado, Me.btBalanceHeladeria, Me.btBalanceRestaurante})
+        Me.RibbonBar5.Location = New System.Drawing.Point(425, 0)
+        Me.RibbonBar5.Name = "RibbonBar5"
+        Me.RibbonBar5.Size = New System.Drawing.Size(211, 175)
+        Me.RibbonBar5.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
+        Me.RibbonBar5.TabIndex = 2
+        Me.RibbonBar5.Text = "Balance General"
+        '
+        '
+        '
+        Me.RibbonBar5.TitleStyle.Class = ""
+        Me.RibbonBar5.TitleStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        '
+        '
+        '
+        Me.RibbonBar5.TitleStyleMouseOver.Class = ""
+        Me.RibbonBar5.TitleStyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        '
+        'btBalanceConsolidado
+        '
+        Me.btBalanceConsolidado.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText
+        Me.btBalanceConsolidado.Image = Global.appContable.My.Resources.Resources.BalanceConsolidado
+        Me.btBalanceConsolidado.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
+        Me.btBalanceConsolidado.Name = "btBalanceConsolidado"
+        Me.btBalanceConsolidado.SubItemsExpandWidth = 14
+        Me.btBalanceConsolidado.Text = "Balance Consolidado"
+        '
+        'btBalanceHeladeria
+        '
+        Me.btBalanceHeladeria.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText
+        Me.btBalanceHeladeria.Image = Global.appContable.My.Resources.Resources.BalanceHeladeria
+        Me.btBalanceHeladeria.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
+        Me.btBalanceHeladeria.Name = "btBalanceHeladeria"
+        Me.btBalanceHeladeria.SubItemsExpandWidth = 14
+        Me.btBalanceHeladeria.Text = "Balance de Heladería"
+        '
+        'btBalanceRestaurante
+        '
+        Me.btBalanceRestaurante.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText
+        Me.btBalanceRestaurante.Image = Global.appContable.My.Resources.Resources.BalanceRestaurante
+        Me.btBalanceRestaurante.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
+        Me.btBalanceRestaurante.Name = "btBalanceRestaurante"
+        Me.btBalanceRestaurante.SubItemsExpandWidth = 14
+        Me.btBalanceRestaurante.Text = "Balance del Restaurante"
+        '
+        'RibbonBar4
+        '
+        Me.RibbonBar4.AutoOverflowEnabled = True
+        '
+        '
+        '
+        Me.RibbonBar4.BackgroundMouseOverStyle.Class = ""
+        Me.RibbonBar4.BackgroundMouseOverStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        '
+        '
+        '
+        Me.RibbonBar4.BackgroundStyle.Class = ""
+        Me.RibbonBar4.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.RibbonBar4.ContainerControlProcessDialogKey = True
+        Me.RibbonBar4.Dock = System.Windows.Forms.DockStyle.Left
+        Me.RibbonBar4.Font = New System.Drawing.Font("Arial", 8.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.RibbonBar4.Items.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.btAnexoConsolidado, Me.btAnexoHeladeria, Me.btAnexoRestaurante})
+        Me.RibbonBar4.Location = New System.Drawing.Point(214, 0)
+        Me.RibbonBar4.Name = "RibbonBar4"
+        Me.RibbonBar4.Size = New System.Drawing.Size(211, 175)
+        Me.RibbonBar4.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
+        Me.RibbonBar4.TabIndex = 1
+        Me.RibbonBar4.Text = "Anexo Balanza de Comprobación"
+        '
+        '
+        '
+        Me.RibbonBar4.TitleStyle.Class = ""
+        Me.RibbonBar4.TitleStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        '
+        '
+        '
+        Me.RibbonBar4.TitleStyleMouseOver.Class = ""
+        Me.RibbonBar4.TitleStyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        '
+        'btAnexoConsolidado
+        '
+        Me.btAnexoConsolidado.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText
+        Me.btAnexoConsolidado.Image = Global.appContable.My.Resources.Resources.AnexoConsolidado
+        Me.btAnexoConsolidado.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
+        Me.btAnexoConsolidado.Name = "btAnexoConsolidado"
+        Me.btAnexoConsolidado.SubItemsExpandWidth = 14
+        Me.btAnexoConsolidado.Text = "Anexo Consolidado"
+        '
+        'btAnexoHeladeria
+        '
+        Me.btAnexoHeladeria.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText
+        Me.btAnexoHeladeria.Image = Global.appContable.My.Resources.Resources.AnexoHeladeria
+        Me.btAnexoHeladeria.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
+        Me.btAnexoHeladeria.Name = "btAnexoHeladeria"
+        Me.btAnexoHeladeria.SubItemsExpandWidth = 14
+        Me.btAnexoHeladeria.Text = "Anexo de Heladería"
+        '
+        'btAnexoRestaurante
+        '
+        Me.btAnexoRestaurante.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText
+        Me.btAnexoRestaurante.Image = Global.appContable.My.Resources.Resources.AnexoRestaurante
+        Me.btAnexoRestaurante.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
+        Me.btAnexoRestaurante.Name = "btAnexoRestaurante"
+        Me.btAnexoRestaurante.SubItemsExpandWidth = 14
+        Me.btAnexoRestaurante.Text = "Anexo del Restaurante"
+        '
+        'RibbonBar3
+        '
+        Me.RibbonBar3.AutoOverflowEnabled = True
+        '
+        '
+        '
+        Me.RibbonBar3.BackgroundMouseOverStyle.Class = ""
+        Me.RibbonBar3.BackgroundMouseOverStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        '
+        '
+        '
+        Me.RibbonBar3.BackgroundStyle.Class = ""
+        Me.RibbonBar3.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.RibbonBar3.ContainerControlProcessDialogKey = True
+        Me.RibbonBar3.Dock = System.Windows.Forms.DockStyle.Left
+        Me.RibbonBar3.Font = New System.Drawing.Font("Arial", 8.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.RibbonBar3.Items.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.btBalanzaConsolidado, Me.btBalanzaHeladeria, Me.btBalanzaRestaurante})
+        Me.RibbonBar3.Location = New System.Drawing.Point(3, 0)
+        Me.RibbonBar3.Name = "RibbonBar3"
+        Me.RibbonBar3.Size = New System.Drawing.Size(211, 175)
+        Me.RibbonBar3.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
+        Me.RibbonBar3.TabIndex = 0
+        Me.RibbonBar3.Text = "Balanza de Comprobación"
+        '
+        '
+        '
+        Me.RibbonBar3.TitleStyle.Class = ""
+        Me.RibbonBar3.TitleStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        '
+        '
+        '
+        Me.RibbonBar3.TitleStyleMouseOver.Class = ""
+        Me.RibbonBar3.TitleStyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        '
+        'btBalanzaConsolidado
+        '
+        Me.btBalanzaConsolidado.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText
+        Me.btBalanzaConsolidado.Image = Global.appContable.My.Resources.Resources.BalanzaConsolidado
+        Me.btBalanzaConsolidado.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
+        Me.btBalanzaConsolidado.Name = "btBalanzaConsolidado"
+        Me.btBalanzaConsolidado.SubItemsExpandWidth = 14
+        Me.btBalanzaConsolidado.Text = "Balanza Consolidado"
+        '
+        'btBalanzaHeladeria
+        '
+        Me.btBalanzaHeladeria.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText
+        Me.btBalanzaHeladeria.Image = Global.appContable.My.Resources.Resources.BalanzaHeladeria
+        Me.btBalanzaHeladeria.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
+        Me.btBalanzaHeladeria.Name = "btBalanzaHeladeria"
+        Me.btBalanzaHeladeria.SubItemsExpandWidth = 14
+        Me.btBalanzaHeladeria.Text = "Balanza de Heladería"
+        '
+        'btBalanzaRestaurante
+        '
+        Me.btBalanzaRestaurante.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText
+        Me.btBalanzaRestaurante.Image = Global.appContable.My.Resources.Resources.BalanzaRestaurante
+        Me.btBalanzaRestaurante.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
+        Me.btBalanzaRestaurante.Name = "btBalanzaRestaurante"
+        Me.btBalanzaRestaurante.SubItemsExpandWidth = 14
+        Me.btBalanzaRestaurante.Text = "Balanza del Restaurante"
         '
         'RibbonPanel1
         '
@@ -299,368 +660,6 @@ Partial Class frmPrincipal
         Me.btInventario.Name = "btInventario"
         Me.btInventario.SubItemsExpandWidth = 14
         Me.btInventario.Text = "Inventario de Existencias"
-        '
-        'RibbonPanel2
-        '
-        Me.RibbonPanel2.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
-        Me.RibbonPanel2.Controls.Add(Me.RibbonBar7)
-        Me.RibbonPanel2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.RibbonPanel2.Location = New System.Drawing.Point(0, 51)
-        Me.RibbonPanel2.Name = "RibbonPanel2"
-        Me.RibbonPanel2.Padding = New System.Windows.Forms.Padding(3, 0, 3, 3)
-        Me.RibbonPanel2.Size = New System.Drawing.Size(849, 127)
-        '
-        '
-        '
-        Me.RibbonPanel2.Style.Class = ""
-        Me.RibbonPanel2.Style.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        '
-        '
-        '
-        Me.RibbonPanel2.StyleMouseDown.Class = ""
-        Me.RibbonPanel2.StyleMouseDown.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        '
-        '
-        '
-        Me.RibbonPanel2.StyleMouseOver.Class = ""
-        Me.RibbonPanel2.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.RibbonPanel2.TabIndex = 4
-        Me.RibbonPanel2.Visible = False
-        '
-        'RibbonBar7
-        '
-        Me.RibbonBar7.AutoOverflowEnabled = True
-        '
-        '
-        '
-        Me.RibbonBar7.BackgroundMouseOverStyle.Class = ""
-        Me.RibbonBar7.BackgroundMouseOverStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        '
-        '
-        '
-        Me.RibbonBar7.BackgroundStyle.Class = ""
-        Me.RibbonBar7.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.RibbonBar7.ContainerControlProcessDialogKey = True
-        Me.RibbonBar7.Dock = System.Windows.Forms.DockStyle.Left
-        Me.RibbonBar7.Items.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.btConfiguracion, Me.btRespaldo, Me.ButtonItem1})
-        Me.RibbonBar7.Location = New System.Drawing.Point(3, 0)
-        Me.RibbonBar7.Name = "RibbonBar7"
-        Me.RibbonBar7.Size = New System.Drawing.Size(259, 124)
-        Me.RibbonBar7.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
-        Me.RibbonBar7.TabIndex = 0
-        Me.RibbonBar7.Text = "Herramientas del Sistema"
-        '
-        '
-        '
-        Me.RibbonBar7.TitleStyle.Class = ""
-        Me.RibbonBar7.TitleStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        '
-        '
-        '
-        Me.RibbonBar7.TitleStyleMouseOver.Class = ""
-        Me.RibbonBar7.TitleStyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        '
-        'btConfiguracion
-        '
-        Me.btConfiguracion.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText
-        Me.btConfiguracion.Image = Global.appContable.My.Resources.Resources.Configuracion
-        Me.btConfiguracion.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
-        Me.btConfiguracion.Name = "btConfiguracion"
-        Me.btConfiguracion.SubItemsExpandWidth = 14
-        Me.btConfiguracion.Text = "Configuración del Sistema"
-        Me.btConfiguracion.Visible = False
-        '
-        'btRespaldo
-        '
-        Me.btRespaldo.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText
-        Me.btRespaldo.Image = Global.appContable.My.Resources.Resources.Respaldo
-        Me.btRespaldo.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
-        Me.btRespaldo.Name = "btRespaldo"
-        Me.btRespaldo.SubItemsExpandWidth = 14
-        Me.btRespaldo.Text = "Administración de Respaldos"
-        '
-        'ButtonItem1
-        '
-        Me.ButtonItem1.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText
-        Me.ButtonItem1.Image = Global.appContable.My.Resources.Resources.Ayuda
-        Me.ButtonItem1.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
-        Me.ButtonItem1.Name = "ButtonItem1"
-        Me.ButtonItem1.SubItemsExpandWidth = 14
-        Me.ButtonItem1.Text = "F1 - Ayuda del Sistema"
-        '
-        'RibbonPanel3
-        '
-        Me.RibbonPanel3.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
-        Me.RibbonPanel3.Controls.Add(Me.RibbonBar6)
-        Me.RibbonPanel3.Controls.Add(Me.RibbonBar5)
-        Me.RibbonPanel3.Controls.Add(Me.RibbonBar4)
-        Me.RibbonPanel3.Controls.Add(Me.RibbonBar3)
-        Me.RibbonPanel3.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.RibbonPanel3.Location = New System.Drawing.Point(0, 51)
-        Me.RibbonPanel3.Name = "RibbonPanel3"
-        Me.RibbonPanel3.Padding = New System.Windows.Forms.Padding(3, 0, 3, 3)
-        Me.RibbonPanel3.Size = New System.Drawing.Size(849, 127)
-        '
-        '
-        '
-        Me.RibbonPanel3.Style.Class = ""
-        Me.RibbonPanel3.Style.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        '
-        '
-        '
-        Me.RibbonPanel3.StyleMouseDown.Class = ""
-        Me.RibbonPanel3.StyleMouseDown.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        '
-        '
-        '
-        Me.RibbonPanel3.StyleMouseOver.Class = ""
-        Me.RibbonPanel3.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.RibbonPanel3.TabIndex = 3
-        Me.RibbonPanel3.Visible = False
-        '
-        'RibbonBar6
-        '
-        Me.RibbonBar6.AutoOverflowEnabled = True
-        '
-        '
-        '
-        Me.RibbonBar6.BackgroundMouseOverStyle.Class = ""
-        Me.RibbonBar6.BackgroundMouseOverStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        '
-        '
-        '
-        Me.RibbonBar6.BackgroundStyle.Class = ""
-        Me.RibbonBar6.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.RibbonBar6.ContainerControlProcessDialogKey = True
-        Me.RibbonBar6.Dock = System.Windows.Forms.DockStyle.Left
-        Me.RibbonBar6.Font = New System.Drawing.Font("Arial", 8.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.RibbonBar6.Items.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.btEstadoConsolidado, Me.btEstadoHeladeria, Me.btEstadoRestaurante})
-        Me.RibbonBar6.Location = New System.Drawing.Point(636, 0)
-        Me.RibbonBar6.Name = "RibbonBar6"
-        Me.RibbonBar6.Size = New System.Drawing.Size(211, 124)
-        Me.RibbonBar6.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
-        Me.RibbonBar6.TabIndex = 3
-        Me.RibbonBar6.Text = "Estado de Resultados"
-        '
-        '
-        '
-        Me.RibbonBar6.TitleStyle.Class = ""
-        Me.RibbonBar6.TitleStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        '
-        '
-        '
-        Me.RibbonBar6.TitleStyleMouseOver.Class = ""
-        Me.RibbonBar6.TitleStyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        '
-        'btEstadoConsolidado
-        '
-        Me.btEstadoConsolidado.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText
-        Me.btEstadoConsolidado.Image = Global.appContable.My.Resources.Resources.EstadoConsolidado
-        Me.btEstadoConsolidado.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
-        Me.btEstadoConsolidado.Name = "btEstadoConsolidado"
-        Me.btEstadoConsolidado.SubItemsExpandWidth = 14
-        Me.btEstadoConsolidado.Text = "Estado Consolidado"
-        '
-        'btEstadoHeladeria
-        '
-        Me.btEstadoHeladeria.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText
-        Me.btEstadoHeladeria.Image = Global.appContable.My.Resources.Resources.EstadoHeladeria
-        Me.btEstadoHeladeria.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
-        Me.btEstadoHeladeria.Name = "btEstadoHeladeria"
-        Me.btEstadoHeladeria.SubItemsExpandWidth = 14
-        Me.btEstadoHeladeria.Text = "Estado de Heladería"
-        '
-        'btEstadoRestaurante
-        '
-        Me.btEstadoRestaurante.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText
-        Me.btEstadoRestaurante.Image = Global.appContable.My.Resources.Resources.EstadoRestaurante
-        Me.btEstadoRestaurante.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
-        Me.btEstadoRestaurante.Name = "btEstadoRestaurante"
-        Me.btEstadoRestaurante.SubItemsExpandWidth = 14
-        Me.btEstadoRestaurante.Text = "Estado del Restaurante"
-        '
-        'RibbonBar5
-        '
-        Me.RibbonBar5.AutoOverflowEnabled = True
-        '
-        '
-        '
-        Me.RibbonBar5.BackgroundMouseOverStyle.Class = ""
-        Me.RibbonBar5.BackgroundMouseOverStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        '
-        '
-        '
-        Me.RibbonBar5.BackgroundStyle.Class = ""
-        Me.RibbonBar5.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.RibbonBar5.ContainerControlProcessDialogKey = True
-        Me.RibbonBar5.Dock = System.Windows.Forms.DockStyle.Left
-        Me.RibbonBar5.Font = New System.Drawing.Font("Arial", 8.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.RibbonBar5.Items.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.btBalanceConsolidado, Me.btBalanceHeladeria, Me.btBalanceRestaurante})
-        Me.RibbonBar5.Location = New System.Drawing.Point(425, 0)
-        Me.RibbonBar5.Name = "RibbonBar5"
-        Me.RibbonBar5.Size = New System.Drawing.Size(211, 124)
-        Me.RibbonBar5.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
-        Me.RibbonBar5.TabIndex = 2
-        Me.RibbonBar5.Text = "Balance General"
-        '
-        '
-        '
-        Me.RibbonBar5.TitleStyle.Class = ""
-        Me.RibbonBar5.TitleStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        '
-        '
-        '
-        Me.RibbonBar5.TitleStyleMouseOver.Class = ""
-        Me.RibbonBar5.TitleStyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        '
-        'btBalanceConsolidado
-        '
-        Me.btBalanceConsolidado.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText
-        Me.btBalanceConsolidado.Image = Global.appContable.My.Resources.Resources.BalanceConsolidado
-        Me.btBalanceConsolidado.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
-        Me.btBalanceConsolidado.Name = "btBalanceConsolidado"
-        Me.btBalanceConsolidado.SubItemsExpandWidth = 14
-        Me.btBalanceConsolidado.Text = "Balance Consolidado"
-        '
-        'btBalanceHeladeria
-        '
-        Me.btBalanceHeladeria.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText
-        Me.btBalanceHeladeria.Image = Global.appContable.My.Resources.Resources.BalanceHeladeria
-        Me.btBalanceHeladeria.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
-        Me.btBalanceHeladeria.Name = "btBalanceHeladeria"
-        Me.btBalanceHeladeria.SubItemsExpandWidth = 14
-        Me.btBalanceHeladeria.Text = "Balance de Heladería"
-        '
-        'btBalanceRestaurante
-        '
-        Me.btBalanceRestaurante.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText
-        Me.btBalanceRestaurante.Image = Global.appContable.My.Resources.Resources.BalanceRestaurante
-        Me.btBalanceRestaurante.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
-        Me.btBalanceRestaurante.Name = "btBalanceRestaurante"
-        Me.btBalanceRestaurante.SubItemsExpandWidth = 14
-        Me.btBalanceRestaurante.Text = "Balance del Restaurante"
-        '
-        'RibbonBar4
-        '
-        Me.RibbonBar4.AutoOverflowEnabled = True
-        '
-        '
-        '
-        Me.RibbonBar4.BackgroundMouseOverStyle.Class = ""
-        Me.RibbonBar4.BackgroundMouseOverStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        '
-        '
-        '
-        Me.RibbonBar4.BackgroundStyle.Class = ""
-        Me.RibbonBar4.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.RibbonBar4.ContainerControlProcessDialogKey = True
-        Me.RibbonBar4.Dock = System.Windows.Forms.DockStyle.Left
-        Me.RibbonBar4.Font = New System.Drawing.Font("Arial", 8.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.RibbonBar4.Items.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.btAnexoConsolidado, Me.btAnexoHeladeria, Me.btAnexoRestaurante})
-        Me.RibbonBar4.Location = New System.Drawing.Point(214, 0)
-        Me.RibbonBar4.Name = "RibbonBar4"
-        Me.RibbonBar4.Size = New System.Drawing.Size(211, 124)
-        Me.RibbonBar4.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
-        Me.RibbonBar4.TabIndex = 1
-        Me.RibbonBar4.Text = "Anexo Balanza de Comprobación"
-        '
-        '
-        '
-        Me.RibbonBar4.TitleStyle.Class = ""
-        Me.RibbonBar4.TitleStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        '
-        '
-        '
-        Me.RibbonBar4.TitleStyleMouseOver.Class = ""
-        Me.RibbonBar4.TitleStyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        '
-        'btAnexoConsolidado
-        '
-        Me.btAnexoConsolidado.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText
-        Me.btAnexoConsolidado.Image = Global.appContable.My.Resources.Resources.AnexoConsolidado
-        Me.btAnexoConsolidado.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
-        Me.btAnexoConsolidado.Name = "btAnexoConsolidado"
-        Me.btAnexoConsolidado.SubItemsExpandWidth = 14
-        Me.btAnexoConsolidado.Text = "Anexo Consolidado"
-        '
-        'btAnexoHeladeria
-        '
-        Me.btAnexoHeladeria.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText
-        Me.btAnexoHeladeria.Image = Global.appContable.My.Resources.Resources.AnexoHeladeria
-        Me.btAnexoHeladeria.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
-        Me.btAnexoHeladeria.Name = "btAnexoHeladeria"
-        Me.btAnexoHeladeria.SubItemsExpandWidth = 14
-        Me.btAnexoHeladeria.Text = "Anexo de Heladería"
-        '
-        'btAnexoRestaurante
-        '
-        Me.btAnexoRestaurante.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText
-        Me.btAnexoRestaurante.Image = Global.appContable.My.Resources.Resources.AnexoRestaurante
-        Me.btAnexoRestaurante.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
-        Me.btAnexoRestaurante.Name = "btAnexoRestaurante"
-        Me.btAnexoRestaurante.SubItemsExpandWidth = 14
-        Me.btAnexoRestaurante.Text = "Anexo del Restaurante"
-        '
-        'RibbonBar3
-        '
-        Me.RibbonBar3.AutoOverflowEnabled = True
-        '
-        '
-        '
-        Me.RibbonBar3.BackgroundMouseOverStyle.Class = ""
-        Me.RibbonBar3.BackgroundMouseOverStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        '
-        '
-        '
-        Me.RibbonBar3.BackgroundStyle.Class = ""
-        Me.RibbonBar3.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.RibbonBar3.ContainerControlProcessDialogKey = True
-        Me.RibbonBar3.Dock = System.Windows.Forms.DockStyle.Left
-        Me.RibbonBar3.Font = New System.Drawing.Font("Arial", 8.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.RibbonBar3.Items.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.btBalanzaConsolidado, Me.btBalanzaHeladeria, Me.btBalanzaRestaurante})
-        Me.RibbonBar3.Location = New System.Drawing.Point(3, 0)
-        Me.RibbonBar3.Name = "RibbonBar3"
-        Me.RibbonBar3.Size = New System.Drawing.Size(211, 124)
-        Me.RibbonBar3.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
-        Me.RibbonBar3.TabIndex = 0
-        Me.RibbonBar3.Text = "Balanza de Comprobación"
-        '
-        '
-        '
-        Me.RibbonBar3.TitleStyle.Class = ""
-        Me.RibbonBar3.TitleStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        '
-        '
-        '
-        Me.RibbonBar3.TitleStyleMouseOver.Class = ""
-        Me.RibbonBar3.TitleStyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        '
-        'btBalanzaConsolidado
-        '
-        Me.btBalanzaConsolidado.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText
-        Me.btBalanzaConsolidado.Image = Global.appContable.My.Resources.Resources.BalanzaConsolidado
-        Me.btBalanzaConsolidado.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
-        Me.btBalanzaConsolidado.Name = "btBalanzaConsolidado"
-        Me.btBalanzaConsolidado.SubItemsExpandWidth = 14
-        Me.btBalanzaConsolidado.Text = "Balanza Consolidado"
-        '
-        'btBalanzaHeladeria
-        '
-        Me.btBalanzaHeladeria.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText
-        Me.btBalanzaHeladeria.Image = Global.appContable.My.Resources.Resources.BalanzaHeladeria
-        Me.btBalanzaHeladeria.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
-        Me.btBalanzaHeladeria.Name = "btBalanzaHeladeria"
-        Me.btBalanzaHeladeria.SubItemsExpandWidth = 14
-        Me.btBalanzaHeladeria.Text = "Balanza de Heladería"
-        '
-        'btBalanzaRestaurante
-        '
-        Me.btBalanzaRestaurante.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText
-        Me.btBalanzaRestaurante.Image = Global.appContable.My.Resources.Resources.BalanzaRestaurante
-        Me.btBalanzaRestaurante.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
-        Me.btBalanzaRestaurante.Name = "btBalanzaRestaurante"
-        Me.btBalanzaRestaurante.SubItemsExpandWidth = 14
-        Me.btBalanzaRestaurante.Text = "Balanza del Restaurante"
         '
         'Office2007StartButton1
         '
@@ -889,7 +888,7 @@ Partial Class frmPrincipal
         Me.ExpandablePanel1.TitleStyle.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder
         Me.ExpandablePanel1.TitleStyle.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText
         Me.ExpandablePanel1.TitleStyle.GradientAngle = 90
-        Me.ExpandablePanel1.TitleText = "<b>S</b>istema de <font color=""#C0504D""><b>C</b>ontabilidad <b>E</b>mpresarial</f" &
+        Me.ExpandablePanel1.TitleText = "<b>S</b>istema de <font color=""#C0504D""><b>C</b>ontabilidad <b>E</b>mpresarial</f" & _
     "ont>"
         '
         'ElGroupBox1
@@ -1109,9 +1108,9 @@ Partial Class frmPrincipal
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.RibbonControl1.ResumeLayout(False)
         Me.RibbonControl1.PerformLayout()
-        Me.RibbonPanel1.ResumeLayout(False)
         Me.RibbonPanel2.ResumeLayout(False)
         Me.RibbonPanel3.ResumeLayout(False)
+        Me.RibbonPanel1.ResumeLayout(False)
         Me.stsEstado.ResumeLayout(False)
         Me.stsEstado.PerformLayout()
         Me.ExpandablePanel1.ResumeLayout(False)
