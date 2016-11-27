@@ -108,6 +108,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\Debug\Klik.Windows.Forms.EntryLib.V2.2008.dll</HintPath>
     </Reference>
+    <Reference Include="MaterialSkin">
+      <HintPath>..\packages\MaterialSkin.0.2.1\lib\MaterialSkin.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
@@ -293,6 +296,12 @@
       <DependentUpon>frmTargetAuxiliar.vb</DependentUpon>
     </Compile>
     <Compile Include="Views\Account\frmTargetAuxiliar.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Sistema\frmBackup.Designer.vb">
+      <DependentUpon>frmBackup.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Sistema\frmBackup.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Views\EntriesAccounting\frmEntriesAccounting.Designer.vb">
@@ -519,6 +528,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Account\frmTargetAuxiliar.resx">
       <DependentUpon>frmTargetAuxiliar.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Sistema\frmBackup.resx">
+      <DependentUpon>frmBackup.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\EntriesAccounting\frmEntriesAccounting.resx">
       <DependentUpon>frmEntriesAccounting.vb</DependentUpon>

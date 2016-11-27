@@ -178,12 +178,17 @@ Public Class frmPrincipal
     End Sub
 
     Private Sub btInventario_Click(sender As Object, e As EventArgs) Handles btInventario.Click
-        frmInventario.MdiParent = Me
-        frmInventario.BringToFront()
-        frmInventario.Show()
+        Config.OnLoadForm(frmInventario, Me)
+        'frmInventario.MdiParent = Me
+        'frmInventario.BringToFront()
+        'frmInventario.Show()
     End Sub
 
     Private Sub btConfiguracion_Click(sender As Object, e As EventArgs) Handles btConfiguracion.Click
 
+    End Sub
+
+    Private Sub btRespaldo_Click(sender As Object, e As EventArgs) Handles btRespaldo.Click
+        Config.OnLoadForm(frmBackup, Me)
     End Sub
 End Class
