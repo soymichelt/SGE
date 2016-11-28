@@ -13,173 +13,189 @@ Public Module EntriesAccounting
     End Function
 
     Public Function Save(ByVal Comprobante As ComprobanteDiario, ByVal Detalle As List(Of entComprobanteDiarioDetalle)) As Guid
-        Using db As New CodeFirst
-            'Ingresar comprobante
-            Comprobante.IDComprobante = Guid.NewGuid
-            Comprobante.Reg = DateTime.Now
-            Comprobante.FMod = Comprobante.Reg
-            Comprobante.Haber = Detalle.Sum(Function(f) f.Haber)
-            Comprobante.Deber = Detalle.Sum(Function(f) f.Deber)
-            Comprobante.Activo = True
-            db.ComprobantesDiarios.Add(Comprobante)
+        If Not Comprobante Is Nothing And Not Detalle Is Nothing Then
+            If Comprobante.Fecha < Config.FechaInicio Then
+                Throw New Exception("La fecha debe ser mayor a " & Config.FechaInicio.ToShortDateString)
+            End If
+            If String.IsNullOrWhiteSpace(Comprobante.Concepto) Then
+                Throw New Exception("Ingresar el concepto")
+            End If
+            If String.IsNullOrWhiteSpace(Comprobante.Referencia) Then
+                Throw New Exception("Ingresar la referencia")
+            End If
+            If Detalle.Count = 0 Then
+                Throw New Exception("Ingrsar el detalle")
+            End If
+            If Detalle.Sum(Function(f) f.Deber) <> Detalle.Sum(Function(f) f.Haber) Then
+                Throw New Exception("La suma del Deber tiene que ser igual a la suma del Haber")
+            End If
+            Using db As New CodeFirst
+                'Ingresar comprobante
+                Comprobante.IDComprobante = Guid.NewGuid
+                Comprobante.Reg = DateTime.Now
+                Comprobante.FMod = Comprobante.Reg
+                Comprobante.Haber = Detalle.Sum(Function(f) f.Haber)
+                Comprobante.Deber = Detalle.Sum(Function(f) f.Deber)
+                Comprobante.Activo = True
+                db.ComprobantesDiarios.Add(Comprobante)
 
-            'variables temporales
-            Dim Grupo As Cuenta
-            Dim IdGrupo As Nullable(Of Guid)
-            Dim Nivel As Short
+                'variables temporales
+                Dim Grupo As Cuenta
+                Dim IdGrupo As Nullable(Of Guid)
+                Dim Nivel As Short
 
-            'Detalle
-            For Each item In Detalle
-                Dim c = db.Cuentas.Where(Function(f) f.Activo And f.IDCuenta = item.IdCuenta).FirstOrDefault
-                If Not c Is Nothing Then
-                    Dim ExistenciaAnterior As Decimal = c.Existencia
-                    Dim Costo, CostoPromedio As Decimal
-                    'modificar saldos en la cuenta
-                    If item.Deber > 0 Then
-                        item.Haber = 0 : item.Salida = 0
+                'Detalle
+                For Each item In Detalle
+                    Dim c = db.Cuentas.Where(Function(f) f.Activo And f.IDCuenta = item.IdCuenta).FirstOrDefault
+                    If Not c Is Nothing Then
+                        Dim ExistenciaAnterior As Decimal = c.Existencia
+                        Dim Costo, CostoPromedio As Decimal
+                        'modificar saldos en la cuenta
+                        If item.Deber > 0 Then
+                            item.Haber = 0 : item.Salida = 0
 
-                        'Validacion de salida cuentas con inventario
-                        If c.IsProduct Then
-                            If Not c.Naturaleza Then
-                                item.Deber = c.Costo * item.Entrada
-                            End If
-                            c.Entrada = c.Entrada + item.Entrada
-                            c.Existencia = If(c.Naturaleza, c.Existencia + item.Entrada, c.Existencia - item.Entrada)
-                        End If
-
-                        'Se valida que los saldos sean validos
-                        'If If(c.Naturaleza, c.Saldo + item.Deber, c.Saldo - item.Deber) < 0 Then
-                        '    Throw New Exception("El saldo de la cuenta '" & c.Descripcion & "' es inferior a la cantidad que intentas decrementar")
-                        'End If
-
-                        'Se actualizan saldos
-                        c.Deber = c.Deber + item.Deber
-                        c.Saldo = If(c.Naturaleza, c.Saldo + item.Deber, c.Saldo - item.Deber)
-
-                        'Calculo de Costos
-                        If c.IsProduct Then
-                            If c.Existencia > 0 Then
-                                c.Costo = c.Saldo / c.Existencia
-                                CostoPromedio = c.Costo
-                            Else
-                                c.Costo = 0
-                            End If
-                            If c.Entrada > 0 Then
-                                Costo = item.Deber / item.Entrada
-                            Else
-                                Costo = 0
-                            End If
-                        End If
-                    ElseIf item.Haber > 0 Then
-                        item.Deber = 0 : item.Entrada = 0
-
-                        'Validacion de salida cuentas con inventario
-                        If c.IsProduct Then
-                            If c.Naturaleza Then
-                                item.Haber = c.Costo * item.Salida
-                            End If
-                            c.Salida = c.Salida + item.Salida
-                            c.Existencia = If(c.Naturaleza, c.Existencia - item.Salida, c.Existencia + item.Salida)
-                        End If
-
-                        'Se valida que los saldos sean validos
-                        'If If(c.Naturaleza, c.Saldo - item.Haber, c.Saldo + item.Haber) < 0 Then
-                        '    Throw New Exception("El saldo de la cuenta '" & c.Descripcion & "' es inferior a la cantidad que intentas decrementar")
-                        'End If
-
-                        'Se actualizan saldos
-                        c.Haber = c.Haber + item.Haber
-                        c.Saldo = If(c.Naturaleza, c.Saldo - item.Haber, c.Saldo + item.Haber)
-
-                        'Calculo de Costos
-                        If c.IsProduct Then
-                            If c.Existencia > 0 Then
-                                c.Costo = c.Saldo / c.Existencia
-                                CostoPromedio = c.Costo
-                            Else
-                                c.Costo = 0
-                            End If
-                            If c.Salida > 0 Then
-                                Costo = c.Haber / item.Salida
-                            Else
-                                Costo = 0
-                            End If
-                        End If
-                    Else
-                        'Throw New Exception("Ingresar el 'Deber' o el 'Haber' de la cuenta: " & c.Descripcion)
-                    End If
-
-                    item.DeberUltimoNivel = c.Deber
-                    item.HaberUltimoNivel = c.Haber
-                    item.SaldoUltimoNivel = c.Saldo
-
-                    db.Entry(c).State = Entity.EntityState.Modified
-
-                    'Recorrer grupos superiores
-                    IdGrupo = c.IDCuentaGrupo
-                    If Not IdGrupo Is Nothing Then
-                        Nivel = c.Nivel
-                        While Nivel > 0
-                            If Not IdGrupo Is Nothing Then
-                                Grupo = db.Cuentas.Where(Function(f) f.IDCuenta = IdGrupo And f.Activo).FirstOrDefault
-                                If item.Deber > 0 Then
-                                    Grupo.Deber = Grupo.Deber + item.Deber
-                                    'If If(Grupo.Naturaleza, Grupo.Saldo + item.Deber, Grupo.Saldo - item.Deber) < 0 Then
-                                    '    Throw New Exception("El saldo de la cuenta '" & Grupo.Grupo & Grupo.SubGrupo & Grupo.Mayor & Grupo.SubMayor & Grupo.SubSubMayor & " " & Grupo.Descripcion & "' es inferior a la cantidad que intentas decrementar")
-                                    'End If
-                                    Grupo.Saldo = If(Grupo.Naturaleza, Grupo.Saldo + item.Deber, Grupo.Saldo - item.Deber)
-                                ElseIf item.Haber > 0 Then
-                                    Grupo.Haber = Grupo.Haber + item.Haber
-                                    'If If(Grupo.Naturaleza, Grupo.Saldo - item.Haber, Grupo.Saldo + item.Haber) < 0 Then
-                                    '    Throw New Exception("El saldo de la cuenta '" & Grupo.Grupo & Grupo.SubGrupo & Grupo.Mayor & Grupo.SubMayor & Grupo.SubSubMayor & " " & Grupo.Descripcion & "' es inferior a la cantidad que intentas decrementar")
-                                    'End If
-                                    Grupo.Saldo = If(Grupo.Naturaleza, Grupo.Saldo - item.Haber, Grupo.Saldo + item.Haber)
+                            'Validacion de salida cuentas con inventario
+                            If c.IsProduct Then
+                                If Not c.Naturaleza Then
+                                    item.Deber = c.Costo * item.Entrada
                                 End If
-                                db.Entry(Grupo).State = Entity.EntityState.Modified
-                                db.SaveChanges()
-
-                                'Cargar saldos en el detalle de las cuentas de grupo
-                                Select Case Grupo.Nivel
-                                    Case 1
-                                        item.IDCuentaGrupo = Grupo.IDCuenta
-                                        item.DeberGrupo = Grupo.Deber
-                                        item.HaberGrupo = Grupo.Haber
-                                        item.SaldoGrupo = Grupo.Saldo
-                                    Case 2
-                                        item.IDCuentaSubGrupo = Grupo.IDCuenta
-                                        item.DeberSubGrupo = Grupo.Deber
-                                        item.HaberSubGrupo = Grupo.Haber
-                                        item.SaldoSubGrupo = Grupo.Saldo
-                                    Case 3
-                                        item.IDCuentaMayor = Grupo.IDCuenta
-                                        item.DeberMayor = Grupo.Deber
-                                        item.HaberMayor = Grupo.Haber
-                                        item.SaldoMayor = Grupo.Saldo
-                                    Case 4
-                                        item.IDCuentaSubMayor = Grupo.IDCuenta
-                                        item.DeberSubMayor = Grupo.Deber
-                                        item.HaberSubMayor = Grupo.Haber
-                                        item.SaldoSubMayor = Grupo.Saldo
-                                    Case 5
-                                        item.IDCuentaSubSubMayor = Grupo.IDCuenta
-                                        item.DeberSubSubMayor = Grupo.Deber
-                                        item.HaberSubSubMayor = Grupo.Haber
-                                        item.SaldoSubSubMayor = Grupo.Saldo
-                                End Select
-                                'Fin cargar saldo
-
-                                IdGrupo = Grupo.IDCuentaGrupo
+                                c.Entrada = c.Entrada + item.Entrada
+                                c.Existencia = If(c.Naturaleza, c.Existencia + item.Entrada, c.Existencia - item.Entrada)
                             End If
 
+                            'Se valida que los saldos sean validos
+                            If If(c.Naturaleza, c.Saldo + item.Deber, c.Saldo - item.Deber) < 0 Then
+                                Throw New Exception("El saldo de la cuenta '" & c.Descripcion & "' es inferior a la cantidad que intentas decrementar")
+                            End If
 
-                            'decremento
-                            Nivel = Nivel - 1
-                        End While
-                    End If
-                    'Fin
+                            'Se actualizan saldos
+                            c.Deber = c.Deber + item.Deber
+                            c.Saldo = If(c.Naturaleza, c.Saldo + item.Deber, c.Saldo - item.Deber)
 
-                    'Registrar el detalle
-                    db.ComprobantesDiariosDetalles.Add(
+                            'Calculo de Costos
+                            If c.IsProduct Then
+                                If c.Existencia > 0 Then
+                                    c.Costo = c.Saldo / c.Existencia
+                                    CostoPromedio = c.Costo
+                                Else
+                                    c.Costo = 0
+                                End If
+                                If c.Entrada > 0 Then
+                                    Costo = item.Deber / item.Entrada
+                                Else
+                                    Costo = 0
+                                End If
+                            End If
+                        ElseIf item.Haber > 0 Then
+                            item.Deber = 0 : item.Entrada = 0
+
+                            'Validacion de salida cuentas con inventario
+                            If c.IsProduct Then
+                                If c.Naturaleza Then
+                                    item.Haber = c.Costo * item.Salida
+                                End If
+                                c.Salida = c.Salida + item.Salida
+                                c.Existencia = If(c.Naturaleza, c.Existencia - item.Salida, c.Existencia + item.Salida)
+                            End If
+
+                            'Se valida que los saldos sean validos
+                            If If(c.Naturaleza, c.Saldo - item.Haber, c.Saldo + item.Haber) < 0 Then
+                                Throw New Exception("El saldo de la cuenta '" & c.Descripcion & "' es inferior a la cantidad que intentas decrementar")
+                            End If
+
+                            'Se actualizan saldos
+                            c.Haber = c.Haber + item.Haber
+                            c.Saldo = If(c.Naturaleza, c.Saldo - item.Haber, c.Saldo + item.Haber)
+
+                            'Calculo de Costos
+                            If c.IsProduct Then
+                                If c.Existencia > 0 Then
+                                    c.Costo = c.Saldo / c.Existencia
+                                    CostoPromedio = c.Costo
+                                Else
+                                    c.Costo = 0
+                                End If
+                                If c.Salida > 0 Then
+                                    Costo = c.Haber / item.Salida
+                                Else
+                                    Costo = 0
+                                End If
+                            End If
+                        Else
+                            Throw New Exception("Ingresar el 'Deber' o el 'Haber' de la cuenta: " & c.Descripcion)
+                        End If
+
+                        item.DeberUltimoNivel = c.Deber
+                        item.HaberUltimoNivel = c.Haber
+                        item.SaldoUltimoNivel = c.Saldo
+
+                        db.Entry(c).State = Entity.EntityState.Modified
+
+                        'Recorrer grupos superiores
+                        IdGrupo = c.IDCuentaGrupo
+                        If Not IdGrupo Is Nothing Then
+                            Nivel = c.Nivel
+                            While Nivel > 0
+                                If Not IdGrupo Is Nothing Then
+                                    Grupo = db.Cuentas.Where(Function(f) f.IDCuenta = IdGrupo And f.Activo).FirstOrDefault
+                                    If item.Deber > 0 Then
+                                        Grupo.Deber = Grupo.Deber + item.Deber
+                                        If If(Grupo.Naturaleza, Grupo.Saldo + item.Deber, Grupo.Saldo - item.Deber) < 0 Then
+                                            Throw New Exception("El saldo de la cuenta '" & Grupo.Grupo & Grupo.SubGrupo & Grupo.Mayor & Grupo.SubMayor & Grupo.SubSubMayor & " " & Grupo.Descripcion & "' es inferior a la cantidad que intentas decrementar")
+                                        End If
+                                        Grupo.Saldo = If(Grupo.Naturaleza, Grupo.Saldo + item.Deber, Grupo.Saldo - item.Deber)
+                                    ElseIf item.Haber > 0 Then
+                                        Grupo.Haber = Grupo.Haber + item.Haber
+                                        If If(Grupo.Naturaleza, Grupo.Saldo - item.Haber, Grupo.Saldo + item.Haber) < 0 Then
+                                            Throw New Exception("El saldo de la cuenta '" & Grupo.Grupo & Grupo.SubGrupo & Grupo.Mayor & Grupo.SubMayor & Grupo.SubSubMayor & " " & Grupo.Descripcion & "' es inferior a la cantidad que intentas decrementar")
+                                        End If
+                                        Grupo.Saldo = If(Grupo.Naturaleza, Grupo.Saldo - item.Haber, Grupo.Saldo + item.Haber)
+                                    End If
+                                    db.Entry(Grupo).State = Entity.EntityState.Modified
+                                    db.SaveChanges()
+
+                                    'Cargar saldos en el detalle de las cuentas de grupo
+                                    Select Case Grupo.Nivel
+                                        Case 1
+                                            item.IDCuentaGrupo = Grupo.IDCuenta
+                                            item.DeberGrupo = Grupo.Deber
+                                            item.HaberGrupo = Grupo.Haber
+                                            item.SaldoGrupo = Grupo.Saldo
+                                        Case 2
+                                            item.IDCuentaSubGrupo = Grupo.IDCuenta
+                                            item.DeberSubGrupo = Grupo.Deber
+                                            item.HaberSubGrupo = Grupo.Haber
+                                            item.SaldoSubGrupo = Grupo.Saldo
+                                        Case 3
+                                            item.IDCuentaMayor = Grupo.IDCuenta
+                                            item.DeberMayor = Grupo.Deber
+                                            item.HaberMayor = Grupo.Haber
+                                            item.SaldoMayor = Grupo.Saldo
+                                        Case 4
+                                            item.IDCuentaSubMayor = Grupo.IDCuenta
+                                            item.DeberSubMayor = Grupo.Deber
+                                            item.HaberSubMayor = Grupo.Haber
+                                            item.SaldoSubMayor = Grupo.Saldo
+                                        Case 5
+                                            item.IDCuentaSubSubMayor = Grupo.IDCuenta
+                                            item.DeberSubSubMayor = Grupo.Deber
+                                            item.HaberSubSubMayor = Grupo.Haber
+                                            item.SaldoSubSubMayor = Grupo.Saldo
+                                    End Select
+                                    'Fin cargar saldo
+
+                                    IdGrupo = Grupo.IDCuentaGrupo
+                                End If
+
+
+                                'decremento
+                                Nivel = Nivel - 1
+                            End While
+                        End If
+                        'Fin
+
+                        'Registrar el detalle
+                        db.ComprobantesDiariosDetalles.Add(
                             New ComprobanteDiarioDetalle With {
                                 .IDDetalle = Guid.NewGuid,
                                 .Reg = DateTime.Now,
@@ -221,15 +237,18 @@ Public Module EntriesAccounting
                                 .HaberUltimoNivel = item.HaberUltimoNivel,
                         .SaldoUltimoNivel = item.SaldoUltimoNivel
                             })
-                    'Fin
+                        'Fin
 
-                Else
-                    'Throw New Exception("La cuenta '" & item.Descripcion & "' no se encuentra. Probablemente ha sido eliminada.")
-                End If
-            Next
-            db.SaveChanges()
-            Return Comprobante.IDComprobante
-        End Using
+                    Else
+                        Throw New Exception("La cuenta '" & item.Descripcion & "' no se encuentra. Probablemente ha sido eliminada.")
+                    End If
+                Next
+                db.SaveChanges()
+                Return Comprobante.IDComprobante
+            End Using
+        Else
+            Throw New Exception("No se mandaron los datos")
+        End If
     End Function
 
     Public Sub Edit(ByVal Comprobante As ComprobanteDiario)

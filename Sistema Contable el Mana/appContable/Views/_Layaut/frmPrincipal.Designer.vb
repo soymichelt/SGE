@@ -23,9 +23,9 @@ Partial Class frmPrincipal
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim PaintStyle1 As Klik.Windows.Forms.v1.Common.PaintStyle = CType(New Klik.Windows.Forms.v1.Common.PaintStyle(), Klik.Windows.Forms.v1.Common.PaintStyle)
-        Dim PaintStyle2 As Klik.Windows.Forms.v1.Common.PaintStyle = CType(New Klik.Windows.Forms.v1.Common.PaintStyle(), Klik.Windows.Forms.v1.Common.PaintStyle)
-        Dim PaintStyle3 As Klik.Windows.Forms.v1.Common.PaintStyle = CType(New Klik.Windows.Forms.v1.Common.PaintStyle(), Klik.Windows.Forms.v1.Common.PaintStyle)
+        Dim PaintStyle1 As Klik.Windows.Forms.v1.Common.PaintStyle = New Klik.Windows.Forms.v1.Common.PaintStyle()
+        Dim PaintStyle2 As Klik.Windows.Forms.v1.Common.PaintStyle = New Klik.Windows.Forms.v1.Common.PaintStyle()
+        Dim PaintStyle3 As Klik.Windows.Forms.v1.Common.PaintStyle = New Klik.Windows.Forms.v1.Common.PaintStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmPrincipal))
         Me.RibbonControl1 = New DevComponents.DotNetBar.RibbonControl()
         Me.RibbonPanel1 = New DevComponents.DotNetBar.RibbonPanel()
@@ -120,8 +120,8 @@ Partial Class frmPrincipal
         Me.RibbonControl1.BackgroundStyle.Class = ""
         Me.RibbonControl1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.RibbonControl1.CaptionVisible = True
-        Me.RibbonControl1.Controls.Add(Me.RibbonPanel1)
         Me.RibbonControl1.Controls.Add(Me.RibbonPanel2)
+        Me.RibbonControl1.Controls.Add(Me.RibbonPanel1)
         Me.RibbonControl1.Controls.Add(Me.RibbonPanel3)
         Me.RibbonControl1.Dock = System.Windows.Forms.DockStyle.Top
         Me.RibbonControl1.Items.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.Office2007StartButton1, Me.RibbonTabItem1, Me.RibbonTabItem3, Me.RibbonTabItem2})
@@ -177,6 +177,7 @@ Partial Class frmPrincipal
         Me.RibbonPanel1.StyleMouseOver.Class = ""
         Me.RibbonPanel1.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.RibbonPanel1.TabIndex = 1
+        Me.RibbonPanel1.Visible = False
         '
         'RibbonBar2
         '
@@ -325,7 +326,6 @@ Partial Class frmPrincipal
         Me.RibbonPanel2.StyleMouseOver.Class = ""
         Me.RibbonPanel2.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.RibbonPanel2.TabIndex = 4
-        Me.RibbonPanel2.Visible = False
         '
         'RibbonBar7
         '
@@ -396,10 +396,10 @@ Partial Class frmPrincipal
         Me.RibbonPanel3.Controls.Add(Me.RibbonBar4)
         Me.RibbonPanel3.Controls.Add(Me.RibbonBar3)
         Me.RibbonPanel3.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.RibbonPanel3.Location = New System.Drawing.Point(0, 51)
+        Me.RibbonPanel3.Location = New System.Drawing.Point(0, 0)
         Me.RibbonPanel3.Name = "RibbonPanel3"
         Me.RibbonPanel3.Padding = New System.Windows.Forms.Padding(3, 0, 3, 3)
-        Me.RibbonPanel3.Size = New System.Drawing.Size(849, 127)
+        Me.RibbonPanel3.Size = New System.Drawing.Size(849, 178)
         '
         '
         '
@@ -437,7 +437,7 @@ Partial Class frmPrincipal
         Me.RibbonBar6.Items.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.btEstadoConsolidado, Me.btEstadoHeladeria, Me.btEstadoRestaurante})
         Me.RibbonBar6.Location = New System.Drawing.Point(636, 0)
         Me.RibbonBar6.Name = "RibbonBar6"
-        Me.RibbonBar6.Size = New System.Drawing.Size(211, 124)
+        Me.RibbonBar6.Size = New System.Drawing.Size(211, 175)
         Me.RibbonBar6.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
         Me.RibbonBar6.TabIndex = 3
         Me.RibbonBar6.Text = "Estado de Resultados"
@@ -498,7 +498,7 @@ Partial Class frmPrincipal
         Me.RibbonBar5.Items.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.btBalanceConsolidado, Me.btBalanceHeladeria, Me.btBalanceRestaurante})
         Me.RibbonBar5.Location = New System.Drawing.Point(425, 0)
         Me.RibbonBar5.Name = "RibbonBar5"
-        Me.RibbonBar5.Size = New System.Drawing.Size(211, 124)
+        Me.RibbonBar5.Size = New System.Drawing.Size(211, 175)
         Me.RibbonBar5.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
         Me.RibbonBar5.TabIndex = 2
         Me.RibbonBar5.Text = "Balance General"
@@ -559,7 +559,7 @@ Partial Class frmPrincipal
         Me.RibbonBar4.Items.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.btAnexoConsolidado, Me.btAnexoHeladeria, Me.btAnexoRestaurante})
         Me.RibbonBar4.Location = New System.Drawing.Point(214, 0)
         Me.RibbonBar4.Name = "RibbonBar4"
-        Me.RibbonBar4.Size = New System.Drawing.Size(211, 124)
+        Me.RibbonBar4.Size = New System.Drawing.Size(211, 175)
         Me.RibbonBar4.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
         Me.RibbonBar4.TabIndex = 1
         Me.RibbonBar4.Text = "Anexo Balanza de Comprobación"
@@ -620,7 +620,7 @@ Partial Class frmPrincipal
         Me.RibbonBar3.Items.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.btBalanzaConsolidado, Me.btBalanzaHeladeria, Me.btBalanzaRestaurante})
         Me.RibbonBar3.Location = New System.Drawing.Point(3, 0)
         Me.RibbonBar3.Name = "RibbonBar3"
-        Me.RibbonBar3.Size = New System.Drawing.Size(211, 124)
+        Me.RibbonBar3.Size = New System.Drawing.Size(211, 175)
         Me.RibbonBar3.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
         Me.RibbonBar3.TabIndex = 0
         Me.RibbonBar3.Text = "Balanza de Comprobación"
@@ -765,7 +765,6 @@ Partial Class frmPrincipal
         '
         'RibbonTabItem1
         '
-        Me.RibbonTabItem1.Checked = True
         Me.RibbonTabItem1.Name = "RibbonTabItem1"
         Me.RibbonTabItem1.Panel = Me.RibbonPanel1
         Me.RibbonTabItem1.Text = "CATÁLOGOS"
@@ -778,6 +777,7 @@ Partial Class frmPrincipal
         '
         'RibbonTabItem2
         '
+        Me.RibbonTabItem2.Checked = True
         Me.RibbonTabItem2.Name = "RibbonTabItem2"
         Me.RibbonTabItem2.Panel = Me.RibbonPanel2
         Me.RibbonTabItem2.Text = "SISTEMA"
@@ -813,14 +813,14 @@ Partial Class frmPrincipal
         Me.lblEmpresa.Image = Global.appContable.My.Resources.Resources.Icono32x32
         Me.lblEmpresa.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.lblEmpresa.Name = "lblEmpresa"
-        Me.lblEmpresa.Size = New System.Drawing.Size(267, 32)
+        Me.lblEmpresa.Size = New System.Drawing.Size(244, 32)
         Me.lblEmpresa.Text = "Sistema de Contabilidad Empresarial // SCE"
         Me.lblEmpresa.ToolTipText = "Sistema de Facturación de Sucursales // SIF"
         '
         'ToolStripStatusLabel2
         '
         Me.ToolStripStatusLabel2.Name = "ToolStripStatusLabel2"
-        Me.ToolStripStatusLabel2.Size = New System.Drawing.Size(294, 32)
+        Me.ToolStripStatusLabel2.Size = New System.Drawing.Size(331, 32)
         Me.ToolStripStatusLabel2.Spring = True
         Me.ToolStripStatusLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
@@ -832,7 +832,7 @@ Partial Class frmPrincipal
         Me.lblNombreUsuario.Image = Global.appContable.My.Resources.Resources.Codigo
         Me.lblNombreUsuario.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.lblNombreUsuario.Name = "lblNombreUsuario"
-        Me.lblNombreUsuario.Size = New System.Drawing.Size(130, 32)
+        Me.lblNombreUsuario.Size = New System.Drawing.Size(120, 32)
         Me.lblNombreUsuario.Text = "Nombre Personal:"
         '
         'lblUsuario
@@ -843,7 +843,7 @@ Partial Class frmPrincipal
         Me.lblUsuario.Image = Global.appContable.My.Resources.Resources.Usuario
         Me.lblUsuario.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.lblUsuario.Name = "lblUsuario"
-        Me.lblUsuario.Size = New System.Drawing.Size(78, 32)
+        Me.lblUsuario.Size = New System.Drawing.Size(75, 32)
         Me.lblUsuario.Text = "Usuario:"
         '
         'lblFecha
@@ -853,7 +853,7 @@ Partial Class frmPrincipal
         Me.lblFecha.Image = Global.appContable.My.Resources.Resources.Fecha
         Me.lblFecha.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.lblFecha.Name = "lblFecha"
-        Me.lblFecha.Size = New System.Drawing.Size(65, 32)
+        Me.lblFecha.Size = New System.Drawing.Size(64, 32)
         Me.lblFecha.Text = "Fecha:"
         '
         'tmTiempo
@@ -889,7 +889,7 @@ Partial Class frmPrincipal
         Me.ExpandablePanel1.TitleStyle.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder
         Me.ExpandablePanel1.TitleStyle.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText
         Me.ExpandablePanel1.TitleStyle.GradientAngle = 90
-        Me.ExpandablePanel1.TitleText = "<b>S</b>istema de <font color=""#C0504D""><b>C</b>ontabilidad <b>E</b>mpresarial</f" &
+        Me.ExpandablePanel1.TitleText = "<b>S</b>istema de <font color=""#C0504D""><b>C</b>ontabilidad <b>E</b>mpresarial</f" & _
     "ont>"
         '
         'ElGroupBox1

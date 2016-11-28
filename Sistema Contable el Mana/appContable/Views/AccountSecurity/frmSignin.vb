@@ -74,8 +74,8 @@ Public Class frmSignin
         Try
             Dim prcs = Process.GetProcessesByName(Process.GetCurrentProcess().ProcessName)
             If prcs.Length > 1 Then
-                Process.GetCurrentProcess.CloseMainWindow()
-                Exit Sub
+                'Process.GetCurrentProcess.CloseMainWindow()
+                'Exit Sub
             End If
         Catch ex As Exception
             Config.MsgErr("Se ha producido un error. La aplicación se cerrará. Descripción: " & ex.Message)
