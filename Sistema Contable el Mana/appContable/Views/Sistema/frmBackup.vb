@@ -1,4 +1,6 @@
-﻿Public Class frmBackup
+﻿Imports System.IO
+
+Public Class frmBackup
 
     Public Sub New()
 
@@ -15,5 +17,16 @@
 
     Private Sub frmBackup_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
+    End Sub
+
+    Private Sub btExaminar_Click(sender As Object, e As EventArgs) Handles btExaminar.Click
+        Try
+            
+            If fdbExplorador.ShowDialog() = Windows.Forms.DialogResult.OK Then
+
+            End If
+        Catch ex As Exception
+            Config.MsgErr(ex.Message)
+        End Try
     End Sub
 End Class

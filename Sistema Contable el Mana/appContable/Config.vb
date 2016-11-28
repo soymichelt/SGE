@@ -1,4 +1,8 @@
 ﻿Module Config
+
+    'Nombre de Archivo de Backup
+    Public ExplorerBackup As String = "ebu.sce"
+
     'Mensaje
     Public Sub MsgInfo(ByVal Msg As String)
         System.Windows.Forms.MessageBox.Show(Msg, "Mensaje del Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information)
@@ -24,7 +28,7 @@
     Public FechaInicio As DateTime = "01/01/2016 00:00:00"
 
     Public PerStart As DateTime = "01/01/2016 00:00:00"
-    Public perFinal As DateTime = "31/12/2016 23:59:59"
+    Public perFinal As DateTime = DateTime.MaxValue
 
     'Usuario
     Public Property User As appModels.UserAccount

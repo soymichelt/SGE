@@ -189,6 +189,6 @@ Public Class frmPrincipal
     End Sub
 
     Private Sub btRespaldo_Click(sender As Object, e As EventArgs) Handles btRespaldo.Click
-        Config.OnLoadForm(frmBackup, Me)
+        Config.OnLoadForm(frmBackup)
     End Sub
 End Class
