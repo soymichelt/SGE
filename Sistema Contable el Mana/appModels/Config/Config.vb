@@ -4,7 +4,7 @@
     ''' Nombre del Servidor Encapsulado
     ''' </summary>
     ''' <remarks></remarks>
-    Private pSQLServerName As String = ".\sqlexpress"
+    Private pSQLServerName As String = ".\unanfaremch"
     ''' <summary>
     ''' Nombre del Servidor
     ''' </summary>
