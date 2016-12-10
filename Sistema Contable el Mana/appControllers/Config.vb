@@ -1,4 +1,6 @@
 ﻿Module Config
+    Public FilePathBackUp As String = "ConfigBackup.sce"
+
     Public Nivel As Short = 6
 
     Public FechaInicio As DateTime = "01/01/2016 00:00:00"

@@ -191,4 +191,13 @@ Public Class frmPrincipal
     Private Sub btRespaldo_Click(sender As Object, e As EventArgs) Handles btRespaldo.Click
         Config.OnLoadForm(frmBackup)
     End Sub
+
+
+    Private Sub btAyuda_Click(sender As Object, e As EventArgs) Handles btAyuda.Click
+        Config.OnLoadForm(frmHelp)
+    End Sub
+
+    Private Sub btCreditos_Click(sender As Object, e As EventArgs) Handles btCreditos.Click
+
+    End Sub
 End Class

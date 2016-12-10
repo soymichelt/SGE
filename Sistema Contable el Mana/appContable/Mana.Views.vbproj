@@ -298,6 +298,12 @@
     <Compile Include="Views\Account\frmTargetAuxiliar.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Views\Sistema\frmHelp.Designer.vb">
+      <DependentUpon>frmHelp.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Sistema\frmHelp.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Views\Sistema\frmBackup.Designer.vb">
       <DependentUpon>frmBackup.vb</DependentUpon>
     </Compile>
@@ -529,6 +535,9 @@
     <EmbeddedResource Include="Views\Account\frmTargetAuxiliar.resx">
       <DependentUpon>frmTargetAuxiliar.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Sistema\frmHelp.resx">
+      <DependentUpon>frmHelp.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Sistema\frmBackup.resx">
       <DependentUpon>frmBackup.vb</DependentUpon>
     </EmbeddedResource>
@@ -617,6 +626,7 @@
     <Folder Include="App_Start\" />
     <Folder Include="bin\Release\" />
     <Folder Include="Controllers\" />
+    <Folder Include="Views\Help\" />
     <Folder Include="Views\_Alternative\" />
   </ItemGroup>
   <ItemGroup>
@@ -714,6 +724,25 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="AcroPDFLib">
+      <Guid>{05BFD3F1-6319-4F30-B752-C7A22889BCC4}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="AxAcroPDFLib">
+      <Guid>{05BFD3F1-6319-4F30-B752-C7A22889BCC4}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>aximp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

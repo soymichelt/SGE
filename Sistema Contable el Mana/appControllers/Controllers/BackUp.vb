@@ -3,23 +3,46 @@ Imports appModels
 
 Public Module BackUp
 
-    Private ExplorerBackup As String = ""
+    Public Sub UpdatePath(Optional ByVal NewPath As String = "")
+        Try
+            If String.IsNullOrEmpty(NewPath) Then
+                NewPath = My.Application.Info.DirectoryPath & "\SCE Backup"
+                If Not Directory.Exists(NewPath) Then
+                    Directory.CreateDirectory(NewPath)
+                End If
+            ElseIf NewPath = "" Then
+                NewPath = My.Application.Info.DirectoryPath & "\SCE Backup"
+                If Not Directory.Exists(NewPath) Then
+                    Directory.CreateDirectory(NewPath)
+                End If
+            End If
 
+            If Not Directory.Exists(NewPath) Then
+                Throw New Exception("El Directorio especificado no existe o está inaccesible.")
+            End If
+
+            Using lector As New StreamWriter(Config.FilePathBackUp, append:=False)
+                lector.Write(SecurityCryptography.PasswordEnconding(NewPath))
+                lector.Flush()
+                lector.Close()
+            End Using
+        Catch ex As Exception
+            Throw New Exception("Ha ocurrido un error. Intente nuevamente. Descripción: " & ex.Message)
+        End Try
+    End Sub
 
     Public Function Path() As String
-        If File.Exists(My.Application.Info.DirectoryPath & ExplorerBackup) Then
-            Using lector As New StreamReader(My.Application.Info.DirectoryPath & ExplorerBackup)
+        If File.Exists(My.Application.Info.DirectoryPath & Config.FilePathBackUp) Then
+            Using lector As New StreamReader(My.Application.Info.DirectoryPath & "\" & Config.FilePathBackUp)
                 Try
                     Dim folder = SecurityCryptography.PasswordDecoding(lector.ReadLine())
                     Return folder
                 Catch
-                    Directory.CreateDirectory(My.Application.Info.DirectoryPath & "\SCE Backup")
                 End Try
             End Using
-        Else
-            Directory.CreateDirectory(My.Application.Info.DirectoryPath & "\SCE Backup")
         End If
 
+        BackUp.UpdatePath()
         Return My.Application.Info.DirectoryPath & "\SCE Backup"
     End Function
 
