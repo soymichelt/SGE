@@ -48,7 +48,7 @@ Partial Class frmBackup
         '
         'Panel1
         '
-        Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(87, Byte), Integer), CType(CType(34, Byte), Integer))
+        Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(181, Byte), Integer), CType(CType(246, Byte), Integer))
         Me.Panel1.Controls.Add(Me.MaterialTabSelector1)
         Me.Panel1.Location = New System.Drawing.Point(-2, 64)
         Me.Panel1.Name = "Panel1"

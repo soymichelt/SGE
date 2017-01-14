@@ -12,7 +12,7 @@ Public Class frmBackup
         Dim Skin = MaterialSkin.MaterialSkinManager.Instance
         Skin.AddFormToManage(Me)
         Skin.Theme = MaterialSkin.MaterialSkinManager.Themes.LIGHT
-        Skin.ColorScheme = New MaterialSkin.ColorScheme(MaterialSkin.Primary.DeepOrange800, MaterialSkin.Primary.DeepOrange900, MaterialSkin.Primary.DeepOrange500, MaterialSkin.Accent.DeepPurple200, MaterialSkin.TextShade.WHITE)
+        Skin.ColorScheme = New MaterialSkin.ColorScheme(MaterialSkin.Primary.Blue600, MaterialSkin.Primary.Blue700, MaterialSkin.Primary.Blue300, MaterialSkin.Accent.LightBlue100, MaterialSkin.TextShade.WHITE)
 
     End Sub
 
