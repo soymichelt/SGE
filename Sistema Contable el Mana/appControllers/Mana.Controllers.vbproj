@@ -91,6 +91,7 @@
     <Compile Include="Controllers\EntriesAccounting.vb" />
     <Compile Include="Controllers\EstadoResultados.vb" />
     <Compile Include="Controllers\Inventario.vb" />
+    <Compile Include="Entity\BackUpEntity.vb" />
     <Compile Include="Entity\Entity.vb" />
     <Compile Include="frmPrincipal.vb">
       <SubType>Form</SubType>

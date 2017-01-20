@@ -3,26 +3,29 @@ Imports appModels
 
 Public Module BackUp
 
-    Public Sub UpdatePath(Optional ByVal NewPath As String = "")
+    Private DefaultPath As String = My.Application.Info.DirectoryPath & "\SCE Backup"
+
+    Public Sub SelectPath(Optional ByVal NewPath As String = "")
         Try
             If String.IsNullOrEmpty(NewPath) Then
-                NewPath = My.Application.Info.DirectoryPath & "\SCE Backup"
+                NewPath = DefaultPath
                 If Not Directory.Exists(NewPath) Then
                     Directory.CreateDirectory(NewPath)
                 End If
             ElseIf NewPath = "" Then
-                NewPath = My.Application.Info.DirectoryPath & "\SCE Backup"
+                NewPath = DefaultPath
                 If Not Directory.Exists(NewPath) Then
                     Directory.CreateDirectory(NewPath)
                 End If
             End If
 
             If Not Directory.Exists(NewPath) Then
-                Throw New Exception("El Directorio especificado no existe o está inaccesible.")
+                Throw New Exception("El Directorio, '" & NewPath & "', especificado no existe o está inaccesible.")
             End If
 
-            Using lector As New StreamWriter(Config.FilePathBackUp, append:=False)
-                lector.Write(SecurityCryptography.PasswordEnconding(NewPath))
+            Using lector As New StreamWriter(My.Application.Info.DirectoryPath & "\" & Config.FilePathBackUp, append:=False)
+                'lector.Write(SecurityCryptography.PasswordEnconding(NewPath))
+                lector.Write(NewPath)
                 lector.Flush()
                 lector.Close()
             End Using
@@ -32,18 +35,23 @@ Public Module BackUp
     End Sub
 
     Public Function Path() As String
-        If File.Exists(My.Application.Info.DirectoryPath & Config.FilePathBackUp) Then
+        If File.Exists(My.Application.Info.DirectoryPath & "\" & Config.FilePathBackUp) Then
             Using lector As New StreamReader(My.Application.Info.DirectoryPath & "\" & Config.FilePathBackUp)
                 Try
-                    Dim folder = SecurityCryptography.PasswordDecoding(lector.ReadLine())
+                    'Dim folder = SecurityCryptography.PasswordDecoding(lector.ReadLine())
+                    Dim folder = lector.ReadLine()
+                    If Not Directory.Exists(folder) Then
+                        Throw New Exception("El Directorio '" & folder & "' especificado no existe o está inaccesible.")
+                    End If
+
                     Return folder
                 Catch
                 End Try
             End Using
         End If
 
-        BackUp.UpdatePath()
-        Return My.Application.Info.DirectoryPath & "\SCE Backup"
+        BackUp.SelectPath()
+        Return DefaultPath
     End Function
 
     Public Sub BackUpCreate(ByVal Path As String)
@@ -52,9 +60,9 @@ Public Module BackUp
                 If Not Directory.Exists(Path) Then
                     Throw New Exception("No se encuentra el Directorio '" & Path & "' o esta inaccesible.")
                 End If
-                Dim file As New StreamWriter(Path & Guid.NewGuid.ToString() & ".sce")
+                Dim file As New StreamWriter(Path & "\" & Guid.NewGuid.ToString() & ".sce")
+                file.WriteLine("----UsersAccounts----")
                 For Each c In db.UsersAccounts
-                    file.WriteLine("----UsersAccounts----")
                     file.WriteLine("INSERT INTO UserAccount (" + _
                                    "IDUser, " + _
                                    "N, " + _
@@ -78,9 +86,9 @@ Public Module BackUp
                                    ")" _
                     )
                 Next
-
+                file.WriteLine()
+                file.WriteLine("----Cuenta----")
                 For Each c In db.Cuentas
-                    file.WriteLine("----Cuenta----")
 
                     file.WriteLine("INSERT INTO Cuenta (" + _
                                    "IDCuenta, " + _
@@ -147,8 +155,10 @@ Public Module BackUp
                     )
                 Next
 
+                file.WriteLine()
+                file.WriteLine("----ComprobanteDiario----")
                 For Each c In db.ComprobantesDiarios
-                    file.WriteLine("----ComprobanteDiario----")
+
 
                     file.WriteLine("INSERT INTO ComprobanteDiario (" + _
                                    "IDComprobante, " + _
@@ -169,15 +179,17 @@ Public Module BackUp
                                    "'" + c.Fecha.ToString("yyyy/MM/dd HH:mm:ss") + "'," + _
                                    "'" + c.Concepto + "', " + _
                                    "'" + c.Referencia + "', " + _
-                                   c.Haber + ", " + _
-                                   c.Deber + ", " + _
+                                   c.Haber.ToString() + ", " + _
+                                   c.Deber.ToString() + ", " + _
                                    If(c.Activo, "1", "0") + _
                                    ")" _
                     )
                 Next
 
+                file.WriteLine()
+                file.WriteLine("----ComprobanteDiarioDetalle----")
                 For Each c In db.ComprobantesDiariosDetalles
-                    file.WriteLine("----ComprobanteDiarioDetalle----")
+
 
                     file.WriteLine("INSERT INTO ComprobanteDiarioDetalle (" + _
                                    "IDDetalle, " + _
@@ -225,40 +237,40 @@ Public Module BackUp
                                    c.N.ToString() + "," + _
                                    "'" + c.Reg.ToString("yyyy/MM/dd HH:mm:ss") + "'," + _
                                    "'" + c.FMod.ToString("yyyy/MM/dd HH:mm:ss") + "'," + _
-                                   c.Deber + ", " + _
-                                   c.Haber + ", " + _
-                                   c.Saldo + ", " + _
-                                   c.Entrada + ", " + _
-                                   c.Salida + ", " + _
-                                   c.Existencia + ", " + _
-                                   c.EntradaProd + ", " + _
-                                   c.SalidaProd + ", " + _
-                                   c.ExistenciaProd + ", " + _
-                                   c.Costo + ", " + _
-                                   c.CostoPromedio + ", " + _
+                                   c.Deber.ToString() + ", " + _
+                                   c.Haber.ToString() + ", " + _
+                                   c.Saldo.ToString() + ", " + _
+                                   c.Entrada.ToString() + ", " + _
+                                   c.Salida.ToString() + ", " + _
+                                   c.Existencia.ToString() + ", " + _
+                                   c.EntradaProd.ToString() + ", " + _
+                                   c.SalidaProd.ToString() + ", " + _
+                                   c.ExistenciaProd.ToString() + ", " + _
+                                   c.Costo.ToString() + ", " + _
+                                   c.CostoPromedio.ToString() + ", " + _
                                    "'" + c.IDCuentaGrupo.ToString() + "', " + _
-                                   c.DeberGrupo + ", " + _
-                                   c.HaberGrupo + ", " + _
-                                   c.SaldoGrupo + ", " + _
+                                   c.DeberGrupo.ToString() + ", " + _
+                                   c.HaberGrupo.ToString() + ", " + _
+                                   c.SaldoGrupo.ToString() + ", " + _
                                    "'" + c.IDCuentaSubGrupo.ToString() + "', " + _
-                                   c.DeberSubGrupo + ", " + _
-                                   c.HaberSubGrupo + ", " + _
-                                   c.SaldoSubGrupo + ", " + _
+                                   c.DeberSubGrupo.ToString() + ", " + _
+                                   c.HaberSubGrupo.ToString() + ", " + _
+                                   c.SaldoSubGrupo.ToString() + ", " + _
                                    "'" + c.IDCuentaMayor.ToString() + "', " + _
-                                   c.DeberMayor + ", " + _
-                                   c.HaberMayor + ", " + _
-                                   c.SaldoMayor + ", " + _
+                                   c.DeberMayor.ToString() + ", " + _
+                                   c.HaberMayor.ToString() + ", " + _
+                                   c.SaldoMayor.ToString() + ", " + _
                                    "'" + c.IDCuentaSubMayor.ToString() + "', " + _
-                                   c.DeberSubMayor + ", " + _
-                                   c.HaberSubMayor + ", " + _
-                                   c.SaldoSubMayor + ", " + _
+                                   c.DeberSubMayor.ToString() + ", " + _
+                                   c.HaberSubMayor.ToString() + ", " + _
+                                   c.SaldoSubMayor.ToString() + ", " + _
                                    "'" + c.IDCuentaSubSubMayor.ToString() + "', " + _
-                                   c.DeberSubSubMayor + ", " + _
-                                   c.HaberSubSubMayor + ", " + _
-                                   c.SaldoSubSubMayor + ", " + _
-                                   c.DeberUltimoNivel + ", " + _
-                                   c.HaberUltimoNivel + ", " + _
-                                   c.SaldoUltimoNivel + _
+                                   c.DeberSubSubMayor.ToString() + ", " + _
+                                   c.HaberSubSubMayor.ToString() + ", " + _
+                                   c.SaldoSubSubMayor.ToString() + ", " + _
+                                   c.DeberUltimoNivel.ToString() + ", " + _
+                                   c.HaberUltimoNivel.ToString() + ", " + _
+                                   c.SaldoUltimoNivel.ToString() + _
                                    ")" _
                     )
                 Next
@@ -271,4 +283,18 @@ Public Module BackUp
             Throw New Exception("No se ha podido crear el Respaldo. Intente de nuevo. Descripción: " & ex.Message)
         End Try
     End Sub
+
+    Public Function List() As List(Of BackUpEntity)
+        Dim lst As New List(Of BackUpEntity)
+
+        For Each c In DirectoryInfo.GetFiles(Path)
+
+            lst.Add(
+                c.
+            )
+        Next
+
+        Return lst
+    End Function
+
 End Module

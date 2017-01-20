@@ -2,8 +2,8 @@
 Imports System.Text
 
 Friend Class SecurityCryptography
-    Private Shared Clave As String = "5483*+/-"
-    Public Shared UTF8 As UTF8Encoding
+    'Private Shared Clave As String = "5483*+/-"
+    'Public Shared UTF8 As UTF8Encoding
     Private Shared Converter As New UnicodeEncoding
 
     Private Shared KeyPublic As String = "<RSAKeyValue><Modulus>ttY+aX9GRyQ64/nX4nKrdq2gtm+bR6gXokKmpUzVxqNgM7wG3APQKyceXQKb9v4FkC4tNsvj8UhzoIULG5/iiWGVsBV9Yl63u5rm/epMxHLpEc5Z/8ALnwUgWS5d9pnLzMbjoptAho6g7D98RMxrti1HvJ+HitfSLHQUh3sYH8M=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue>"
@@ -24,10 +24,9 @@ Friend Class SecurityCryptography
         'des.Key = EncryptionKey
         'des.IV = IV
         'Return Convert.ToBase64String(des.CreateEncryptor().TransformFinalBlock(buffer, 0, buffer.Length()))
-
         Using RSA As New RSACryptoServiceProvider
             RSA.FromXmlString(SecurityCryptography.KeyPublic)
-            Return Convert.ToBase64String(RSA.Encrypt(SecurityCryptography.Converter.GetBytes(ValText), False))
+            Return Convert.ToBase64String(RSA.Encrypt(SecurityCryptography.Converter.GetBytes(ValText), True))
         End Using
     End Function
 

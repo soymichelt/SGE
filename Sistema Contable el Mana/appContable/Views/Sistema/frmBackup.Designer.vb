@@ -110,6 +110,7 @@ Partial Class frmBackup
         'btCrearRespaldo
         '
         Me.btCrearRespaldo.Depth = 0
+        Me.btCrearRespaldo.Enabled = False
         Me.btCrearRespaldo.Location = New System.Drawing.Point(19, 56)
         Me.btCrearRespaldo.MouseState = MaterialSkin.MouseState.HOVER
         Me.btCrearRespaldo.Name = "btCrearRespaldo"

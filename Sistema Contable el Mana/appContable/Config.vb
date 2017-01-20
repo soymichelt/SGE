@@ -57,9 +57,11 @@
     Public Sub OnLoadForm(ByVal frm As Form, Optional ByVal Mdi As Form = Nothing)
         If Not Mdi Is Nothing Then
             frm.MdiParent = Mdi
+            frm.BringToFront()
+            frm.Show()
+        Else
+            frm.ShowDialog()
         End If
-        frm.BringToFront()
-        frm.Show()
     End Sub
 
     'Codigo predefinidos

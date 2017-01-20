@@ -20,7 +20,7 @@ Public Class frmBackup
         Try
             txtPath.Text = BackUp.Path()
             If txtPath.Text.Trim <> "" Then
-                btCrearRespaldo.Enabled = False
+                btCrearRespaldo.Enabled = True
             End If
         Catch ex As Exception
             Config.MsgErr(ex.Message)
@@ -31,7 +31,7 @@ Public Class frmBackup
         Try
             
             If fdbExplorador.ShowDialog() = Windows.Forms.DialogResult.OK Then
-                BackUp.UpdatePath(fdbExplorador.SelectedPath)
+                BackUp.SelectPath(fdbExplorador.SelectedPath)
                 txtPath.Text = fdbExplorador.SelectedPath
                 If Not btCrearRespaldo.Enabled Then
                     btCrearRespaldo.Enabled = True
@@ -52,7 +52,8 @@ Public Class frmBackup
 
     Private Sub btCrearRespaldo_Click(sender As Object, e As EventArgs) Handles btCrearRespaldo.Click
         Try
-
+            BackUp.BackUpCreate(BackUp.Path())
+            Config.MsgInfo("Respaldo creado satisfactoriamente.")
         Catch ex As Exception
             Config.MsgErr(ex.Message)
         End Try

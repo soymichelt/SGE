@@ -12,3 +12,4 @@ C:\Users\Administrator\Documents\GitHubVisualStudio\SGE\Sistema Contable el Mana
 C:\Users\Administrator\Documents\GitHubVisualStudio\SGE\Sistema Contable el Mana\appModels\obj\Debug\appModels.exe
 C:\Users\Administrator\Documents\GitHubVisualStudio\SGE\Sistema Contable el Mana\appModels\obj\Debug\appModels.xml
 C:\Users\Administrator\Documents\GitHubVisualStudio\SGE\Sistema Contable el Mana\appModels\obj\Debug\appModels.pdb
+C:\Users\Administrator\Documents\GitHubVisualStudio\SGE\Sistema Contable el Mana\appModels\obj\Debug\Mana.Models.vbprojResolveAssemblyReference.cache
