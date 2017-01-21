@@ -18,6 +18,20 @@ Public Class frmBackup
 
     Private Sub frmBackup_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
+            dtRegistro.DataSource = BackUp.List()
+            If dtRegistro.ColumnCount > 0 Then
+                dtRegistro.Columns(0).Width = 120 : dtRegistro.Columns(0).HeaderText = vbNewLine & "Fecha" & vbNewLine
+                dtRegistro.Columns(1).Width = 260 : dtRegistro.Columns(1).HeaderText = "Nombre del Archivo"
+                dtRegistro.Columns(2).Width = 350 : dtRegistro.Columns(2).HeaderText = "Ubicación"
+                For Each c As DataGridViewColumn In dtRegistro.Columns
+                    c.HeaderText = c.HeaderText.ToUpper
+                    c.HeaderCell.Style.Font = New Font(Me.Font.FontFamily, Me.Font.Size, FontStyle.Bold)
+                Next
+            End If
+        Catch ex As Exception
+            Config.MsgErr(ex.Message)
+        End Try
+        Try
             txtPath.Text = BackUp.Path()
             If txtPath.Text.Trim <> "" Then
                 btCrearRespaldo.Enabled = True
@@ -54,6 +68,20 @@ Public Class frmBackup
         Try
             BackUp.BackUpCreate(BackUp.Path())
             Config.MsgInfo("Respaldo creado satisfactoriamente.")
+        Catch ex As Exception
+            Config.MsgErr(ex.Message)
+        End Try
+    End Sub
+
+    Private Sub btActualizar_Click(sender As Object, e As EventArgs) Handles btActualizar.Click
+
+    End Sub
+
+    Private Sub dtRegistro_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles dtRegistro.CellDoubleClick
+        Try
+            If dtRegistro.SelectedRows.Count > 1 Then
+
+            End If
         Catch ex As Exception
             Config.MsgErr(ex.Message)
         End Try

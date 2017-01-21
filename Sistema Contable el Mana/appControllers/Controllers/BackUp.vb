@@ -287,14 +287,23 @@ Public Module BackUp
     Public Function List() As List(Of BackUpEntity)
         Dim lst As New List(Of BackUpEntity)
 
-        For Each c In DirectoryInfo.GetFiles(Path)
-
+        For Each c In New DirectoryInfo(Path).GetFiles()
             lst.Add(
-                c.
+                New BackUpEntity() With {
+                    .Name = c.Name,
+                    .Reg = c.CreationTimeUtc,
+                    .Location = c.DirectoryName
+                }
             )
         Next
 
         Return lst
     End Function
+
+    Public Sub Restore()
+        Using db As New CodeFirst
+
+        End Using
+    End Sub
 
 End Module

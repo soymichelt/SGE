@@ -36,6 +36,7 @@ Partial Class frmBackup
         Me.txtPath = New MaterialSkin.Controls.MaterialSingleLineTextField()
         Me.MaterialLabel1 = New MaterialSkin.Controls.MaterialLabel()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
+        Me.btActualizar = New MaterialSkin.Controls.MaterialFlatButton()
         Me.dtRegistro = New DevComponents.DotNetBar.Controls.DataGridViewX()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.fdbExplorador = New System.Windows.Forms.FolderBrowserDialog()
@@ -163,6 +164,7 @@ Partial Class frmBackup
         '
         'TabPage2
         '
+        Me.TabPage2.Controls.Add(Me.btActualizar)
         Me.TabPage2.Controls.Add(Me.dtRegistro)
         Me.TabPage2.Location = New System.Drawing.Point(4, 23)
         Me.TabPage2.Name = "TabPage2"
@@ -171,6 +173,21 @@ Partial Class frmBackup
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Puntos de Restauración"
         Me.TabPage2.UseVisualStyleBackColor = True
+        '
+        'btActualizar
+        '
+        Me.btActualizar.AutoSize = True
+        Me.btActualizar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.btActualizar.Depth = 0
+        Me.btActualizar.Location = New System.Drawing.Point(248, 12)
+        Me.btActualizar.Margin = New System.Windows.Forms.Padding(4, 6, 4, 6)
+        Me.btActualizar.MouseState = MaterialSkin.MouseState.HOVER
+        Me.btActualizar.Name = "btActualizar"
+        Me.btActualizar.Primary = False
+        Me.btActualizar.Size = New System.Drawing.Size(277, 36)
+        Me.btActualizar.TabIndex = 5
+        Me.btActualizar.Text = "Actualizar Listado de Recuperación"
+        Me.btActualizar.UseVisualStyleBackColor = True
         '
         'dtRegistro
         '
@@ -184,9 +201,10 @@ Partial Class frmBackup
         DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
         Me.dtRegistro.DefaultCellStyle = DataGridViewCellStyle1
         Me.dtRegistro.GridColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(215, Byte), Integer), CType(CType(229, Byte), Integer))
-        Me.dtRegistro.Location = New System.Drawing.Point(16, 20)
+        Me.dtRegistro.Location = New System.Drawing.Point(16, 57)
         Me.dtRegistro.Name = "dtRegistro"
-        Me.dtRegistro.Size = New System.Drawing.Size(509, 274)
+        Me.dtRegistro.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.dtRegistro.Size = New System.Drawing.Size(509, 215)
         Me.dtRegistro.TabIndex = 0
         '
         'Panel2
@@ -219,6 +237,7 @@ Partial Class frmBackup
         Me.TabPage1.ResumeLayout(False)
         Me.TabPage1.PerformLayout()
         Me.TabPage2.ResumeLayout(False)
+        Me.TabPage2.PerformLayout()
         CType(Me.dtRegistro, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
@@ -236,4 +255,5 @@ Partial Class frmBackup
     Friend WithEvents fdbExplorador As System.Windows.Forms.FolderBrowserDialog
     Friend WithEvents btCrearRespaldo As MaterialSkin.Controls.MaterialRaisedButton
     Friend WithEvents btCancelar As MaterialSkin.Controls.MaterialFlatButton
+    Friend WithEvents btActualizar As MaterialSkin.Controls.MaterialFlatButton
 End Class
