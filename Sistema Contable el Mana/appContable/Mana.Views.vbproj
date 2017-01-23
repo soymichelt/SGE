@@ -328,6 +328,12 @@
     <Compile Include="Views\EntriesAccounting\frmEntriesAccountingList.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Views\Sistema\frmRestore.Designer.vb">
+      <DependentUpon>frmRestore.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Sistema\frmRestore.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Views\StatementIncome\EstadoResultados\frmEstadoResultadoRestaurante.Designer.vb">
       <DependentUpon>frmEstadoResultadoRestaurante.vb</DependentUpon>
     </Compile>
@@ -549,6 +555,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\EntriesAccounting\frmEntriesAccountingList.resx">
       <DependentUpon>frmEntriesAccountingList.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Sistema\frmRestore.resx">
+      <DependentUpon>frmRestore.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\StatementIncome\EstadoResultados\frmEstadoResultadoRestaurante.resx">
       <DependentUpon>frmEstadoResultadoRestaurante.vb</DependentUpon>

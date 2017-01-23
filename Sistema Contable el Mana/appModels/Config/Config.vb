@@ -24,7 +24,7 @@
     ''' Nombre de la Instancia SQL encapsulada
     ''' </summary>
     ''' <remarks></remarks>
-    Private pInitialCatalog As String = "dbContable_10-10-2016"
+    Private pInitialCatalog As String = "dbContable_23-01-2017"
     ''' <summary>
     ''' Nombre de la Instancia SQL
     ''' </summary>

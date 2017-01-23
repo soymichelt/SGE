@@ -16,7 +16,7 @@ Public Class frmBackup
 
     End Sub
 
-    Private Sub frmBackup_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Sub RestoreList()
         Try
             dtRegistro.DataSource = BackUp.List()
             If dtRegistro.ColumnCount > 0 Then
@@ -31,6 +31,9 @@ Public Class frmBackup
         Catch ex As Exception
             Config.MsgErr(ex.Message)
         End Try
+    End Sub
+
+    Private Sub frmBackup_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
             txtPath.Text = BackUp.Path()
             If txtPath.Text.Trim <> "" Then
@@ -39,6 +42,7 @@ Public Class frmBackup
         Catch ex As Exception
             Config.MsgErr(ex.Message)
         End Try
+        Me.RestoreList()
     End Sub
 
     Private Sub btExaminar_Click(sender As Object, e As EventArgs) Handles btExaminar.Click
@@ -68,19 +72,21 @@ Public Class frmBackup
         Try
             BackUp.BackUpCreate(BackUp.Path())
             Config.MsgInfo("Respaldo creado satisfactoriamente.")
+            Me.RestoreList()
         Catch ex As Exception
             Config.MsgErr(ex.Message)
         End Try
     End Sub
 
     Private Sub btActualizar_Click(sender As Object, e As EventArgs) Handles btActualizar.Click
-
+        Me.RestoreList()
     End Sub
 
-    Private Sub dtRegistro_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles dtRegistro.CellDoubleClick
+    Private Async Sub dtRegistro_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles dtRegistro.CellDoubleClick
         Try
-            If dtRegistro.SelectedRows.Count > 1 Then
-
+            If dtRegistro.SelectedRows.Count > 0 Then
+                frmRestore.txtQuery.Text = Await BackUp.Restore(dtRegistro.SelectedRows(0).Cells(1).Value.ToString())
+                Config.OnLoadForm(frmRestore)
             End If
         Catch ex As Exception
             Config.MsgErr(ex.Message)

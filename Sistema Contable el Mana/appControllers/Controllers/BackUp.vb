@@ -60,7 +60,18 @@ Public Module BackUp
                 If Not Directory.Exists(Path) Then
                     Throw New Exception("No se encuentra el Directorio '" & Path & "' o esta inaccesible.")
                 End If
+
+                'se crea el archivo
                 Dim file As New StreamWriter(Path & "\" & Guid.NewGuid.ToString() & ".sce")
+
+                'Script para inicializar la base de datos
+                file.WriteLine("----Reset Database----")
+                file.WriteLine("DELETE FROM UserAccount GO")
+                file.WriteLine("DELETE FROM Cuenta GO")
+                file.WriteLine("DELETE FROM ComprobanteDiario GO")
+                file.WriteLine("DELETE FROM ComprobanteDiarioDetalle GO")
+                file.WriteLine()
+
                 file.WriteLine("----UsersAccounts----")
                 For Each c In db.UsersAccounts
                     file.WriteLine("INSERT INTO UserAccount (" + _
@@ -127,6 +138,9 @@ Public Module BackUp
                                    c.N.ToString() + "," + _
                                    "'" + c.Reg.ToString("yyyy/MM/dd HH:mm:ss") + "'," + _
                                    "'" + c.FMod.ToString("yyyy/MM/dd HH:mm:ss") + "'," + _
+                                   c.Nivel.ToString() + "," + _
+                                   "'" + c.IDCuentaGrupo.ToString() + "'," + _
+                                   "'" + c.CodigoSuperior + "'," + _
                                    "'" + c.IdGrupo.ToString() + "', " + _
                                    "'" + c.Grupo + "', " + _
                                    "'" + c.IdSubGrupo.ToString() + "', " + _
@@ -277,6 +291,7 @@ Public Module BackUp
 
                 file.Flush()
                 file.Close()
+                file.Dispose()
 
             End Using
         Catch ex As Exception
@@ -291,19 +306,21 @@ Public Module BackUp
             lst.Add(
                 New BackUpEntity() With {
                     .Name = c.Name,
-                    .Reg = c.CreationTimeUtc,
+                    .Reg = c.CreationTime,
                     .Location = c.DirectoryName
                 }
             )
         Next
 
-        Return lst
+        Return lst.OrderByDescending(Function(f) f.Reg).ToList
     End Function
 
-    Public Sub Restore()
-        Using db As New CodeFirst
-
+    Public Async Function Restore(ByVal FileName As String) As Task(Of String)
+        'BackUpCreate(Path)
+        'Process.Start(Path() & "\" & FileName)
+        Using f As New StreamReader(Path() & "\" & FileName)
+            Return Await f.ReadToEndAsync()
         End Using
-    End Sub
+    End Function
 
 End Module

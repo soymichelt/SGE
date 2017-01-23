@@ -191,6 +191,8 @@ Partial Class frmBackup
         '
         'dtRegistro
         '
+        Me.dtRegistro.AllowUserToAddRows = False
+        Me.dtRegistro.AllowUserToDeleteRows = False
         Me.dtRegistro.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window
@@ -200,10 +202,12 @@ Partial Class frmBackup
         DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ControlText
         DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
         Me.dtRegistro.DefaultCellStyle = DataGridViewCellStyle1
+        Me.dtRegistro.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically
         Me.dtRegistro.GridColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(215, Byte), Integer), CType(CType(229, Byte), Integer))
         Me.dtRegistro.Location = New System.Drawing.Point(16, 57)
         Me.dtRegistro.Name = "dtRegistro"
         Me.dtRegistro.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.dtRegistro.ShowEditingIcon = False
         Me.dtRegistro.Size = New System.Drawing.Size(509, 215)
         Me.dtRegistro.TabIndex = 0
         '
