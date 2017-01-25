@@ -6,8 +6,8 @@ Friend Class SecurityCryptography
     'Public Shared UTF8 As UTF8Encoding
     Private Shared Converter As New UnicodeEncoding
 
-    Private Shared KeyPublic As String = "<RSAKeyValue><Modulus>ttY+aX9GRyQ64/nX4nKrdq2gtm+bR6gXokKmpUzVxqNgM7wG3APQKyceXQKb9v4FkC4tNsvj8UhzoIULG5/iiWGVsBV9Yl63u5rm/epMxHLpEc5Z/8ALnwUgWS5d9pnLzMbjoptAho6g7D98RMxrti1HvJ+HitfSLHQUh3sYH8M=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue>"
-    Private Shared KeyPrivate As String = "<RSAKeyValue><Modulus>ttY+aX9GRyQ64/nX4nKrdq2gtm+bR6gXokKmpUzVxqNgM7wG3APQKyceXQKb9v4FkC4tNsvj8UhzoIULG5/iiWGVsBV9Yl63u5rm/epMxHLpEc5Z/8ALnwUgWS5d9pnLzMbjoptAho6g7D98RMxrti1HvJ+HitfSLHQUh3sYH8M=</Modulus><Exponent>AQAB</Exponent><P>84uIbWIhgXAmKoSLm15cGrXl3yrwuZmUc7VhCWe7Kz5dSFz+N+i6FH4b54JTTFZAnRfiL7rHlBv8DaWiN0neUQ==</P><Q>wC/tAUx3vHEYISvdcft1WaV2eyzxB44hvTiOG0mAbLQ6n+rsL1abEK1jvAXHoiADeH1HjOnJE3BYRhpGMX/z0w==</Q><DP>6e17dD1Om4qCTlKT2f9vjoRrMMmJAW0AB4gPlb4aLLYxWYFg+YjDu01KNjubEPbEB2BadKf+bUfX+a+/uUVtkQ==</DP><DQ>s7NcWc2FW9cnp8SbP/vO427alRwVl2nn1EUwYwVcJshy1JrWEwFY5sQpsGJ7IvXqKNyDbZgf4qQ2df4VSi2I7w==</DQ><InverseQ>pDKz330t+pVCf5/a3JBMsG5rnjDehuo8oSQWrc6PIdisaG8rg6MkbNdPKakd28axdZW3//DyA7cduUqauuXfYA==</InverseQ><D>nF30eKM6BoPMvcaiRG+PhusNZJlkss7mj4XzIbHprn1xPC2VrDqyoQVOqXseygkL1vg3AQM1CdjN0r2V92UxBpq/5aNdfJPR/M9vPbcNLJZZuZLicKbaYfiAuUFW8YSuL9ImWU5Yqtqna2ChW+ERFieAOLFEL3ZzdViJJpYwU6E=</D></RSAKeyValue>"
+    Private Shared KeyPublic As String = "<RSAKeyValue><Modulus>39wtNPF5X1EwZ6UVj5TzFe1zqKHA0WPrpTnZh9IQU7KT/z4Rgek7sRUVqdAEufX81uEftDepRtlw3yRkmMGCP9tYBwVJRPjTVGZQoVjlRbXCdIpkW4PwTB8rjmUPTu03mZkGzjB0GS88hDrZ8bn9bzNYqHdUxtakJf0wOYMR6X8=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue>"
+    Private Shared KeyPrivate As String = "<RSAKeyValue><Modulus>39wtNPF5X1EwZ6UVj5TzFe1zqKHA0WPrpTnZh9IQU7KT/z4Rgek7sRUVqdAEufX81uEftDepRtlw3yRkmMGCP9tYBwVJRPjTVGZQoVjlRbXCdIpkW4PwTB8rjmUPTu03mZkGzjB0GS88hDrZ8bn9bzNYqHdUxtakJf0wOYMR6X8=</Modulus><Exponent>AQAB</Exponent><P>/G9JYNLaRKZEqfxDxrUeFbB/CwoFnR+V47yDwqRptf04LVfD5JrXvJB1dxKuSYDx8QsrP4AzsRuMdBiN+nHquw==</P><Q>4wWTA84L3jzi6G1t2aRLTpk5u3hC8p9r9xUp7miszBF7Js9kzOvLBi1lvQkyMvnZSVMhYRPwjVuUQwHRwjYaDQ==</Q><DP>nAoyop5T+8GHikf8oVUNzrx2G53LUI/YuJisHeJB0hQ/6I9q8OHiX5YwdjVe9OK3K5gK2MrnqR/tV0piYSCPxw==</DP><DQ>3/BUt/EdZei7j7i6HnFhU7Pz7ghQSdKWhpGa3jDlGxu3Vm5IKZgCmiJX9GPI393zx8+34nHv3RDULFD0H9aMVQ==</DQ><InverseQ>NoCy5SWX+iSKYwLJE1nZ2eq05poSIt/J2oVjD3qiClVeVLVUmISlXdQ1dsLHiJCazbDEdggukXcvGfY0RZ04Nw==</InverseQ><D>ID62xEmEEha/wi4lTOlHmoD5h/DEtWSPLN2IV+gKMgQnDT0DiJLv5jIDTNKJ279zDAChcHQUDgCEIaA8XUSCXitKLXm2xvJKBir/uMf8XV/e5CzzA4fpEamGyLclGrtUyNZi4JPH4KcAF5jBB/q0NqpGZbQpS0JgOcI+o3/RAQE=</D></RSAKeyValue>"
 
     Public Shared Function PasswordEnconding(ByVal ValText As String) As String
         'Using EncripSha1 As New SHA1CryptoServiceProvider
@@ -44,6 +44,11 @@ Friend Class SecurityCryptography
         'Return Encoding.UTF8.GetString(des.CreateDecryptor().TransformFinalBlock(buffer, 0, buffer.Length()))
 
         Using RSA As New RSACryptoServiceProvider
+
+            'Dim publica, privada As String
+            'publica = RSA.ToXmlString(False)
+            'privada = RSA.ToXmlString(True)
+
             RSA.FromXmlString(SecurityCryptography.KeyPrivate)
             Return Converter.GetString(RSA.Decrypt(Convert.FromBase64String(ValText), False))
         End Using
