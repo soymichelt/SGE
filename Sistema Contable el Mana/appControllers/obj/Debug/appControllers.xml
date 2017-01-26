@@ -6,7 +6,17 @@ appControllers
 </name>
 </assembly>
 <members>
-<member name="P:appControllers.My.Resources.Resources.ResourceManager">
+<member name="F:appControllers.KeyModule.KeyPublic">
+	<summary>
+ Clave de Encriptación Pública
+ </summary>
+	<remarks></remarks>
+</member><member name="F:appControllers.KeyModule.KeyPrivate">
+	<summary>
+ Clave de Encriptación Privada
+ </summary>
+	<remarks></remarks>
+</member><member name="P:appControllers.My.Resources.Resources.ResourceManager">
 	<summary>
   Returns the cached ResourceManager instance used by this class.
 </summary>
