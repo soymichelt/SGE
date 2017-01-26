@@ -18,7 +18,7 @@ Public Module AccountSecurity
             User.IDUser = Guid.NewGuid
             User.Reg = DateTime.Now
             User.FMod = DateTime.Now
-            User.UserPass = SecurityCryptography.PasswordEnconding(User.UserPass)
+            User.UserPass = SecurityCryptography.Encoding(User.UserPass)
             User.Activo = True
 
             db.UsersAccounts.Add(User)
@@ -51,7 +51,7 @@ Public Module AccountSecurity
                 _UserAccount.SurnName = User.SurnName
                 _UserAccount.UserName = User.UserName
                 If User.UserPass <> "" Then
-                    _UserAccount.UserPass = SecurityCryptography.PasswordEnconding(User.UserPass)
+                    _UserAccount.UserPass = SecurityCryptography.Encoding(User.UserPass)
                 End If
 
                 db.Entry(_UserAccount).State = Entity.EntityState.Modified
@@ -93,7 +93,7 @@ Public Module AccountSecurity
         Using db As New CodeFirst
             Dim User = db.UsersAccounts.Where(Function(f) f.UserName = UserName And f.Activo).FirstOrDefault
             If Not User Is Nothing Then
-                Dim _UserPass = SecurityCryptography.PasswordDecoding(User.UserPass)
+                Dim _UserPass = SecurityCryptography.Decoding(User.UserPass)
                 If _UserPass = UserPass Then
                     Return User
                 Else
@@ -112,8 +112,8 @@ Public Module AccountSecurity
         Using db As New CodeFirst
             Dim User = db.UsersAccounts.Where(Function(f) f.IDUser = IDUser And f.Activo).FirstOrDefault
             If Not User Is Nothing Then
-                If SecurityCryptography.PasswordDecoding(User.UserPass) = UserPass Then
-                    User.UserPass = SecurityCryptography.PasswordEnconding(UserPassNew)
+                If SecurityCryptography.Decoding(User.UserPass) = UserPass Then
+                    User.UserPass = SecurityCryptography.Encoding(UserPassNew)
                     db.Entry(User).State = Entity.EntityState.Modified
                     db.SaveChanges()
                 Else
@@ -135,7 +135,7 @@ Public Module AccountSecurity
                 User.Name = "MICHEL ROBERTO"
                 User.SurnName = "TRAÑA TABLADA"
                 User.UserName = "admin"
-                User.UserPass = SecurityCryptography.PasswordEnconding("admin*123")
+                User.UserPass = SecurityCryptography.Encoding("admin*123")
                 User.Activo = True
 
                 db.UsersAccounts.Add(User)

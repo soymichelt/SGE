@@ -24,7 +24,7 @@
     ''' Nombre de la Instancia SQL encapsulada
     ''' </summary>
     ''' <remarks></remarks>
-    Private pInitialCatalog As String = "dbContable_25-01-2017"
+    Private pInitialCatalog As String = "dbContable_26-01-2017"
     ''' <summary>
     ''' Nombre de la Instancia SQL
     ''' </summary>
@@ -79,6 +79,5 @@
             pSQLUserPass = value
         End Set
     End Property
-
     
 End Module
