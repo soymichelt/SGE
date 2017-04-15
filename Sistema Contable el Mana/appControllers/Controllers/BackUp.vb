@@ -23,7 +23,7 @@ Public Module BackUp
                 Throw New Exception("El Directorio, '" & NewPath & "', especificado no existe o está inaccesible.")
             End If
 
-            Using lector As New StreamWriter(My.Application.Info.DirectoryPath & "\" & Config.FilePathBackUp, append:=False)
+            Using lector As New StreamWriter(My.Application.Info.DirectoryPath & "\" & Configuracion.FilePathBackUp, append:=False)
                 'lector.Write(SecurityCryptography.PasswordEnconding(NewPath))
                 lector.Write(NewPath)
                 lector.Flush()
@@ -35,8 +35,8 @@ Public Module BackUp
     End Sub
 
     Public Function Path() As String
-        If File.Exists(My.Application.Info.DirectoryPath & "\" & Config.FilePathBackUp) Then
-            Using lector As New StreamReader(My.Application.Info.DirectoryPath & "\" & Config.FilePathBackUp)
+        If File.Exists(My.Application.Info.DirectoryPath & "\" & Configuracion.FilePathBackUp) Then
+            Using lector As New StreamReader(My.Application.Info.DirectoryPath & "\" & Configuracion.FilePathBackUp)
                 Try
                     'Dim folder = SecurityCryptography.PasswordDecoding(lector.ReadLine())
                     Dim folder = lector.ReadLine()
@@ -66,17 +66,20 @@ Public Module BackUp
 
                 'Script para inicializar la base de datos
                 file.WriteLine("----Reset Database----")
-                file.WriteLine("DELETE FROM UserAccount GO")
-                file.WriteLine("DELETE FROM Cuenta GO")
-                file.WriteLine("DELETE FROM ComprobanteDiario GO")
-                file.WriteLine("DELETE FROM ComprobanteDiarioDetalle GO")
+                file.WriteLine("DELETE FROM UserAccount")
+                file.WriteLine("GO")
+                file.WriteLine("DELETE FROM Cuenta")
+                file.WriteLine("GO")
+                file.WriteLine("DELETE FROM ComprobanteDiario")
+                file.WriteLine("GO")
+                file.WriteLine("DELETE FROM ComprobanteDiarioDetalle")
+                file.WriteLine("GO")
                 file.WriteLine()
 
                 file.WriteLine("----UsersAccounts----")
-                For Each c In db.UsersAccounts
+                For Each c In db.UsersAccounts.OrderBy(Function(f) f.N)
                     file.WriteLine("INSERT INTO UserAccount (" + _
                                    "IDUser, " + _
-                                   "N, " + _
                                    "Reg, " + _
                                    "FMod, " + _
                                    "Name, " + _
@@ -86,7 +89,6 @@ Public Module BackUp
                                    "Activo " + _
                                    ") VALUES ( " + _
                                    "'" + c.IDUser.ToString() + "', " + _
-                                   c.N.ToString() + "," + _
                                    "'" + c.Reg.ToString("yyyy/MM/dd HH:mm:ss") + "'," + _
                                    "'" + c.FMod.ToString("yyyy/MM/dd HH:mm:ss") + "'," + _
                                    "'" + c.Name + "', " + _
@@ -96,14 +98,14 @@ Public Module BackUp
                                    If(c.Activo, "1", "0") + _
                                    ")" _
                     )
+                    file.WriteLine("GO")
                 Next
                 file.WriteLine()
                 file.WriteLine("----Cuenta----")
-                For Each c In db.Cuentas
+                For Each c In db.Cuentas.OrderBy(Function(f) f.N)
 
                     file.WriteLine("INSERT INTO Cuenta (" + _
                                    "IDCuenta, " + _
-                                   "N, " + _
                                    "Reg, " + _
                                    "FMod, " + _
                                    "Nivel, " + _
@@ -135,23 +137,22 @@ Public Module BackUp
                                    "Activo " + _
                                    ") VALUES ( " + _
                                    "'" + c.IDCuenta.ToString() + "', " + _
-                                   c.N.ToString() + "," + _
                                    "'" + c.Reg.ToString("yyyy/MM/dd HH:mm:ss") + "'," + _
                                    "'" + c.FMod.ToString("yyyy/MM/dd HH:mm:ss") + "'," + _
                                    c.Nivel.ToString() + "," + _
-                                   "'" + c.IDCuentaGrupo.ToString() + "'," + _
+                                   If(c.IDCuentaGrupo Is Nothing, "NULL", "'" + c.IDCuentaGrupo.ToString() + "'") + "," + _
                                    "'" + c.CodigoSuperior + "'," + _
-                                   "'" + c.IdGrupo.ToString() + "', " + _
+                                   If(c.IdGrupo Is Nothing, "NULL", "'" + c.IdGrupo.ToString() + "'") + ", " + _
                                    "'" + c.Grupo + "', " + _
-                                   "'" + c.IdSubGrupo.ToString() + "', " + _
+                                   If(c.IdSubGrupo Is Nothing, "NULL", "'" + c.IdSubGrupo.ToString() + "'") + ", " + _
                                    "'" + c.SubGrupo + "', " + _
-                                   "'" + c.IdMayor.ToString() + "', " + _
+                                   If(c.IdMayor Is Nothing, "NULL", "'" + c.IdMayor.ToString() + "'") + ", " + _
                                    "'" + c.Mayor + "', " + _
-                                   "'" + c.IdSubMayor.ToString() + "', " + _
+                                   If(c.IdSubMayor Is Nothing, "NULL", "'" + c.IdSubMayor.ToString() + "'") + ", " + _
                                    "'" + c.SubMayor + "', " + _
-                                   "'" + c.IdSubSubMayor.ToString() + "', " + _
+                                   If(c.IdSubSubMayor Is Nothing, "NULL", "'" + c.IdSubSubMayor.ToString() + "'") + ", " + _
                                    "'" + c.SubSubMayor + "', " + _
-                                   "'" + c.IdUltimoNivel.ToString() + "', " + _
+                                   If(c.IdUltimoNivel Is Nothing, "NULL", "'" + c.IdUltimoNivel.ToString() + "'") + ", " + _
                                    "'" + c.UltimoNivel + "', " + _
                                    "'" + c.Descripcion + "', " + _
                                    If(c.Naturaleza, "1", "0") + ", " + _
@@ -167,16 +168,16 @@ Public Module BackUp
                                    If(c.Activo, "1", "0") + _
                                    ")" _
                     )
+                    file.WriteLine("GO")
                 Next
 
                 file.WriteLine()
                 file.WriteLine("----ComprobanteDiario----")
-                For Each c In db.ComprobantesDiarios
+                For Each c In db.ComprobantesDiarios.OrderBy(Function(f) f.N)
 
 
                     file.WriteLine("INSERT INTO ComprobanteDiario (" + _
                                    "IDComprobante, " + _
-                                   "N, " + _
                                    "Reg, " + _
                                    "FMod, " + _
                                    "Fecha, " + _
@@ -187,7 +188,6 @@ Public Module BackUp
                                    "Activo " + _
                                    ") VALUES ( " + _
                                    "'" + c.IDComprobante.ToString() + "', " + _
-                                   c.N.ToString() + "," + _
                                    "'" + c.Reg.ToString("yyyy/MM/dd HH:mm:ss") + "'," + _
                                    "'" + c.FMod.ToString("yyyy/MM/dd HH:mm:ss") + "'," + _
                                    "'" + c.Fecha.ToString("yyyy/MM/dd HH:mm:ss") + "'," + _
@@ -198,16 +198,16 @@ Public Module BackUp
                                    If(c.Activo, "1", "0") + _
                                    ")" _
                     )
+                    file.WriteLine("GO")
                 Next
 
                 file.WriteLine()
                 file.WriteLine("----ComprobanteDiarioDetalle----")
-                For Each c In db.ComprobantesDiariosDetalles
+                For Each c In db.ComprobantesDiariosDetalles.OrderBy(Function(f) f.N)
 
 
                     file.WriteLine("INSERT INTO ComprobanteDiarioDetalle (" + _
                                    "IDDetalle, " + _
-                                   "N, " + _
                                    "Reg, " + _
                                    "FMod, " + _
                                    "IDCuenta, " + _
@@ -248,7 +248,6 @@ Public Module BackUp
                                    "SaldoUltimoNivel " + _
                                    ") VALUES ( " + _
                                    "'" + c.IDComprobante.ToString() + "', " + _
-                                   c.N.ToString() + "," + _
                                    "'" + c.Reg.ToString("yyyy/MM/dd HH:mm:ss") + "'," + _
                                    "'" + c.FMod.ToString("yyyy/MM/dd HH:mm:ss") + "'," + _
                                    c.Deber.ToString() + ", " + _
@@ -287,6 +286,8 @@ Public Module BackUp
                                    c.SaldoUltimoNivel.ToString() + _
                                    ")" _
                     )
+
+                    file.WriteLine("GO")
                 Next
 
                 file.Flush()

@@ -1,1 +1,1 @@
-C:\Users\Administrator\Google Drive\Respaldos Pruebas SGE
+D:\GitHub\SGE\Sistema Contable el Mana\appContable\bin\Debug\SCE Backup

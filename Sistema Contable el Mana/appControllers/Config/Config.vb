@@ -1,5 +1,4 @@
-﻿Module Config
-    Public FilePathBackUp As String = "ConfigBackup.sce"
+﻿Public Module Config
 
     Public Nivel As Short = 6
 

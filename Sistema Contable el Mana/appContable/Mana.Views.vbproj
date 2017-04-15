@@ -49,6 +49,10 @@
     <ApplicationIcon>Resources\Icono\Icono.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AxInterop.AcroPDFLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\AxInterop.AcroPDFLib.dll</HintPath>
+    </Reference>
     <Reference Include="ComponentFactory.Krypton.Design, Version=4.4.0.0, Culture=neutral, PublicKeyToken=dc91bbef911870e2, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\Debug\ComponentFactory.Krypton.Design.dll</HintPath>
@@ -298,12 +302,6 @@
     <Compile Include="Views\Account\frmTargetAuxiliar.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Sistema\frmHelp.Designer.vb">
-      <DependentUpon>frmHelp.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Sistema\frmHelp.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Views\Sistema\frmBackup.Designer.vb">
       <DependentUpon>frmBackup.vb</DependentUpon>
     </Compile>
@@ -326,6 +324,12 @@
       <DependentUpon>frmEntriesAccountingList.vb</DependentUpon>
     </Compile>
     <Compile Include="Views\EntriesAccounting\frmEntriesAccountingList.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Sistema\frmHelp.Designer.vb">
+      <DependentUpon>frmHelp.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Sistema\frmHelp.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Views\Sistema\frmRestore.Designer.vb">
@@ -541,9 +545,6 @@
     <EmbeddedResource Include="Views\Account\frmTargetAuxiliar.resx">
       <DependentUpon>frmTargetAuxiliar.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Sistema\frmHelp.resx">
-      <DependentUpon>frmHelp.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Views\Sistema\frmBackup.resx">
       <DependentUpon>frmBackup.vb</DependentUpon>
     </EmbeddedResource>
@@ -555,6 +556,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\EntriesAccounting\frmEntriesAccountingList.resx">
       <DependentUpon>frmEntriesAccountingList.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Sistema\frmHelp.resx">
+      <DependentUpon>frmHelp.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Sistema\frmRestore.resx">
       <DependentUpon>frmRestore.vb</DependentUpon>
@@ -733,25 +737,6 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
-  </ItemGroup>
-  <ItemGroup>
-    <COMReference Include="AcroPDFLib">
-      <Guid>{05BFD3F1-6319-4F30-B752-C7A22889BCC4}</Guid>
-      <VersionMajor>1</VersionMajor>
-      <VersionMinor>0</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>tlbimp</WrapperTool>
-      <Isolated>False</Isolated>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-    </COMReference>
-    <COMReference Include="AxAcroPDFLib">
-      <Guid>{05BFD3F1-6319-4F30-B752-C7A22889BCC4}</Guid>
-      <VersionMajor>1</VersionMajor>
-      <VersionMinor>0</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>aximp</WrapperTool>
-      <Isolated>False</Isolated>
-    </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

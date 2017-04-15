@@ -4,7 +4,7 @@
     ''' Nombre del Servidor Encapsulado
     ''' </summary>
     ''' <remarks></remarks>
-    Private pSQLServerName As String = ".\unanfaremch"
+    Private pSQLServerName As String = ".\SQLEXPRESS"
     ''' <summary>
     ''' Nombre del Servidor
     ''' </summary>
@@ -24,7 +24,7 @@
     ''' Nombre de la Instancia SQL encapsulada
     ''' </summary>
     ''' <remarks></remarks>
-    Private pInitialCatalog As String = "dbContable_26-01-2017"
+    Private pInitialCatalog As String = "dbContable_10-10-2016"
     ''' <summary>
     ''' Nombre de la Instancia SQL
     ''' </summary>

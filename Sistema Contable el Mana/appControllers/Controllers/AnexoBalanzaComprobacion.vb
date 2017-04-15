@@ -145,6 +145,7 @@ Public Module AnexoBalanzaComprobacion
 
 
                 'se agrega a la lista
+
                 lst.Add(i)
             Next
         End Using
@@ -248,7 +249,9 @@ Public Module AnexoBalanzaComprobacion
     End Function
 
     Public Function Balanza3(ByVal Inicio As DateTime, ByVal Final As DateTime) As List(Of entBalanzaComprobacion)
+
         AnexoBalanzaComprobacion.lst = New List(Of entBalanzaComprobacion)
+
         If Inicio < Config.FechaInicio Or Final < Config.FechaInicio Then
             Throw New Exception("Las Fechas deben ser mayor que '" & Config.FechaInicio.ToShortDateString() & "'")
         End If

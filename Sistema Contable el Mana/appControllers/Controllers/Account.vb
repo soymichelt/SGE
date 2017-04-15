@@ -377,7 +377,8 @@ Public Module Account
                 If c.Nivel = 1 Then
                     Throw New Exception("Las cuentas de Nivel 1 no se pueden editar ni eliminar")
                 End If
-                If c.Nivel < Config.Nivel Then
+
+                If c.Nivel < Configuracion.Nivel Then
                     If db.Cuentas.Where(Function(f) f.IDCuentaGrupo = c.IDCuenta And f.Activo).Count > 0 Then
                         Throw New Exception("Esta Cuenta es un grupo y tiene otras cuentas asociadas. Para poder realizar esta operación necesita remover primero las descendencia.")
                     End If

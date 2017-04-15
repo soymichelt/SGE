@@ -40,6 +40,9 @@ Namespace My
                     End If
                     appControllers.AccountSecurity.UserDefault()
                 End Using
+
+
+                'appControllers.Config.Nivel = 6
             Catch ex As Exception
                 Config.MsgErr(ex.Message)
 

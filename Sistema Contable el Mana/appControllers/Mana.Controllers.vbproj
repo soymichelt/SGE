@@ -79,7 +79,8 @@
   <ItemGroup>
     <Compile Include="App_Class\SecurityCryptography.vb" />
     <Compile Include="App_Class\Validate.vb" />
-    <Compile Include="Config.vb" />
+    <Compile Include="Config\Config.vb" />
+    <Compile Include="Config\Configuracion.vb" />
     <Compile Include="Controllers\Account.vb" />
     <Compile Include="Controllers\AccountSecurity.vb" />
     <Compile Include="Controllers\AnexoBalanzaComprobacion.vb" />
