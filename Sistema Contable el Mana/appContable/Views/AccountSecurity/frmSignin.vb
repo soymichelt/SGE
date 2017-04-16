@@ -71,7 +71,10 @@ Public Class frmSignin
     End Sub
 
     Private Sub frmSignin_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
         Try
+
+
             Dim prcs = Process.GetProcessesByName(Process.GetCurrentProcess().ProcessName)
             If prcs.Length > 1 Then
                 'Process.GetCurrentProcess.CloseMainWindow()

@@ -33,6 +33,18 @@ Namespace My
         <Global.System.Diagnostics.DebuggerStepThroughAttribute()> _
         Protected Overrides Sub OnCreateMainForm()
             Try
+                Dim prcNum As Integer = Process.GetProcessesByName("appContable").Count
+                If prcNum > 1 Then
+
+                    MessageBox.Show("N° Procesos:" & prcNum)
+
+                    'Process.GetCurrentProcess.CloseMainWindow()
+
+                    Process.GetProcessById(Process.GetCurrentProcess.Id).Kill()
+
+                End If
+
+
                 Using db As New appModels.CodeFirst
                     If Not db.Database.Exists() Then
                         Config.MsgErr("No se encuentra la base de datos del sistema. Puede esperar un momento e intentar nuevamente. Si el problema persiste comuníquese con el Administrador de SCE." & vbNewLine & "Att:" & vbNewLine & vbTab & "Administrador del Sistema")
@@ -44,11 +56,15 @@ Namespace My
 
                 'appControllers.Config.Nivel = 6
             Catch ex As Exception
+
                 Config.MsgErr(ex.Message)
 
                 Config.ExitApplication()
+
             End Try
+
             Me.MainForm = Global.appContable.frmSignin
+
         End Sub
 
         Public Property _MainForm As Form
