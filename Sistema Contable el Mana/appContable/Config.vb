@@ -98,5 +98,18 @@
         End If
     End Function
 
+    Public Sub LoadState(Optional ByVal Msg As String = "Cargando...")
+        With frmPrincipal
+            .lblEstado.ForeColor = Color.DarkRed
+            .lblEstado.Text = "Estado: " & Msg
+        End With
+    End Sub
+
+    Public Sub EndState()
+        With frmPrincipal
+            .lblEstado.ForeColor = Color.Black
+            .lblEstado.Text = "Estado: Todo listo"
+        End With
+    End Sub
 
 End Module

@@ -247,9 +247,11 @@ Public Module BackUp
                                    "HaberUltimoNivel, " + _
                                    "SaldoUltimoNivel " + _
                                    ") VALUES ( " + _
-                                   "'" + c.IDComprobante.ToString() + "', " + _
+                                   "'" + c.IDDetalle.ToString() + "', " + _
                                    "'" + c.Reg.ToString("yyyy/MM/dd HH:mm:ss") + "'," + _
                                    "'" + c.FMod.ToString("yyyy/MM/dd HH:mm:ss") + "'," + _
+                                   "'" + c.IDCuenta.ToString() + "', " + _
+                                   "'" + c.IDComprobante.ToString() + "', " + _
                                    c.Deber.ToString() + ", " + _
                                    c.Haber.ToString() + ", " + _
                                    c.Saldo.ToString() + ", " + _

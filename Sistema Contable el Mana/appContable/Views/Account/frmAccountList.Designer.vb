@@ -26,8 +26,6 @@ Partial Class frmAccountList
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmAccountList))
         Me.Menu = New System.Windows.Forms.ToolStrip()
-        Me.btNuevo = New System.Windows.Forms.ToolStripButton()
-        Me.btGuardar = New System.Windows.Forms.ToolStripButton()
         Me.btEditar = New System.Windows.Forms.ToolStripButton()
         Me.btEliminar = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
@@ -59,32 +57,13 @@ Partial Class frmAccountList
         '
         Me.Menu.BackColor = System.Drawing.Color.White
         Me.Menu.Font = New System.Drawing.Font("Arial", 8.25!)
-        Me.Menu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.btNuevo, Me.btGuardar, Me.btEditar, Me.btEliminar, Me.ToolStripSeparator1, Me.btBuscar})
+        Me.Menu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.btEditar, Me.btEliminar, Me.ToolStripSeparator1, Me.btBuscar})
         Me.Menu.Location = New System.Drawing.Point(0, 0)
         Me.Menu.Name = "Menu"
         Me.Menu.Size = New System.Drawing.Size(967, 39)
         Me.Menu.TabIndex = 2
         Me.Menu.Text = "ToolStrip1"
-        '
-        'btNuevo
-        '
-        Me.btNuevo.ForeColor = System.Drawing.Color.Black
-        Me.btNuevo.Image = Global.appContable.My.Resources.Resources.Nuevo
-        Me.btNuevo.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
-        Me.btNuevo.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.btNuevo.Name = "btNuevo"
-        Me.btNuevo.Size = New System.Drawing.Size(74, 36)
-        Me.btNuevo.Text = "Nuevo"
-        '
-        'btGuardar
-        '
-        Me.btGuardar.ForeColor = System.Drawing.Color.Black
-        Me.btGuardar.Image = Global.appContable.My.Resources.Resources.Guardar
-        Me.btGuardar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
-        Me.btGuardar.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.btGuardar.Name = "btGuardar"
-        Me.btGuardar.Size = New System.Drawing.Size(83, 36)
-        Me.btGuardar.Text = "Guardar"
+        Me.Menu.Visible = False
         '
         'btEditar
         '
@@ -138,7 +117,7 @@ Partial Class frmAccountList
         Me.pnBuscar.Controls.Add(Me.pnBusqueda)
         Me.pnBuscar.Controls.Add(Me.PanelEx2)
         Me.pnBuscar.Dock = System.Windows.Forms.DockStyle.Top
-        Me.pnBuscar.Location = New System.Drawing.Point(0, 39)
+        Me.pnBuscar.Location = New System.Drawing.Point(0, 0)
         Me.pnBuscar.Name = "pnBuscar"
         Me.pnBuscar.Size = New System.Drawing.Size(967, 40)
         Me.pnBuscar.Style.Alignment = System.Drawing.StringAlignment.Center
@@ -292,11 +271,11 @@ Partial Class frmAccountList
         Me.dtRegistro.DefaultCellStyle = DataGridViewCellStyle1
         Me.dtRegistro.Dock = System.Windows.Forms.DockStyle.Fill
         Me.dtRegistro.GridColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(215, Byte), Integer), CType(CType(229, Byte), Integer))
-        Me.dtRegistro.Location = New System.Drawing.Point(0, 79)
+        Me.dtRegistro.Location = New System.Drawing.Point(0, 40)
         Me.dtRegistro.MultiSelect = False
         Me.dtRegistro.Name = "dtRegistro"
         Me.dtRegistro.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dtRegistro.Size = New System.Drawing.Size(967, 314)
+        Me.dtRegistro.Size = New System.Drawing.Size(967, 353)
         Me.dtRegistro.TabIndex = 5
         '
         'frmAccountList
@@ -330,8 +309,6 @@ Partial Class frmAccountList
 
     End Sub
     Friend WithEvents Menu As System.Windows.Forms.ToolStrip
-    Friend WithEvents btNuevo As System.Windows.Forms.ToolStripButton
-    Friend WithEvents btGuardar As System.Windows.Forms.ToolStripButton
     Friend WithEvents btEditar As System.Windows.Forms.ToolStripButton
     Friend WithEvents btEliminar As System.Windows.Forms.ToolStripButton
     Friend WithEvents ToolStripSeparator1 As System.Windows.Forms.ToolStripSeparator

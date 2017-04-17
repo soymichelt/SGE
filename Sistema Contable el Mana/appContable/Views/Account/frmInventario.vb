@@ -7,6 +7,8 @@ Public Class frmInventario
     Dim FormLoad As Boolean = False
 
     Sub List()
+        Config.LoadState("Inventario cargando...")
+
         Try
             Dim consulta = (From c In Inventario.List(If(cmbBuscar.SelectedItem IsNot Nothing, If(cmbBuscar.SelectedItem.ToString().Equals("Código"), txtBuscar.Text, ""), ""), If(cmbBuscar.SelectedItem IsNot Nothing, If(cmbBuscar.SelectedItem.ToString().Equals("Descripción"), txtBuscar.Text, ""), ""))
                                     Select c.IDCuenta, c.Reg, Nivel = If(c.Nivel = 1, "Grupo", If(c.Nivel = 2, "Sub-Grupo", If(c.Nivel = 3, "Mayor", If(c.Nivel = 4, "Sub-Mayor", If(c.Nivel = 5, "Sub-Sub-Mayor", "Ultimo Nivel"))))), Codigo = c.CodigoCompleto, c.Descripcion, DebeSaldo = c.Deber, HaberMes = c.Haber, HaberSaldo = c.Saldo, c.Costo, DebeInicial = c.Entrada, HaberInicial = c.Salida, DebeMes = c.Existencia).ToList
@@ -55,6 +57,8 @@ Public Class frmInventario
             MessageBox.Show("Error: " & ex.Message)
         End Try
         txtItem.Value = dtRegistro.RowCount
+
+        Config.EndState()
     End Sub
 
     Private Sub frmAccountList_Load(sender As Object, e As EventArgs) Handles MyBase.Load

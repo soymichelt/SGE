@@ -30,8 +30,8 @@ Partial Class frmBalanceGeneralHeladeria
         Me.btLimpiar = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
         Me.btBusqueda = New System.Windows.Forms.ToolStripButton()
-        Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.btImprimir = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.KFormManager1 = New Klik.Windows.Forms.v1.Common.KFormManager(Me.components)
         Me.pnBuscar = New DevComponents.DotNetBar.PanelEx()
         Me.PanelEx2 = New DevComponents.DotNetBar.PanelEx()
@@ -105,11 +105,6 @@ Partial Class frmBalanceGeneralHeladeria
         Me.btBusqueda.Text = "Búsqueda Avanzada"
         Me.btBusqueda.Visible = False
         '
-        'ToolStripSeparator1
-        '
-        Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(6, 39)
-        '
         'btImprimir
         '
         Me.btImprimir.AutoToolTip = False
@@ -120,6 +115,11 @@ Partial Class frmBalanceGeneralHeladeria
         Me.btImprimir.Name = "btImprimir"
         Me.btImprimir.Size = New System.Drawing.Size(109, 36)
         Me.btImprimir.Text = "Vista Reporte"
+        '
+        'ToolStripSeparator1
+        '
+        Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(6, 39)
         '
         'KFormManager1
         '

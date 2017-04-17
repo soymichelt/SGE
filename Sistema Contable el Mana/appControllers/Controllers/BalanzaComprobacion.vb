@@ -9,8 +9,8 @@ Public Module BalanzaComprobacion
 
     Public Function Balanza1(ByVal Inicio As DateTime, ByVal Final As DateTime) As List(Of entBalanzaComprobacion)
         BalanzaComprobacion.lst = New List(Of entBalanzaComprobacion)
-        If Inicio < Config.FechaInicio Or Final < Config.FechaInicio Then
-            Throw New Exception("Las Fechas deben ser mayor que '" & Config.FechaInicio.ToShortDateString() & "'")
+        If Inicio < Configuracion.FechaInicio Or Final < Configuracion.FechaInicio Then
+            Throw New Exception("Las Fechas deben ser mayor que '" & Configuracion.FechaInicio.ToShortDateString() & "'")
         End If
 
         Using db As New CodeFirst
@@ -83,8 +83,8 @@ Public Module BalanzaComprobacion
 
     Public Function Balanza2(ByVal Inicio As DateTime, ByVal Final As DateTime) As List(Of entBalanzaComprobacion)
         BalanzaComprobacion.lst = New List(Of entBalanzaComprobacion)
-        If Inicio < Config.FechaInicio Or Final < Config.FechaInicio Then
-            Throw New Exception("Las Fechas deben ser mayor que '" & Config.FechaInicio.ToShortDateString() & "'")
+        If Inicio < Configuracion.FechaInicio Or Final < Configuracion.FechaInicio Then
+            Throw New Exception("Las Fechas deben ser mayor que '" & Configuracion.FechaInicio.ToShortDateString() & "'")
         End If
 
         Using db As New CodeFirst
@@ -157,8 +157,8 @@ Public Module BalanzaComprobacion
 
     Public Function Balanza3(ByVal Inicio As DateTime, ByVal Final As DateTime) As List(Of entBalanzaComprobacion)
         BalanzaComprobacion.lst = New List(Of entBalanzaComprobacion)
-        If Inicio < Config.FechaInicio Or Final < Config.FechaInicio Then
-            Throw New Exception("Las Fechas deben ser mayor que '" & Config.FechaInicio.ToShortDateString() & "'")
+        If Inicio < Configuracion.FechaInicio Or Final < Configuracion.FechaInicio Then
+            Throw New Exception("Las Fechas deben ser mayor que '" & Configuracion.FechaInicio.ToShortDateString() & "'")
         End If
 
         Using db As New CodeFirst

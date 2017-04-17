@@ -16,8 +16,8 @@ Public Module BalanceGeneral
     ''' <remarks></remarks>
     Public Function Balance1(ByVal Inicio As DateTime, ByVal Final As DateTime) As List(Of entBalanceGeneral)
         BalanceGeneral.lst = New List(Of entBalanceGeneral)
-        If Inicio < Config.FechaInicio Or Final < Config.FechaInicio Then
-            Throw New Exception("Las Fechas deben ser mayor que '" & Config.FechaInicio.ToShortDateString() & "'")
+        If Inicio < Configuracion.FechaInicio Or Final < Configuracion.FechaInicio Then
+            Throw New Exception("Las Fechas deben ser mayor que '" & Configuracion.FechaInicio.ToShortDateString() & "'")
         End If
         Dim tAct = 0, tPas = 0, tCap As Decimal = 0
         Dim tActCirc = 0, tActFijo = 0, tActDif = 0, tActOtros As Decimal = 0
@@ -286,8 +286,8 @@ Public Module BalanceGeneral
     ''' <remarks></remarks>
     Public Function Balance2(ByVal Inicio As DateTime, ByVal Final As DateTime) As List(Of entBalanceGeneral)
         BalanceGeneral.lst = New List(Of entBalanceGeneral)
-        If Inicio < Config.FechaInicio Or Final < Config.FechaInicio Then
-            Throw New Exception("Las Fechas deben ser mayor que '" & Config.FechaInicio.ToShortDateString() & "'")
+        If Inicio < Configuracion.FechaInicio Or Final < Configuracion.FechaInicio Then
+            Throw New Exception("Las Fechas deben ser mayor que '" & Configuracion.FechaInicio.ToShortDateString() & "'")
         End If
         Dim tAct = 0, tPas = 0, tCap As Decimal = 0
         Dim tActCirc = 0, tActFijo = 0, tActDif = 0, tActOtros As Decimal = 0
@@ -587,8 +587,8 @@ Public Module BalanceGeneral
     ''' <remarks></remarks>
     Public Function Balance3(ByVal Inicio As DateTime, ByVal Final As DateTime) As List(Of entBalanceGeneral)
         BalanceGeneral.lst = New List(Of entBalanceGeneral)
-        If Inicio < Config.FechaInicio Or Final < Config.FechaInicio Then
-            Throw New Exception("Las Fechas deben ser mayor que '" & Config.FechaInicio.ToShortDateString() & "'")
+        If Inicio < Configuracion.FechaInicio Or Final < Configuracion.FechaInicio Then
+            Throw New Exception("Las Fechas deben ser mayor que '" & Configuracion.FechaInicio.ToShortDateString() & "'")
         End If
         Dim tAct = 0, tPas = 0, tCap As Decimal = 0
         Dim tActCirc = 0, tActFijo = 0, tActDif = 0, tActOtros As Decimal = 0

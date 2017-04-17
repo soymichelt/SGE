@@ -26,8 +26,12 @@ Partial Class frmEstadoResultadoHeladeria
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmEstadoResultadoHeladeria))
         Me.Menu = New System.Windows.Forms.ToolStrip()
+        Me.btBuscar = New System.Windows.Forms.ToolStripButton()
+        Me.btLimpiar = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
+        Me.btBusqueda = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
+        Me.btImprimir = New System.Windows.Forms.ToolStripButton()
         Me.KFormManager1 = New Klik.Windows.Forms.v1.Common.KFormManager(Me.components)
         Me.pnBuscar = New DevComponents.DotNetBar.PanelEx()
         Me.PanelEx2 = New DevComponents.DotNetBar.PanelEx()
@@ -39,10 +43,6 @@ Partial Class frmEstadoResultadoHeladeria
         Me.dtpInicio = New DevComponents.Editors.DateTimeAdv.DateTimeInput()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.dtRegistro = New DevComponents.DotNetBar.Controls.DataGridViewX()
-        Me.btBuscar = New System.Windows.Forms.ToolStripButton()
-        Me.btLimpiar = New System.Windows.Forms.ToolStripButton()
-        Me.btBusqueda = New System.Windows.Forms.ToolStripButton()
-        Me.btImprimir = New System.Windows.Forms.ToolStripButton()
         Me.Menu.SuspendLayout()
         CType(Me.KFormManager1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnBuscar.SuspendLayout()
@@ -65,16 +65,61 @@ Partial Class frmEstadoResultadoHeladeria
         Me.Menu.TabIndex = 5
         Me.Menu.Text = "ToolStrip1"
         '
+        'btBuscar
+        '
+        Me.btBuscar.AutoToolTip = False
+        Me.btBuscar.ForeColor = System.Drawing.Color.Black
+        Me.btBuscar.Image = Global.appContable.My.Resources.Resources.FiltroAplicar
+        Me.btBuscar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
+        Me.btBuscar.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.btBuscar.Name = "btBuscar"
+        Me.btBuscar.Size = New System.Drawing.Size(101, 36)
+        Me.btBuscar.Text = "Filtrar Datos"
+        '
+        'btLimpiar
+        '
+        Me.btLimpiar.AutoToolTip = False
+        Me.btLimpiar.ForeColor = System.Drawing.Color.Black
+        Me.btLimpiar.Image = Global.appContable.My.Resources.Resources.FiltroBorrar
+        Me.btLimpiar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
+        Me.btLimpiar.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.btLimpiar.Name = "btLimpiar"
+        Me.btLimpiar.Size = New System.Drawing.Size(106, 36)
+        Me.btLimpiar.Text = "Borrar Filtros"
+        '
         'ToolStripSeparator2
         '
         Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
         Me.ToolStripSeparator2.Size = New System.Drawing.Size(6, 39)
         Me.ToolStripSeparator2.Visible = False
         '
+        'btBusqueda
+        '
+        Me.btBusqueda.AutoToolTip = False
+        Me.btBusqueda.ForeColor = System.Drawing.Color.Black
+        Me.btBusqueda.Image = Global.appContable.My.Resources.Resources.BusquedaAvanzada
+        Me.btBusqueda.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
+        Me.btBusqueda.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.btBusqueda.Name = "btBusqueda"
+        Me.btBusqueda.Size = New System.Drawing.Size(144, 36)
+        Me.btBusqueda.Text = "Búsqueda Avanzada"
+        Me.btBusqueda.Visible = False
+        '
         'ToolStripSeparator1
         '
         Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
         Me.ToolStripSeparator1.Size = New System.Drawing.Size(6, 39)
+        '
+        'btImprimir
+        '
+        Me.btImprimir.AutoToolTip = False
+        Me.btImprimir.ForeColor = System.Drawing.Color.Black
+        Me.btImprimir.Image = Global.appContable.My.Resources.Resources.imprimir_det
+        Me.btImprimir.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
+        Me.btImprimir.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.btImprimir.Name = "btImprimir"
+        Me.btImprimir.Size = New System.Drawing.Size(109, 36)
+        Me.btImprimir.Text = "Vista Reporte"
         '
         'KFormManager1
         '
@@ -310,51 +355,6 @@ Partial Class frmEstadoResultadoHeladeria
         Me.dtRegistro.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dtRegistro.Size = New System.Drawing.Size(799, 314)
         Me.dtRegistro.TabIndex = 9
-        '
-        'btBuscar
-        '
-        Me.btBuscar.AutoToolTip = False
-        Me.btBuscar.ForeColor = System.Drawing.Color.Black
-        Me.btBuscar.Image = Global.appContable.My.Resources.Resources.FiltroAplicar
-        Me.btBuscar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
-        Me.btBuscar.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.btBuscar.Name = "btBuscar"
-        Me.btBuscar.Size = New System.Drawing.Size(101, 36)
-        Me.btBuscar.Text = "Filtrar Datos"
-        '
-        'btLimpiar
-        '
-        Me.btLimpiar.AutoToolTip = False
-        Me.btLimpiar.ForeColor = System.Drawing.Color.Black
-        Me.btLimpiar.Image = Global.appContable.My.Resources.Resources.FiltroBorrar
-        Me.btLimpiar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
-        Me.btLimpiar.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.btLimpiar.Name = "btLimpiar"
-        Me.btLimpiar.Size = New System.Drawing.Size(106, 36)
-        Me.btLimpiar.Text = "Borrar Filtros"
-        '
-        'btBusqueda
-        '
-        Me.btBusqueda.AutoToolTip = False
-        Me.btBusqueda.ForeColor = System.Drawing.Color.Black
-        Me.btBusqueda.Image = Global.appContable.My.Resources.Resources.BusquedaAvanzada
-        Me.btBusqueda.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
-        Me.btBusqueda.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.btBusqueda.Name = "btBusqueda"
-        Me.btBusqueda.Size = New System.Drawing.Size(144, 36)
-        Me.btBusqueda.Text = "Búsqueda Avanzada"
-        Me.btBusqueda.Visible = False
-        '
-        'btImprimir
-        '
-        Me.btImprimir.AutoToolTip = False
-        Me.btImprimir.ForeColor = System.Drawing.Color.Black
-        Me.btImprimir.Image = Global.appContable.My.Resources.Resources.imprimir_det
-        Me.btImprimir.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
-        Me.btImprimir.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.btImprimir.Name = "btImprimir"
-        Me.btImprimir.Size = New System.Drawing.Size(109, 36)
-        Me.btImprimir.Text = "Vista Reporte"
         '
         'frmEstadoResultadoHeladeria
         '

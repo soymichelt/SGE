@@ -7,6 +7,8 @@ Public Class frmBalanzaHeladeria
 
 
     Sub List()
+        Config.LoadState("Balanza heladeria cargando...")
+
         Try
             dtRegistro.DataSource = (From c In BalanzaComprobacion.Balanza2(dtpInicio.Value.ToShortDateString & " 00:00:00", dtpFinal.Value.ToShortDateString & " 23:59:59") Select c.IdCuenta, c.Reg, c.Nivel, c.CodigoCompleto, c.Descripcion, c.DebeInicial, c.HaberInicial, c.DebeMes, c.HaberMes, c.DebeSaldo, c.HaberSaldo).ToList
             If dtRegistro.ColumnCount > 0 Then
@@ -41,6 +43,8 @@ Public Class frmBalanzaHeladeria
         Catch ex As Exception
             Config.MsgErr(ex.Message)
         End Try
+
+        Config.EndState()
     End Sub
 
     Sub Grid()
@@ -86,7 +90,7 @@ Public Class frmBalanzaHeladeria
         pnFecha.Left = pnBuscar.Width - 243
     End Sub
 
-    Private Sub dtpInicio_ValueChanged(sender As Object, e As EventArgs) Handles dtpInicio.ValueChanged, dtpFinal.ValueChanged
+    Private Sub dtpInicio_ValueChanged(sender As Object, e As EventArgs)
         If Me.FormLoad Then
             Me.List()
         End If

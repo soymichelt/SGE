@@ -5,6 +5,8 @@ Public Class frmAccountList
     Public FrmReturn As Short = 0
     Dim FormLoad As Boolean = False
     Sub List()
+        Config.LoadState("Catálogo de cuentas cargando...")
+
         Try
             dtRegistro.DataSource = (From c In Account.List(If(cmbBuscar.SelectedItem IsNot Nothing, If(cmbBuscar.SelectedItem.ToString().Equals("Código"), txtBuscar.Text, ""), ""), If(cmbBuscar.SelectedItem IsNot Nothing, If(cmbBuscar.SelectedItem.ToString().Equals("Descripción"), txtBuscar.Text, ""), ""))
                                     Select c.IDCuenta, c.Reg, Nivel = If(c.Nivel = 1, "Grupo", If(c.Nivel = 2, "Sub-Grupo", If(c.Nivel = 3, "Mayor", If(c.Nivel = 4, "Sub-Mayor", If(c.Nivel = 5, "Sub-Sub-Mayor", "Ultimo Nivel"))))), Naturaleza = If(c.Naturaleza, "Deudora", "Acreedora"), c.CodigoCompleto, c.Descripcion, c.Deber, c.Haber, c.Saldo).ToList
@@ -36,6 +38,8 @@ Public Class frmAccountList
             MessageBox.Show("Error: " & ex.Message)
         End Try
         txtItem.Value = dtRegistro.RowCount
+
+        Config.EndState()
     End Sub
 
     Private Sub frmAccountList_Load(sender As Object, e As EventArgs) Handles MyBase.Load

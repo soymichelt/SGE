@@ -14,8 +14,8 @@ Public Module EntriesAccounting
 
     Public Function Save(ByVal Comprobante As ComprobanteDiario, ByVal Detalle As List(Of entComprobanteDiarioDetalle)) As Guid
         If Not Comprobante Is Nothing And Not Detalle Is Nothing Then
-            If Comprobante.Fecha < Config.FechaInicio Then
-                Throw New Exception("La fecha debe ser mayor a " & Config.FechaInicio.ToShortDateString)
+            If Comprobante.Fecha < Configuracion.FechaInicio Then
+                Throw New Exception("La fecha debe ser mayor a " & Configuracion.FechaInicio.ToShortDateString)
             End If
             If String.IsNullOrWhiteSpace(Comprobante.Concepto) Then
                 Throw New Exception("Ingresar el concepto")
@@ -252,8 +252,8 @@ Public Module EntriesAccounting
     End Function
 
     Public Sub Edit(ByVal Comprobante As ComprobanteDiario)
-        If Comprobante.Fecha < Config.FechaInicio Then
-            Throw New Exception("La fecha debe ser mayor a " & Config.FechaInicio.ToShortDateString)
+        If Comprobante.Fecha < Configuracion.FechaInicio Then
+            Throw New Exception("La fecha debe ser mayor a " & Configuracion.FechaInicio.ToShortDateString)
         End If
         If String.IsNullOrWhiteSpace(Comprobante.Concepto) Then
             Throw New Exception("Ingresar el concepto")
@@ -278,8 +278,8 @@ Public Module EntriesAccounting
 
     Public Function Test(ByVal Comprobante As ComprobanteDiario, ByVal Detalle As List(Of entComprobanteDiarioDetalle)) As Boolean
         If Not Comprobante Is Nothing And Not Detalle Is Nothing Then
-            If Comprobante.Fecha < Config.FechaInicio Then
-                Throw New Exception("La fecha debe ser mayor a " & Config.FechaInicio.ToShortDateString)
+            If Comprobante.Fecha < Configuracion.FechaInicio Then
+                Throw New Exception("La fecha debe ser mayor a " & Configuracion.FechaInicio.ToShortDateString)
             End If
             If String.IsNullOrWhiteSpace(Comprobante.Concepto) Then
                 Throw New Exception("Ingresar el concepto")

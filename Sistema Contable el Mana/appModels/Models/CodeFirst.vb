@@ -12,13 +12,21 @@ Public Class UserAccount
 
     <Key()>
     Public Property IDUser As Guid
+    <DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)>
     Public Property N As Long
+
     Public Property Reg As DateTime
+
     Public Property FMod As DateTime
+
     Public Property Name As String
+
     Public Property SurnName As String
+
     Public Property UserName As String
+
     Public Property UserPass As String
+
     Public Property Activo As Boolean
 
 End Class

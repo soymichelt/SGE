@@ -6,6 +6,8 @@ Public Class frmEstadoResultadoConsolidado
     Dim FormLoad As Boolean = False
 
     Sub List()
+        Config.LoadState("Estado de resultados consolidado cargando...")
+
         Try
             dtRegistro.DataSource = (From c In EstadoResultados.Estado1(dtpInicio.Value.ToShortDateString & " 00:00:00", dtpFinal.Value.ToShortDateString & " 23:59:59") Select c.IdCuenta, c.Reg, Nivel = If(c.Nivel = 1, "Grupo", If(c.Nivel = 2, "Sub-Grupo", If(c.Nivel = 3, "Mayor", If(c.Nivel = 4, "Sub-Mayor", If(c.Nivel = 5, "Sub-Sub-Mayor", If(c.Nivel = 6, "Ultimo Nivel", "")))))), c.CodigoCompleto, c.Descripcion, c.Col1, c.Col2).ToList
             If dtRegistro.ColumnCount > 0 Then
@@ -36,6 +38,8 @@ Public Class frmEstadoResultadoConsolidado
         Catch ex As Exception
             Config.MsgErr(ex.Message)
         End Try
+
+        Config.EndState()
     End Sub
 
     Sub Grid()
@@ -77,7 +81,7 @@ Public Class frmEstadoResultadoConsolidado
         pnFecha.Left = pnBuscar.Width - 243
     End Sub
 
-    Private Sub dtpInicio_ValueChanged(sender As Object, e As EventArgs) Handles dtpInicio.ValueChanged, dtpFinal.ValueChanged
+    Private Sub dtpInicio_ValueChanged(sender As Object, e As EventArgs)
         If Me.FormLoad Then
             Me.List()
         End If

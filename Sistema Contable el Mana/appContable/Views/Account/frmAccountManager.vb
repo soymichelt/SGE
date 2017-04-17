@@ -85,6 +85,9 @@ Public Class frmAccountManager
     End Sub
 
     Private Sub btGuardar_Click(sender As Object, e As EventArgs) Handles btGuardar.Click
+        Config.LoadState("Catálogo de cuentas está guardando...")
+
+
         If cmbGrupo.SelectedIndex <> -1 And Not cmbGrupo.SelectedValue Is Nothing And txtCodigoCuenta.Text.Trim <> "" And txtDescripcion.Text.Trim <> "" And (rdDeudora.Checked Or rdAcreedora.Checked) Then
             Try
                 Dim g = Account.Find(Guid.Parse(cmbGrupo.SelectedValue.ToString()))
@@ -118,6 +121,8 @@ Public Class frmAccountManager
         Else
             Config.MsgErr("Ingresar los campos de orden obligatorios (*).")
         End If
+
+        Config.EndState()
     End Sub
 
     Private Sub txtBuscar_KeyDown(sender As Object, e As KeyEventArgs) Handles txtBuscar.KeyDown
@@ -184,7 +189,9 @@ Public Class frmAccountManager
     End Sub
 
     Private Sub txtBuscar_TextChanged(sender As Object, e As EventArgs) Handles txtBuscar.TextChanged
+        Config.LoadState("Catálogo de cuentas cargando...")
         Me.List()
+        Config.EndState()
     End Sub
 
     Private Sub frmAccountManager_KeyDown(sender As Object, e As KeyEventArgs) Handles MyBase.KeyDown
@@ -211,6 +218,8 @@ Public Class frmAccountManager
     End Sub
 
     Private Sub btEditar_Click(sender As Object, e As EventArgs) Handles btEditar.Click
+        Config.LoadState("Catálogo de cuentas está editando...")
+
         If cmbGrupo.SelectedIndex <> -1 And Not cmbGrupo.SelectedValue Is Nothing And txtCodigoCuenta.Text.Trim <> "" And txtDescripcion.Text.Trim <> "" And (rdDeudora.Checked Or rdAcreedora.Checked) Then
             Try
                 Dim g = Account.Find(Guid.Parse(cmbGrupo.SelectedValue.ToString()))
@@ -245,9 +254,13 @@ Public Class frmAccountManager
         Else
             Config.MsgErr("Ingresar los campos de orden obligatorios (*).")
         End If
+
+        Config.EndState()
     End Sub
 
     Private Sub btEliminar_Click(sender As Object, e As EventArgs) Handles btEliminar.Click
+        Config.LoadState("Catálogo de cuentas está eliminando...")
+
         If MessageBox.Show("Desea eliminar esta cuenta", "Pregunta de Seguridad", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = Windows.Forms.DialogResult.Yes Then
             Try
                 Account.Delete(Guid.Parse(txtCodigo.Text))
@@ -257,13 +270,15 @@ Public Class frmAccountManager
                 Config.MsgErr(ex.Message)
             End Try
         End If
+
+        Config.EndState()
     End Sub
 
     Private Sub dtRegistro_KeyDown(sender As Object, e As KeyEventArgs) Handles dtRegistro.KeyDown
         If dtRegistro.SelectedRows.Count > 0 Then
             Select Case e.KeyData
                 Case Keys.Enter
-
+                    dtRegistro_CellDoubleClick(Nothing, Nothing)
             End Select
         End If
     End Sub

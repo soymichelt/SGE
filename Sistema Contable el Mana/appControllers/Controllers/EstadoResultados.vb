@@ -17,8 +17,8 @@ Public Module EstadoResultados
     ''' <remarks></remarks>
     Public Function Estado1(ByVal Inicio As DateTime, ByVal Final As DateTime) As List(Of entEstadoResultados)
         EstadoResultados.lst = New List(Of entEstadoResultados)
-        If Inicio < Config.FechaInicio Or Final < Config.FechaInicio Then
-            Throw New Exception("Las Fechas deben ser mayor que '" & Config.FechaInicio.ToShortDateString() & "'")
+        If Inicio < Configuracion.FechaInicio Or Final < Configuracion.FechaInicio Then
+            Throw New Exception("Las Fechas deben ser mayor que '" & Configuracion.FechaInicio.ToShortDateString() & "'")
         End If
         Dim utlBruta = 0, utlOperaciones = 0, IngFinanc As Decimal = 0
 
@@ -154,8 +154,8 @@ Public Module EstadoResultados
     ''' <remarks></remarks>
     Public Function Estado2(ByVal Inicio As DateTime, ByVal Final As DateTime) As List(Of entEstadoResultados)
         EstadoResultados.lst = New List(Of entEstadoResultados)
-        If Inicio < Config.FechaInicio Or Final < Config.FechaInicio Then
-            Throw New Exception("Las Fechas deben ser mayor que '" & Config.FechaInicio.ToShortDateString() & "'")
+        If Inicio < Configuracion.FechaInicio Or Final < Configuracion.FechaInicio Then
+            Throw New Exception("Las Fechas deben ser mayor que '" & Configuracion.FechaInicio.ToShortDateString() & "'")
         End If
         Dim utlBruta = 0, utlOperaciones = 0, IngFinanc As Decimal = 0
 
@@ -312,8 +312,8 @@ Public Module EstadoResultados
     ''' <remarks></remarks>
     Public Function Estado3(ByVal Inicio As DateTime, ByVal Final As DateTime) As List(Of entEstadoResultados)
         EstadoResultados.lst = New List(Of entEstadoResultados)
-        If Inicio < Config.FechaInicio Or Final < Config.FechaInicio Then
-            Throw New Exception("Las Fechas deben ser mayor que '" & Config.FechaInicio.ToShortDateString() & "'")
+        If Inicio < Configuracion.FechaInicio Or Final < Configuracion.FechaInicio Then
+            Throw New Exception("Las Fechas deben ser mayor que '" & Configuracion.FechaInicio.ToShortDateString() & "'")
         End If
         Dim utlBruta = 0, utlOperaciones = 0, IngFinanc As Decimal = 0
 

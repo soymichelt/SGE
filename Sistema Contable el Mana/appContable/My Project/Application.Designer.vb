@@ -33,13 +33,14 @@ Namespace My
         <Global.System.Diagnostics.DebuggerStepThroughAttribute()> _
         Protected Overrides Sub OnCreateMainForm()
             Try
+                'Se calcula el número de procesos llamados appContable
                 Dim prcNum As Integer = Process.GetProcessesByName("appContable").Count
+
+                'Se evalua si el numero de procesos llamados appContable supera 1
+                '1 por que al ejecutar la app primero crea el proceso
                 If prcNum > 1 Then
 
-                    MessageBox.Show("N° Procesos:" & prcNum)
-
-                    'Process.GetCurrentProcess.CloseMainWindow()
-
+                    'Cierra el proceso actual
                     Process.GetProcessById(Process.GetCurrentProcess.Id).Kill()
 
                 End If

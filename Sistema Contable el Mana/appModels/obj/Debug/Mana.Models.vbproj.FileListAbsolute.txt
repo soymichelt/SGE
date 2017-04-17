@@ -21,7 +21,6 @@ D:\GitHub\SGE\Sistema Contable el Mana\appModels\bin\Debug\EntityFramework.dll
 D:\GitHub\SGE\Sistema Contable el Mana\appModels\bin\Debug\EntityFramework.SqlServer.dll
 D:\GitHub\SGE\Sistema Contable el Mana\appModels\bin\Debug\EntityFramework.xml
 D:\GitHub\SGE\Sistema Contable el Mana\appModels\bin\Debug\EntityFramework.SqlServer.xml
-D:\GitHub\SGE\Sistema Contable el Mana\appModels\obj\Debug\Mana.Models.vbprojResolveAssemblyReference.cache
 D:\GitHub\SGE\Sistema Contable el Mana\appModels\obj\Debug\appModels.frmPrincipal.resources
 D:\GitHub\SGE\Sistema Contable el Mana\appModels\obj\Debug\appModels.Resources.resources
 D:\GitHub\SGE\Sistema Contable el Mana\appModels\obj\Debug\Mana.Models.vbproj.GenerateResource.Cache

@@ -10,6 +10,8 @@ Public Class frmTargetParallel
     End Sub
 
     Sub List(Optional ByVal Codigo As String = "", Optional ByVal Descripcion As String = "")
+        Config.LoadState("Tarjeta paralela de existencias cargando...")
+
         Try
             If txtIdCuenta.Text.Trim <> "" Then
                 Dim consulta = (From c In CardParallel.List(Guid.Parse(txtIdCuenta.Text), dtpInicio.Value.ToShortDateString() & " 00:00:00", dtpFinal.Value.ToShortDateString() & " 23:59:59") Order By c.Fecha Select c.IdComprobante, c.N, c.Fecha, c.Concepto, c.Referencia, DebeInicial = c.Entrada, HaberInicial = c.Salida, DebeMes = c.Existencia, c.Costo, c.CostoPromedio, DebeSaldo = c.Deber, HaberMes = c.Haber, HaberSaldo = c.Saldo).ToList
@@ -67,6 +69,8 @@ Public Class frmTargetParallel
         Catch ex As Exception
             Config.MsgErr(ex.Message)
         End Try
+
+        Config.EndState()
     End Sub
 
     Private Sub frmTargetAuxiliar_KeyDown(sender As Object, e As KeyEventArgs) Handles MyBase.KeyDown
@@ -95,7 +99,7 @@ Public Class frmTargetParallel
         txtCodigo.Text = txtCodigo.Text.Replace(" ", "")
     End Sub
 
-    Private Sub dtpInicio_ValueChanged(sender As Object, e As EventArgs) Handles dtpInicio.ValueChanged
+    Private Sub dtpInicio_ValueChanged(sender As Object, e As EventArgs)
         If Me.FormLoad Then
             If txtIdCuenta.Text.Trim <> "" Then
                 Me.List()
@@ -105,7 +109,7 @@ Public Class frmTargetParallel
         End If
     End Sub
 
-    Private Sub dtpFinal_ValueChanged(sender As Object, e As EventArgs) Handles dtpFinal.ValueChanged
+    Private Sub dtpFinal_ValueChanged(sender As Object, e As EventArgs)
         If Me.FormLoad Then
             If txtIdCuenta.Text.Trim <> "" Then
                 Me.List()

@@ -10,8 +10,8 @@ Public Module AnexoBalanzaComprobacion
 
     Public Function Balanza1(ByVal Inicio As DateTime, ByVal Final As DateTime) As List(Of entBalanzaComprobacion)
         AnexoBalanzaComprobacion.lst = New List(Of entBalanzaComprobacion)
-        If Inicio < Config.FechaInicio Or Final < Config.FechaInicio Then
-            Throw New Exception("Las Fechas deben ser mayor que '" & Config.FechaInicio.ToShortDateString() & "'")
+        If Inicio < Configuracion.FechaInicio Or Final < Configuracion.FechaInicio Then
+            Throw New Exception("Las Fechas deben ser mayor que '" & Configuracion.FechaInicio.ToShortDateString() & "'")
         End If
 
         Using db As New CodeFirst
@@ -154,8 +154,8 @@ Public Module AnexoBalanzaComprobacion
 
     Public Function Balanza2(ByVal Inicio As DateTime, ByVal Final As DateTime) As List(Of entBalanzaComprobacion)
         AnexoBalanzaComprobacion.lst = New List(Of entBalanzaComprobacion)
-        If Inicio < Config.FechaInicio Or Final < Config.FechaInicio Then
-            Throw New Exception("Las Fechas deben ser mayor que '" & Config.FechaInicio.ToShortDateString() & "'")
+        If Inicio < Configuracion.FechaInicio Or Final < Configuracion.FechaInicio Then
+            Throw New Exception("Las Fechas deben ser mayor que '" & Configuracion.FechaInicio.ToShortDateString() & "'")
         End If
 
         Using db As New CodeFirst
@@ -252,8 +252,8 @@ Public Module AnexoBalanzaComprobacion
 
         AnexoBalanzaComprobacion.lst = New List(Of entBalanzaComprobacion)
 
-        If Inicio < Config.FechaInicio Or Final < Config.FechaInicio Then
-            Throw New Exception("Las Fechas deben ser mayor que '" & Config.FechaInicio.ToShortDateString() & "'")
+        If Inicio < Configuracion.FechaInicio Or Final < Configuracion.FechaInicio Then
+            Throw New Exception("Las Fechas deben ser mayor que '" & Configuracion.FechaInicio.ToShortDateString() & "'")
         End If
 
         Using db As New CodeFirst

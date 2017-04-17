@@ -91,6 +91,8 @@ Public Class frmEntriesAccounting
     End Sub
 
     Private Sub btGuardar_Click(sender As Object, e As EventArgs) Handles btGuardar.Click
+        Config.LoadState("Comprobante diario está guardando...")
+
         Try
             If dtpFecha.Value < Config.FechaInicio Then
                 Config.MsgErr("La fecha debe ser mayor a " & Config.FechaInicio.ToShortDateString())
@@ -134,6 +136,8 @@ Public Class frmEntriesAccounting
         Catch ex As Exception
             Config.MsgErr(ex.Message)
         End Try
+
+        Config.EndState()
     End Sub
 
     Public Sub Buscar(ByVal CodigoCuenta As String)
@@ -200,8 +204,7 @@ Public Class frmEntriesAccounting
             If txtNCuenta.Text.Trim <> "" Then
                 Me.Buscar(txtNCuenta.Text.Trim)
             Else
-                frmAccountList.FrmReturn = 1
-                frmAccountList.ShowDialog()
+                btBuscarCuenta_Click(Nothing, Nothing)
             End If
         End If
     End Sub

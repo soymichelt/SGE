@@ -34,24 +34,24 @@ Partial Class frmBalanzaConsolidado
         Me.btImprimir = New System.Windows.Forms.ToolStripButton()
         Me.KFormManager1 = New Klik.Windows.Forms.v1.Common.KFormManager(Me.components)
         Me.pnBuscar = New DevComponents.DotNetBar.PanelEx()
+        Me.PanelEx2 = New DevComponents.DotNetBar.PanelEx()
+        Me.txtItem = New DevComponents.Editors.IntegerInput()
+        Me.Label5 = New System.Windows.Forms.Label()
         Me.pnFecha = New DevComponents.DotNetBar.PanelEx()
         Me.dtpFinal = New DevComponents.Editors.DateTimeAdv.DateTimeInput()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.dtpInicio = New DevComponents.Editors.DateTimeAdv.DateTimeInput()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.dtRegistro = New DevComponents.DotNetBar.Controls.DataGridViewX()
-        Me.PanelEx2 = New DevComponents.DotNetBar.PanelEx()
-        Me.txtItem = New DevComponents.Editors.IntegerInput()
-        Me.Label5 = New System.Windows.Forms.Label()
         Me.Menu.SuspendLayout()
         CType(Me.KFormManager1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnBuscar.SuspendLayout()
+        Me.PanelEx2.SuspendLayout()
+        CType(Me.txtItem, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnFecha.SuspendLayout()
         CType(Me.dtpFinal, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dtpInicio, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dtRegistro, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.PanelEx2.SuspendLayout()
-        CType(Me.txtItem, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Menu
@@ -147,6 +147,51 @@ Partial Class frmBalanzaConsolidado
         Me.pnBuscar.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText
         Me.pnBuscar.Style.GradientAngle = 90
         Me.pnBuscar.TabIndex = 7
+        '
+        'PanelEx2
+        '
+        Me.PanelEx2.CanvasColor = System.Drawing.SystemColors.Control
+        Me.PanelEx2.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
+        Me.PanelEx2.Controls.Add(Me.txtItem)
+        Me.PanelEx2.Controls.Add(Me.Label5)
+        Me.PanelEx2.Location = New System.Drawing.Point(3, 5)
+        Me.PanelEx2.Name = "PanelEx2"
+        Me.PanelEx2.Size = New System.Drawing.Size(149, 30)
+        Me.PanelEx2.Style.Alignment = System.Drawing.StringAlignment.Center
+        Me.PanelEx2.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground
+        Me.PanelEx2.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2
+        Me.PanelEx2.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine
+        Me.PanelEx2.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder
+        Me.PanelEx2.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText
+        Me.PanelEx2.Style.GradientAngle = 90
+        Me.PanelEx2.TabIndex = 21
+        '
+        'txtItem
+        '
+        Me.txtItem.BackColor = System.Drawing.Color.White
+        '
+        '
+        '
+        Me.txtItem.BackgroundStyle.Class = "DateTimeInputBackground"
+        Me.txtItem.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.txtItem.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2
+        Me.txtItem.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtItem.IsInputReadOnly = True
+        Me.txtItem.Location = New System.Drawing.Point(60, 5)
+        Me.txtItem.MinValue = 0
+        Me.txtItem.Name = "txtItem"
+        Me.txtItem.Size = New System.Drawing.Size(84, 20)
+        Me.txtItem.TabIndex = 1
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.Location = New System.Drawing.Point(4, 8)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(46, 14)
+        Me.Label5.TabIndex = 0
+        Me.Label5.Text = "N° ITEM:"
         '
         'pnFecha
         '
@@ -311,51 +356,6 @@ Partial Class frmBalanzaConsolidado
         Me.dtRegistro.Size = New System.Drawing.Size(799, 314)
         Me.dtRegistro.TabIndex = 9
         '
-        'PanelEx2
-        '
-        Me.PanelEx2.CanvasColor = System.Drawing.SystemColors.Control
-        Me.PanelEx2.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
-        Me.PanelEx2.Controls.Add(Me.txtItem)
-        Me.PanelEx2.Controls.Add(Me.Label5)
-        Me.PanelEx2.Location = New System.Drawing.Point(3, 5)
-        Me.PanelEx2.Name = "PanelEx2"
-        Me.PanelEx2.Size = New System.Drawing.Size(149, 30)
-        Me.PanelEx2.Style.Alignment = System.Drawing.StringAlignment.Center
-        Me.PanelEx2.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground
-        Me.PanelEx2.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2
-        Me.PanelEx2.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine
-        Me.PanelEx2.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder
-        Me.PanelEx2.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText
-        Me.PanelEx2.Style.GradientAngle = 90
-        Me.PanelEx2.TabIndex = 21
-        '
-        'txtItem
-        '
-        Me.txtItem.BackColor = System.Drawing.Color.White
-        '
-        '
-        '
-        Me.txtItem.BackgroundStyle.Class = "DateTimeInputBackground"
-        Me.txtItem.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.txtItem.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2
-        Me.txtItem.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtItem.IsInputReadOnly = True
-        Me.txtItem.Location = New System.Drawing.Point(60, 5)
-        Me.txtItem.MinValue = 0
-        Me.txtItem.Name = "txtItem"
-        Me.txtItem.Size = New System.Drawing.Size(84, 20)
-        Me.txtItem.TabIndex = 1
-        '
-        'Label5
-        '
-        Me.Label5.AutoSize = True
-        Me.Label5.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(4, 8)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(46, 14)
-        Me.Label5.TabIndex = 0
-        Me.Label5.Text = "N° ITEM:"
-        '
         'frmBalanzaConsolidado
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 14.0!)
@@ -375,14 +375,14 @@ Partial Class frmBalanzaConsolidado
         Me.Menu.PerformLayout()
         CType(Me.KFormManager1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pnBuscar.ResumeLayout(False)
+        Me.PanelEx2.ResumeLayout(False)
+        Me.PanelEx2.PerformLayout()
+        CType(Me.txtItem, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pnFecha.ResumeLayout(False)
         Me.pnFecha.PerformLayout()
         CType(Me.dtpFinal, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dtpInicio, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dtRegistro, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.PanelEx2.ResumeLayout(False)
-        Me.PanelEx2.PerformLayout()
-        CType(Me.txtItem, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
