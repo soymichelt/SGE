@@ -47,11 +47,6 @@ C:\Users\Administrator\Documents\GitHubVisualStudio\SGE\Sistema Contable el Mana
 C:\Users\Administrator\Documents\GitHubVisualStudio\SGE\Sistema Contable el Mana\appContable\obj\Debug\appContable.exe
 C:\Users\Administrator\Documents\GitHubVisualStudio\SGE\Sistema Contable el Mana\appContable\obj\Debug\appContable.xml
 C:\Users\Administrator\Documents\GitHubVisualStudio\SGE\Sistema Contable el Mana\appContable\obj\Debug\appContable.pdb
-C:\Users\Administrator\Documents\GitHubVisualStudio\SGE\Sistema Contable el Mana\appContable\bin\Debug\Interop.AcroPDFLib.dll
-C:\Users\Administrator\Documents\GitHubVisualStudio\SGE\Sistema Contable el Mana\appContable\bin\Debug\AxInterop.AcroPDFLib.dll
-C:\Users\Administrator\Documents\GitHubVisualStudio\SGE\Sistema Contable el Mana\appContable\obj\Debug\Interop.AcroPDFLib.dll
-C:\Users\Administrator\Documents\GitHubVisualStudio\SGE\Sistema Contable el Mana\appContable\obj\Debug\AxInterop.AcroPDFLib.dll
-C:\Users\Administrator\Documents\GitHubVisualStudio\SGE\Sistema Contable el Mana\appContable\obj\Debug\Mana.Views.vbproj.ResolveComReference.cache
 C:\Users\Administrator\Documents\GitHubVisualStudio\SGE\Sistema Contable el Mana\appContable\obj\Debug\appContable.frmHelp.resources
 C:\Users\Administrator\Documents\GitHubVisualStudio\SGE\Sistema Contable el Mana\appContable\obj\Debug\appContable.frmRestore.resources
 D:\GitHub\SGE\Sistema Contable el Mana\appContable\bin\Debug\appContable.exe.config

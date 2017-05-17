@@ -6,7 +6,54 @@ appControllers
 </name>
 </assembly>
 <members>
-<member name="F:appControllers.Config.accClient">
+<member name="P:appControllers.My.Resources.Resources.ResourceManager">
+	<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member><member name="P:appControllers.My.Resources.Resources.Culture">
+	<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member><member name="T:appControllers.My.Resources.Resources">
+	<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member><member name="F:appControllers.KeyModule.KeyPublic">
+	<summary>
+ Clave de Encriptación Pública
+ </summary>
+	<remarks></remarks>
+</member><member name="F:appControllers.KeyModule.KeyPrivate">
+	<summary>
+ Clave de Encriptación Privada
+ </summary>
+	<remarks></remarks>
+</member><member name="M:appControllers.EstadoResultados.Estado1(System.DateTime,System.DateTime)">
+	<summary>
+ Representa un Estado de Resultados Consolidado
+ </summary>
+	<param name="Inicio">La Fecha de Inicio a partir de donde se seleccionaran los datos para generar el Estado de Resultados.</param>
+	<param name="Final">La Fecha de final antes de donde se seleccionaran los datos para generar el Estado de Resultados.</param>
+	<returns>Retorna un Tipo de colección con las cuentas del Estado de Resultados y sus saldos</returns>
+	<remarks></remarks>
+</member><member name="M:appControllers.EstadoResultados.Estado2(System.DateTime,System.DateTime)">
+	<summary>
+ Representa un Estado de Resultados de la Heladeria el Maná
+ </summary>
+	<param name="Inicio">La Fecha de Inicio a partir de donde se seleccionaran los datos para generar el Estado de Resultados.</param>
+	<param name="Final">La Fecha de final antes de donde se seleccionaran los datos para generar el Estado de Resultados.</param>
+	<returns>Retorna un Tipo de colección con las cuentas del Estado de Resultados y sus saldos</returns>
+	<remarks></remarks>
+</member><member name="M:appControllers.EstadoResultados.Estado3(System.DateTime,System.DateTime)">
+	<summary>
+ Representa un Estado de Resultados del Restaurante el Maná
+ </summary>
+	<param name="Inicio">La Fecha de Inicio a partir de donde se seleccionaran los datos para generar el Estado de Resultados.</param>
+	<param name="Final">La Fecha de final antes de donde se seleccionaran los datos para generar el Estado de Resultados.</param>
+	<returns>Retorna un Tipo de colección con las cuentas del Estado de Resultados y sus saldos</returns>
+	<remarks></remarks>
+</member><member name="F:appControllers.Config.accClient">
 	<summary>
  Cuentas de Columna1
  </summary>
@@ -65,53 +112,6 @@ appControllers
 	<param name="Final">La Fecha de final antes de donde se seleccionaran los datos para generar el balance general del restaurante.</param>
 	<returns>Retorna un Tipo de colección con las cuentas del balance y sus saldos</returns>
 	<remarks></remarks>
-</member><member name="F:appControllers.KeyModule.KeyPublic">
-	<summary>
- Clave de Encriptación Pública
- </summary>
-	<remarks></remarks>
-</member><member name="F:appControllers.KeyModule.KeyPrivate">
-	<summary>
- Clave de Encriptación Privada
- </summary>
-	<remarks></remarks>
-</member><member name="M:appControllers.EstadoResultados.Estado1(System.DateTime,System.DateTime)">
-	<summary>
- Representa un Estado de Resultados Consolidado
- </summary>
-	<param name="Inicio">La Fecha de Inicio a partir de donde se seleccionaran los datos para generar el Estado de Resultados.</param>
-	<param name="Final">La Fecha de final antes de donde se seleccionaran los datos para generar el Estado de Resultados.</param>
-	<returns>Retorna un Tipo de colección con las cuentas del Estado de Resultados y sus saldos</returns>
-	<remarks></remarks>
-</member><member name="M:appControllers.EstadoResultados.Estado2(System.DateTime,System.DateTime)">
-	<summary>
- Representa un Estado de Resultados de la Heladeria el Maná
- </summary>
-	<param name="Inicio">La Fecha de Inicio a partir de donde se seleccionaran los datos para generar el Estado de Resultados.</param>
-	<param name="Final">La Fecha de final antes de donde se seleccionaran los datos para generar el Estado de Resultados.</param>
-	<returns>Retorna un Tipo de colección con las cuentas del Estado de Resultados y sus saldos</returns>
-	<remarks></remarks>
-</member><member name="M:appControllers.EstadoResultados.Estado3(System.DateTime,System.DateTime)">
-	<summary>
- Representa un Estado de Resultados del Restaurante el Maná
- </summary>
-	<param name="Inicio">La Fecha de Inicio a partir de donde se seleccionaran los datos para generar el Estado de Resultados.</param>
-	<param name="Final">La Fecha de final antes de donde se seleccionaran los datos para generar el Estado de Resultados.</param>
-	<returns>Retorna un Tipo de colección con las cuentas del Estado de Resultados y sus saldos</returns>
-	<remarks></remarks>
-</member><member name="P:appControllers.My.Resources.Resources.ResourceManager">
-	<summary>
-  Returns the cached ResourceManager instance used by this class.
-</summary>
-</member><member name="P:appControllers.My.Resources.Resources.Culture">
-	<summary>
-  Overrides the current thread's CurrentUICulture property for all
-  resource lookups using this strongly typed resource class.
-</summary>
-</member><member name="T:appControllers.My.Resources.Resources">
-	<summary>
-  A strongly-typed resource class, for looking up localized strings, etc.
-</summary>
 </member>
 </members>
 </doc>

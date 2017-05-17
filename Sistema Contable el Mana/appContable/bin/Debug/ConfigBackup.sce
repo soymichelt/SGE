@@ -1,1 +1,1 @@
-D:\GitHub\SGE\Sistema Contable el Mana\appContable\bin\Debug\SCE Backup
+C:\Users\Administrator\Documents\GitHubVisualStudio\SGE\Sistema Contable el Mana\appContable\bin\Debug\SCE Backup
