@@ -113,9 +113,9 @@ Public Class frmEntriesAccountingList
     End Sub
 
     Private Sub btLimpiar_Click(sender As Object, e As EventArgs) Handles btLimpiar.Click
-        Grid()
         dtpInicio.Value = DateTime.Now
         dtpFinal.Value = DateTime.Now
+        Grid()
     End Sub
 
     Private Sub btImprimir_Click(sender As Object, e As EventArgs) Handles btImprimir.Click
